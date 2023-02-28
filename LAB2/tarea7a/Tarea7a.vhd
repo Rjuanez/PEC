@@ -10,15 +10,38 @@ END Tarea7a;
 
 ARCHITECTURE Structure OF Tarea7a IS
 		
-		SIGNAL prescaler : STD_logic_vector(24 downto 0);
+		component driver7Segmentos IS
+		PORT( codigoCaracter : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		 bitsCaracter : OUT STD_LOGIC_VECTOR(6 DOWNTO 0));
+		END component;
+		
+		SIGNAL num : STD_logic_vector(3 downto 0) := "0000";
+		SIGNAL contador : STD_logic_vector(25 downto 0):=(others=>'0');
+
+		SIGNAL mi_clock_1Hz : STD_logic;
 		
 BEGIN
-	contador_p : process(CLOCK_50) begin 
-		if raising_edge(CLOCK_50) then 
-			prescaler <= prescaler + 1;
-			if (prescaler = 0)
+	segment: driver7Segmentos
+		port map(	codigoCaracter => num,
+						bitsCaracter => HEX0);
+						
+	contador_p: process(clocK_50)
+	begin
+			if rising_edge(CLOCK_50) then 
+				contador<=contador+1;
+				mi_clock_1Hz<=contador(25);
+			end if;
+	end process;
+	
+	contadorClock1Hz_p: process(mi_clock_1Hz)
+	begin
+		if rising_edge(mi_clock_1Hz) then 
+			if(num = "1001")then
+				num <= "0000";
+			else 
+				num <= num + 1;
+			end if;
 		end if;
-		
-	end process contador_p;
+	end process;
 	
 END Structure; 
