@@ -15,6 +15,6 @@ BEGIN
 	
 	with op select
 		w <= y when '0',
-			  (y(7 DOWNTO 0) & x(7 DOWNTO 0)) when '1';
+			  (y(7 DOWNTO 0) & x(7 DOWNTO 0)) when others;
 
 END Structure;

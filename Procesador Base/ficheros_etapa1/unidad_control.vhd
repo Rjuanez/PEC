@@ -29,7 +29,7 @@ ARCHITECTURE Structure OF unidad_control IS
 	SIGNAL mux_ldpc : STD_LOGIC;
     -- Tambien crearemos los cables/buses (signals) necesarios para unir las entidades
     -- Aqui iria la definicion del program counter
-	 SIGNAL new_pc : STD_LOGIC_VECTOR(15 DOWNTO 0):= x"c000";
+	 SIGNAL new_pc : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	 
 BEGIN
 	 -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
@@ -44,14 +44,12 @@ BEGIN
 	begin
 		if rising_edge(clk) then
 			new_pc <= new_pc + 2;
-			if(ldpc = '0') then
-				new_pc <= new_pc;
-			end if;
 			if(boot = '1') then
 				new_pc <= x"c000";
+			elsif(mux_ldpc = '0') then
+				new_pc <= new_pc;
 			end if;
 		end if;
-		
 	end process;
     
 END Structure;

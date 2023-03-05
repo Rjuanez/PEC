@@ -23,8 +23,8 @@ BEGIN
 	addr_d <= ir(11 DOWNTO 9);
 	
 	with ir(15 DOWNTO 0) select
-		ldpc <= '1' when (others=>'1'),
-				  '0' when others;
+		ldpc <= '0' when "1111111111111111",
+				  '1' when others;
 
 	immed(7 downto 0)  <=ir(7 downto 0);
 	immed(15 downto 8) <=(others => ir(7));
