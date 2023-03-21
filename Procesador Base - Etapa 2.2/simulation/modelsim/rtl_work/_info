@@ -1,0 +1,455 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\pec01\Desktop\PEC\Procesador Base - Etapa 2.2\simulation\modelsim
+Ealu
+Z1 w1678578186
+Z2 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z6 dC:\Users\pec01\Desktop\PEC\Procesador Base - Etapa 2.2\simulation\modelsim
+Z7 8C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/alu.vhd
+Z8 FC:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/alu.vhd
+l0
+L7
+VNRb9Woh;VTKaAPl@FI3g[1
+Z9 OV;C;10.1d;51
+31
+Z10 !s108 1679308581.850000
+Z11 !s90 -reportprogress|300|-93|-work|work|C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/alu.vhd|
+Z12 !s107 C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/alu.vhd|
+Z13 o-93 -work work -O0
+Z14 tExplicit 1
+!s100 AcWUXhIScIIH]zdV3h@gk3
+!i10b 1
+Astructure
+R2
+R3
+R4
+R5
+DEx4 work 3 alu 0 22 NRb9Woh;VTKaAPl@FI3g[1
+l16
+L15
+VLgLd]kEX7BBAVa[<^zmjL1
+R9
+31
+R10
+R11
+R12
+R13
+R14
+!s100 _YCPlMo_b3a]1c0VicE271
+!i10b 1
+Econtrol_l
+Z15 w1678965390
+Z16 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+R4
+R5
+R6
+Z17 8C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/control_l.vhd
+Z18 FC:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/control_l.vhd
+l0
+L5
+V9@=bV7gR``bomOodN9^5>3
+R9
+31
+Z19 !s108 1679308581.819000
+Z20 !s90 -reportprogress|300|-93|-work|work|C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/control_l.vhd|
+Z21 !s107 C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/control_l.vhd|
+R13
+R14
+!s100 AK;ZYlc^akan@LIUh11oH0
+!i10b 1
+Astructure
+R16
+R4
+R5
+DEx4 work 9 control_l 0 22 9@=bV7gR``bomOodN9^5>3
+l22
+L21
+VeQ@]_P8WRWcniS3<o]?C93
+R9
+31
+R19
+R20
+R21
+R13
+R14
+!s100 _jS^50]2`BHo6IO?bl`963
+!i10b 1
+Edatapath
+Z22 w1678584342
+R16
+R4
+R5
+R6
+Z23 8C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/datapath.vhd
+Z24 FC:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/datapath.vhd
+l0
+L5
+V0=JH^;1MD5@XKZe5hLz9Z0
+R9
+31
+Z25 !s108 1679308581.772000
+Z26 !s90 -reportprogress|300|-93|-work|work|C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/datapath.vhd|
+Z27 !s107 C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/datapath.vhd|
+R13
+R14
+!s100 n`2^O48n@_8L7ITPSc73W1
+!i10b 1
+Astructure
+R16
+R4
+R5
+DEx4 work 8 datapath 0 22 0=JH^;1MD5@XKZe5hLz9Z0
+l49
+L23
+VT4]=C2eK^7oM3>T=e=PI`2
+R9
+31
+R25
+R26
+R27
+R13
+R14
+!s100 37]8G4nocMR6UOHHT2OLk3
+!i10b 1
+Edriver7segmentos
+Z28 w1678967531
+R4
+R5
+R6
+Z29 8C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/driver7Segmentos.vhd
+Z30 FC:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/driver7Segmentos.vhd
+l0
+L4
+V><JoJ8[dnJN[80o:E:<N20
+!s100 fm>0Dc7>BkIJV=lRQo7;H2
+R9
+31
+!i10b 1
+Z31 !s108 1679308582.053000
+Z32 !s90 -reportprogress|300|-93|-work|work|C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/driver7Segmentos.vhd|
+Z33 !s107 C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/driver7Segmentos.vhd|
+R13
+R14
+Astructure
+R4
+R5
+DEx4 work 16 driver7segmentos 0 22 ><JoJ8[dnJN[80o:E:<N20
+l10
+L9
+VnC:;GK>FT`0^b0ze;E@><1
+!s100 l?Q1bgTL__]`=]B<H6kNK0
+R9
+31
+!i10b 1
+R31
+R32
+R33
+R13
+R14
+Edriversegmentos
+Z34 w1678967452
+R4
+R5
+R6
+Z35 8C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/driverSegmentos.vhd
+Z36 FC:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/driverSegmentos.vhd
+l0
+L4
+V<@kk<]Wj^Ya6HV8A^ShM10
+R9
+31
+Z37 !s108 1679308582.022000
+Z38 !s90 -reportprogress|300|-93|-work|work|C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/driverSegmentos.vhd|
+Z39 !s107 C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/driverSegmentos.vhd|
+R13
+R14
+!s100 nQ;GiAZWG78<8jJ[RjniJ0
+!i10b 1
+Astructure
+R4
+R5
+DEx4 work 15 driversegmentos 0 22 <@kk<]Wj^Ya6HV8A^ShM10
+l17
+L12
+VooiWW8bWfN6>b:HQN0[iP1
+R9
+31
+R37
+R38
+R39
+R13
+R14
+!s100 Pi6?ZMZfZVJ3PGaoe8D2c0
+!i10b 1
+Ememorycontroller
+Z40 w1678713115
+R3
+R2
+R4
+R5
+R6
+Z41 8C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/MemoryController.vhd
+Z42 FC:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/MemoryController.vhd
+l0
+L6
+VY;NcTLT84g`Zc@DF8?3^G2
+R9
+31
+Z43 !s108 1679308581.897000
+Z44 !s90 -reportprogress|300|-93|-work|work|C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/MemoryController.vhd|
+Z45 !s107 C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/MemoryController.vhd|
+R13
+R14
+!s100 :K4;^k=AgYVOh=G_LZCm[3
+!i10b 1
+Acomportament
+R3
+R2
+R4
+R5
+DEx4 work 16 memorycontroller 0 22 Y;NcTLT84g`Zc@DF8?3^G2
+l42
+L23
+VbC`OLikf1HK6eL_<31NYl3
+R9
+31
+R43
+R44
+R45
+R13
+R14
+!s100 8>AP;D6XzL9PQf:Jd>AJ?0
+!i10b 1
+Emulti
+Z46 w1678585541
+R4
+R5
+R6
+Z47 8C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/multi.vhd
+Z48 FC:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/multi.vhd
+l0
+L4
+V6`X;7V7^fWbBYgjmZJ5M32
+R9
+31
+Z49 !s108 1679308581.725000
+Z50 !s90 -reportprogress|300|-93|-work|work|C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/multi.vhd|
+Z51 !s107 C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/multi.vhd|
+R13
+R14
+!s100 Vdh>l=a_@F>fVk^7NLZ710
+!i10b 1
+Astructure
+R4
+R5
+DEx4 work 5 multi 0 22 6`X;7V7^fWbBYgjmZJ5M32
+l28
+L19
+V:7=C>EbO8V<8;<fj<FKi=1
+R9
+31
+R49
+R50
+R51
+R13
+R14
+!s100 aV]knB>fo=53o3Fi2FX[E0
+!i10b 1
+Eprocesadorbase
+Z52 w1678712149
+R4
+R5
+R6
+Z53 8C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/proc.vhd
+Z54 FC:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/proc.vhd
+l0
+L4
+VJ=oJLKz_cONL5GQIaJgE63
+R9
+31
+Z55 !s108 1679308581.694000
+Z56 !s90 -reportprogress|300|-93|-work|work|C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/proc.vhd|
+Z57 !s107 C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/proc.vhd|
+R13
+R14
+!s100 UU[IR>a4@3J9dzjAh[MoM0
+!i10b 1
+Astructure
+R4
+R5
+DEx4 work 14 procesadorbase 0 22 J=oJLKz_cONL5GQIaJgE63
+l66
+L15
+VYj8M1ZBEZPiE80_MP7NkU2
+R9
+31
+R55
+R56
+R57
+R13
+R14
+!s100 R2K]`OPe1BEQ^bMC9135^3
+!i10b 1
+Eregfile
+Z58 w1678142817
+R2
+R3
+R4
+R5
+R6
+Z59 8C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/regfile.vhd
+Z60 FC:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/regfile.vhd
+l0
+L5
+VX6R`Hbh4nzCC:nR`G4gfV3
+R9
+31
+Z61 !s108 1679308581.647000
+Z62 !s90 -reportprogress|300|-93|-work|work|C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/regfile.vhd|
+Z63 !s107 C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/regfile.vhd|
+R13
+R14
+!s100 4LJ982_ojQj>n07ZWE4<f2
+!i10b 1
+Astructure
+R2
+R3
+R4
+R5
+DEx4 work 7 regfile 0 22 X6R`Hbh4nzCC:nR`G4gfV3
+l22
+L17
+V?KhJ[0jHK6fLO^N0CdlhJ1
+R9
+31
+R61
+R62
+R63
+R13
+R14
+!s100 hCCLPn36M=ZQ`Ih_R=^eI3
+!i10b 1
+Esisa
+Z64 w1678967852
+R3
+R2
+R4
+R5
+R6
+Z65 8C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/sisa.vhd
+Z66 FC:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/sisa.vhd
+l0
+L6
+VYig[mXZ3NoKZN_<PVI^^81
+R9
+31
+Z67 !s108 1679308581.928000
+Z68 !s90 -reportprogress|300|-93|-work|work|C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/sisa.vhd|
+Z69 !s107 C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/sisa.vhd|
+R13
+R14
+!s100 72X0=_GZUC^AoS=agJIo<3
+!i10b 1
+Astructure
+R3
+R2
+R4
+R5
+DEx4 work 4 sisa 0 22 Yig[mXZ3NoKZN_<PVI^^81
+l65
+L23
+VRm_j56E7]<]ZzoO=39mC[0
+R9
+31
+R67
+R68
+R69
+R13
+R14
+!s100 VPBEl=b;XnF4ZHgM9m[1b2
+!i10b 1
+Esramcontroller
+Z70 w1678967088
+R3
+R2
+R4
+R5
+R6
+Z71 8C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/SRAMController.vhd
+Z72 FC:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/SRAMController.vhd
+l0
+L6
+Vf5`LU?gIBNifH^zc5<?W=3
+R9
+31
+Z73 !s108 1679308581.975000
+Z74 !s90 -reportprogress|300|-93|-work|work|C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/SRAMController.vhd|
+Z75 !s107 C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/SRAMController.vhd|
+R13
+R14
+!s100 kV12zO>b[USim7m0E3L;m1
+!i10b 1
+Acomportament
+R3
+R2
+R4
+R5
+DEx4 work 14 sramcontroller 0 22 f5`LU?gIBNifH^zc5<?W=3
+l34
+L24
+V84bCNaWX@1AVV;f6c7jM:1
+R9
+31
+R73
+R74
+R75
+R13
+R14
+!s100 0:4_[gzcDb694^KiRk60h3
+!i10b 1
+Eunidad_control
+Z76 w1678710938
+R2
+R3
+R16
+R4
+R5
+R6
+Z77 8C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/unidad_control.vhd
+Z78 FC:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/unidad_control.vhd
+l0
+L6
+V=oH1DIXi^Tbn@S:iGd<4N0
+R9
+31
+Z79 !s108 1679308581.569000
+Z80 !s90 -reportprogress|300|-93|-work|work|C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/unidad_control.vhd|
+Z81 !s107 C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/unidad_control.vhd|
+R13
+R14
+!s100 f>mK^S?naDBi[DDL9e;VH3
+!i10b 1
+Astructure
+R2
+R3
+R16
+R4
+R5
+DEx4 work 14 unidad_control 0 22 =oH1DIXi^Tbn@S:iGd<4N0
+l67
+L24
+VdA8McO0TB;h<WH_MdFRD62
+R9
+31
+R79
+R80
+R81
+R13
+R14
+!s100 h5zADS2DB3?Tmc3_]<LB_2
+!i10b 1

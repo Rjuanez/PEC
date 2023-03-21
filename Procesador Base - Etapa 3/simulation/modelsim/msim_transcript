@@ -1,0 +1,112 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do ProcesadorBase_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/unidad_control.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity unidad_control
+# -- Compiling architecture Structure of unidad_control
+# vcom -93 -work work {C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/regfile.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity regfile
+# -- Compiling architecture Structure of regfile
+# vcom -93 -work work {C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/proc.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ProcesadorBase
+# -- Compiling architecture Structure of ProcesadorBase
+# vcom -93 -work work {C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/multi.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity multi
+# -- Compiling architecture Structure of multi
+# vcom -93 -work work {C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/datapath.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity datapath
+# -- Compiling architecture Structure of datapath
+# vcom -93 -work work {C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/control_l.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity control_l
+# -- Compiling architecture Structure of control_l
+# vcom -93 -work work {C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/alu.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity alu
+# -- Compiling architecture Structure of alu
+# vcom -93 -work work {C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/MemoryController.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity MemoryController
+# -- Compiling architecture comportament of MemoryController
+# vcom -93 -work work {C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/sisa.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity sisa
+# -- Compiling architecture Structure of sisa
+# vcom -93 -work work {C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/ficheros/SRAMController.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity SRAMController
+# -- Compiling architecture comportament of SRAMController
+# vcom -93 -work work {C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/driverSegmentos.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity driverSegmentos
+# -- Compiling architecture Structure of driverSegmentos
+# vcom -93 -work work {C:/Users/pec01/Desktop/PEC/Procesador Base - Etapa 2.2/driver7Segmentos.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity driver7Segmentos
+# -- Compiling architecture Structure of driver7Segmentos
+# 
