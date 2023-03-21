@@ -18,7 +18,8 @@ ENTITY unidad_control IS
           in_d      : OUT STD_LOGIC;
           immed_x2  : OUT STD_LOGIC;
           wr_m      : OUT STD_LOGIC;
-          word_byte : OUT STD_LOGIC);
+          word_byte : OUT STD_LOGIC;
+			 Rb_N		  : OUT STD_LOGIC);
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
@@ -34,7 +35,8 @@ ARCHITECTURE Structure OF unidad_control IS
           wr_m      : OUT STD_LOGIC;
           in_d      : OUT STD_LOGIC;
           immed_x2  : OUT STD_LOGIC;
-          word_byte : OUT STD_LOGIC);
+          word_byte : OUT STD_LOGIC;
+			 Rb_N		  : OUT STD_LOGIC);
 	END component;
 	
 	COMPONENT multi is

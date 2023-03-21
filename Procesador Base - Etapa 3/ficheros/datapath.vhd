@@ -16,7 +16,8 @@ ENTITY datapath IS
           pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           in_d     : IN  STD_LOGIC;
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+          data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 Rb_N		 : IN	 STD_LOGIC);
 END datapath;
 
 
@@ -42,18 +43,18 @@ ARCHITECTURE Structure OF datapath IS
 	
 	signal aTOx : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	signal TOd : STD_LOGIC_VECTOR(15 DOWNTO 0);
-	signal TOimmed : STD_LOGIC_VECTOR(15 downto 0);
+	signal TOy : STD_LOGIC_VECTOR(15 downto 0);
 	signal wTO : STD_LOGIC_VECTOR(15 downto 0);
 	signal bTOdatw : STD_LOGIC_VECTOR(15 downto 0);
 
 BEGIN
 	
-	alu0: alu port map(x => aTOx, y => TOimmed, op => op, w => wTO);
+	alu0: alu port map(x => aTOx, y => TOy, op => op, w => wTO);
 	reg0: regfile port map(clk => clk, wrd => wrd, d => TOd, addr_a => addr_a, addr_b => addr_b, addr_d => addr_d, a => aTOx, b => bTOdatw);
-	
-	with immed_x2 select 
-		TOimmed <= immed when '0',
-					  immed(14 downto 0) & '0'  when others; --multiplica por 2
+	 
+	TOy <= bTOdatw when Rb_N = '1' else 
+			 immed when immed_x2 = '0' else
+			 immed(14 downto 0) & '0'; --multiplica por 2
 		
 	with in_d select
 		TOd <= wTO when '0', -- enviamos señal alu

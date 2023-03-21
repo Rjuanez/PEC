@@ -14,14 +14,16 @@ ENTITY control_l IS
           wr_m      : OUT STD_LOGIC; 
           in_d      : OUT STD_LOGIC;
           immed_x2  : OUT STD_LOGIC;
-          word_byte : OUT STD_LOGIC);
+          word_byte : OUT STD_LOGIC;
+			 Rb_N		  : OUT STD_LOGIC);
 END control_l;
 
 
 ARCHITECTURE Structure OF control_l IS
+	CONSTANT MOVI_MOVHI : STD_LOGIC_VECTOR(3 DOWNTO 0) := "0101"; 
 BEGIN
 	with ir(15 DOWNTO 12) select
-		wrd <= '1' when "0101", -- MOVI, MOVHI
+		wrd <= '1' when MOVI_MOVHI, -- MOVI, MOVHI
 				 '1' when "0011", --Load 
 				 '0' when "0100", --Store
 				 '1' when "1101", --Load Byte 

@@ -32,7 +32,8 @@ ARCHITECTURE Structure OF ProcesadorBase IS
           pc       : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           in_d     : IN  STD_LOGIC;
           addr_m   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+          data_wr  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 Rb_N		 : IN	 STD_LOGIC);
 	 END COMPONENT;
 	 
 	 COMPONENT unidad_control IS
@@ -50,7 +51,8 @@ ARCHITECTURE Structure OF ProcesadorBase IS
           in_d      : OUT STD_LOGIC;
           immed_x2  : OUT STD_LOGIC;
           wr_m      : OUT STD_LOGIC;
-          word_byte : OUT STD_LOGIC);
+          word_byte : OUT STD_LOGIC;
+			 Rb_N		  : OUT STD_LOGIC);
 	 END COMPONENT;
 	 
 	 SIGNAL opTOop : STD_LOGIC_VECTOR(1 DOWNTO 0);
@@ -63,6 +65,7 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 	 SIGNAL immed_x2TOimmed_x2 : STD_LOGIC;
 	 SIGNAL ins_dadTOins_dad : STD_LOGIC;
 	 SIGNAL in_dTOin_d : STD_LOGIC;
+	 SIGNAL Rb_NTORb_N : STD_LOGIC;
 BEGIN
 
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
@@ -82,7 +85,8 @@ BEGIN
 		in_d => in_dTOin_d,
 		immed_x2 => immed_x2TOimmed_x2,
 		wr_m => wr_m,
-		word_byte => word_byte);
+		word_byte => word_byte,
+		Rb_N => Rb_NTORb_N);
 		
 	d0: datapath port map (
 		clk => clk, 
@@ -98,6 +102,7 @@ BEGIN
 		pc => pcTOpc,
 		in_d => in_dTOin_d,
 		addr_m => addr_m,
-		data_wr => data_wr);
+		data_wr => data_wr,
+		Rb_N => Rb_NTORb_N);
 		
 END Structure;
