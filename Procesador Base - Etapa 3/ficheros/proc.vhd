@@ -20,7 +20,7 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 
 	 COMPONENT datapath IS
     PORT (clk      : IN  STD_LOGIC;
-          op       : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
+          op       : IN  STD_LOGIC_VECTOR(4 DOWNTO 0);
           wrd      : IN  STD_LOGIC;
           addr_a   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_b   : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -40,7 +40,7 @@ ARCHITECTURE Structure OF ProcesadorBase IS
     PORT (boot      : IN  STD_LOGIC;
           clk       : IN  STD_LOGIC;
           datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op        : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+          op        : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
           wrd       : OUT STD_LOGIC;
           addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_b    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -55,7 +55,7 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 			 Rb_N		  : OUT STD_LOGIC);
 	 END COMPONENT;
 	 
-	 SIGNAL opTOop : STD_LOGIC_VECTOR(1 DOWNTO 0);
+	 SIGNAL opTOop : STD_LOGIC_VECTOR(4 DOWNTO 0);
 	 SIGNAL wrdTOwrd : STD_LOGIC;
 	 SIGNAL adaTOada : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	 SIGNAL adbTOadb : STD_LOGIC_VECTOR(2 DOWNTO 0);

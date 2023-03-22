@@ -6,8 +6,8 @@ use ieee.std_logic_unsigned.all;
 entity SRAMController is
     port (clk         : in    std_logic;
           -- señales para la placa de desarrollo
-          SRAM_ADDR   : out   std_logic_vector(17 downto 0);
-          SRAM_DQ     : inout std_logic_vector(15 downto 0); --
+          SRAM_ADDR   : out   std_logic_vector(17 downto 0); -- Direccion
+          SRAM_DQ     : inout std_logic_vector(15 downto 0); -- Dato
           SRAM_UB_N   : out   std_logic; --Upper-byte control
           SRAM_LB_N   : out   std_logic; --Lower-byte control
           SRAM_CE_N   : out   std_logic := '1';--Chip enable input
@@ -41,10 +41,7 @@ begin
 					 
 	SRAM_LB_N <= '1' when WR = '1' and byte_m = '1' and address(0) = '1' else --disabled when write high byte
 					 '0'; 
-
---SRAM_WE_N <= '1';
 					 
---
 --	SRAM_WE_N <= '0' when estat = WRITING else --WRITE
 --					'1'; --LOAD or nothing
 	
