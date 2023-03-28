@@ -1,5 +1,5 @@
-Analysis & Elaboration report for ProcesadorBase
-Sat Mar 25 19:16:49 2023
+Analysis & Synthesis report for ProcesadorBase
+Tue Mar 28 23:40:35 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -7,10 +7,25 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Analysis & Elaboration Settings
-  5. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |sisa|MemoryController:memory0|SRAMController:sram_controller|estat
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for Inferred Entity Instance: ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult0
+ 15. Parameter Settings for Inferred Entity Instance: ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0
+ 16. Parameter Settings for Inferred Entity Instance: ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult1
+ 17. Parameter Settings for Inferred Entity Instance: ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div1
+ 18. lpm_mult Parameter Settings by Entity Instance
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -34,38 +49,27 @@ applicable agreement for further details.
 
 
 +--------------------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                                       ;
+; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Sat Mar 25 19:16:49 2023           ;
+; Analysis & Synthesis Status        ; Successful - Tue Mar 28 23:40:35 2023           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; ProcesadorBase                                  ;
 ; Top-level Entity Name              ; sisa                                            ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; N/A until Partition Merge                       ;
-;     Total combinational functions  ; N/A until Partition Merge                       ;
-;     Dedicated logic registers      ; N/A until Partition Merge                       ;
-; Total registers                    ; N/A until Partition Merge                       ;
-; Total pins                         ; N/A until Partition Merge                       ;
-; Total virtual pins                 ; N/A until Partition Merge                       ;
-; Total memory bits                  ; N/A until Partition Merge                       ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                       ;
-; Total PLLs                         ; N/A until Partition Merge                       ;
+; Total logic elements               ; 1,663                                           ;
+;     Total combinational functions  ; 1,551                                           ;
+;     Dedicated logic registers      ; 167                                             ;
+; Total registers                    ; 167                                             ;
+; Total pins                         ; 69                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 4                                               ;
+; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 8      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
-
-
 +----------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                                      ;
+; Analysis & Synthesis Settings                                                                                        ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
@@ -149,14 +153,376 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 12     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                        ;
++-------------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path    ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                 ; Library ;
++-------------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------+---------+
+; ficheros/unidad_control.vhd         ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/unidad_control.vhd         ;         ;
+; ficheros/regfile.vhd                ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/regfile.vhd                ;         ;
+; ficheros/proc.vhd                   ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/proc.vhd                   ;         ;
+; ficheros/multi.vhd                  ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/multi.vhd                  ;         ;
+; ficheros/datapath.vhd               ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/datapath.vhd               ;         ;
+; ficheros/control_l.vhd              ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/control_l.vhd              ;         ;
+; ficheros/alu.vhd                    ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/alu.vhd                    ;         ;
+; ficheros/MemoryController.vhd       ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/MemoryController.vhd       ;         ;
+; ficheros/sisa.vhd                   ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/sisa.vhd                   ;         ;
+; ficheros/SRAMController.vhd         ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/SRAMController.vhd         ;         ;
+; driverSegmentos.vhd                 ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driverSegmentos.vhd                 ;         ;
+; driver7Segmentos.vhd                ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driver7Segmentos.vhd                ;         ;
+; ficheros/func_ayuda_control_pkg.vhd ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/func_ayuda_control_pkg.vhd ;         ;
+; ficheros/const_alu.vhd              ; yes             ; User VHDL File               ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/const_alu.vhd              ;         ;
+; lpm_mult.tdf                        ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mult.tdf                               ;         ;
+; aglobal130.inc                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                             ;         ;
+; lpm_add_sub.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc                            ;         ;
+; multcore.inc                        ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/multcore.inc                               ;         ;
+; bypassff.inc                        ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/bypassff.inc                               ;         ;
+; altshift.inc                        ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altshift.inc                               ;         ;
+; db/mult_h1t.tdf                     ; yes             ; Auto-Generated Megafunction  ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/db/mult_h1t.tdf                     ;         ;
+; lpm_divide.tdf                      ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_divide.tdf                             ;         ;
+; abs_divider.inc                     ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/abs_divider.inc                            ;         ;
+; sign_div_unsign.inc                 ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sign_div_unsign.inc                        ;         ;
+; db/lpm_divide_rto.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/db/lpm_divide_rto.tdf               ;         ;
+; db/abs_divider_8dg.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/db/abs_divider_8dg.tdf              ;         ;
+; db/alt_u_div_s5f.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/db/alt_u_div_s5f.tdf                ;         ;
+; db/add_sub_lkc.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/db/add_sub_lkc.tdf                  ;         ;
+; db/add_sub_mkc.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/db/add_sub_mkc.tdf                  ;         ;
+; db/lpm_abs_2s9.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/db/lpm_abs_2s9.tdf                  ;         ;
+; db/mult_l8t.tdf                     ; yes             ; Auto-Generated Megafunction  ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/db/mult_l8t.tdf                     ;         ;
+; db/lpm_divide_3gm.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/db/lpm_divide_3gm.tdf               ;         ;
+; db/sign_div_unsign_dnh.tdf          ; yes             ; Auto-Generated Megafunction  ; C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/db/sign_div_unsign_dnh.tdf          ;         ;
++-------------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                    ;
++---------------------------------------------+------------------+
+; Resource                                    ; Usage            ;
++---------------------------------------------+------------------+
+; Estimated Total logic elements              ; 1,663            ;
+;                                             ;                  ;
+; Total combinational functions               ; 1551             ;
+; Logic element usage by number of LUT inputs ;                  ;
+;     -- 4 input functions                    ; 868              ;
+;     -- 3 input functions                    ; 579              ;
+;     -- <=2 input functions                  ; 104              ;
+;                                             ;                  ;
+; Logic elements by mode                      ;                  ;
+;     -- normal mode                          ; 1168             ;
+;     -- arithmetic mode                      ; 383              ;
+;                                             ;                  ;
+; Total registers                             ; 167              ;
+;     -- Dedicated logic registers            ; 167              ;
+;     -- I/O registers                        ; 0                ;
+;                                             ;                  ;
+; I/O pins                                    ; 69               ;
+; Embedded Multiplier 9-bit elements          ; 4                ;
+; Maximum fan-out node                        ; counter_clock[2] ;
+; Maximum fan-out                             ; 162              ;
+; Total fan-out                               ; 5993             ;
+; Average fan-out                             ; 3.35             ;
++---------------------------------------------+------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                   ; Library Name ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |sisa                                           ; 1551 (4)          ; 167 (3)      ; 0           ; 4            ; 0       ; 2         ; 69   ; 0            ; |sisa                                                                                                                                                                 ; work         ;
+;    |MemoryController:memory0|                   ; 26 (0)            ; 3 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|MemoryController:memory0                                                                                                                                        ; work         ;
+;       |SRAMController:sram_controller|          ; 26 (26)           ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|MemoryController:memory0|SRAMController:sram_controller                                                                                                         ; work         ;
+;    |ProcesadorBase:proc0|                       ; 1493 (0)          ; 161 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0                                                                                                                                            ; work         ;
+;       |datapath:d0|                             ; 1381 (114)        ; 128 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0                                                                                                                                ; work         ;
+;          |alu:alu0|                             ; 1106 (460)        ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0                                                                                                                       ; work         ;
+;             |lpm_divide:Div0|                   ; 359 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0                                                                                                       ; work         ;
+;                |lpm_divide_rto:auto_generated|  ; 359 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0|lpm_divide_rto:auto_generated                                                                         ; work         ;
+;                   |abs_divider_8dg:divider|     ; 359 (27)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0|lpm_divide_rto:auto_generated|abs_divider_8dg:divider                                                 ; work         ;
+;                      |alt_u_div_s5f:divider|    ; 284 (281)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0|lpm_divide_rto:auto_generated|abs_divider_8dg:divider|alt_u_div_s5f:divider                           ; work         ;
+;                         |add_sub_lkc:add_sub_0| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0|lpm_divide_rto:auto_generated|abs_divider_8dg:divider|alt_u_div_s5f:divider|add_sub_lkc:add_sub_0     ; work         ;
+;                         |add_sub_mkc:add_sub_1| ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0|lpm_divide_rto:auto_generated|abs_divider_8dg:divider|alt_u_div_s5f:divider|add_sub_mkc:add_sub_1     ; work         ;
+;                      |lpm_abs_2s9:my_abs_den|   ; 27 (27)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0|lpm_divide_rto:auto_generated|abs_divider_8dg:divider|lpm_abs_2s9:my_abs_den                          ; work         ;
+;                      |lpm_abs_2s9:my_abs_num|   ; 21 (21)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0|lpm_divide_rto:auto_generated|abs_divider_8dg:divider|lpm_abs_2s9:my_abs_num                          ; work         ;
+;             |lpm_divide:Div1|                   ; 287 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div1                                                                                                       ; work         ;
+;                |lpm_divide_3gm:auto_generated|  ; 287 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div1|lpm_divide_3gm:auto_generated                                                                         ; work         ;
+;                   |sign_div_unsign_dnh:divider| ; 287 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div1|lpm_divide_3gm:auto_generated|sign_div_unsign_dnh:divider                                             ; work         ;
+;                      |alt_u_div_s5f:divider|    ; 287 (286)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div1|lpm_divide_3gm:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_s5f:divider                       ; work         ;
+;                         |add_sub_mkc:add_sub_1| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div1|lpm_divide_3gm:auto_generated|sign_div_unsign_dnh:divider|alt_u_div_s5f:divider|add_sub_mkc:add_sub_1 ; work         ;
+;             |lpm_mult:Mult0|                    ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult0                                                                                                        ; work         ;
+;                |mult_h1t:auto_generated|        ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult0|mult_h1t:auto_generated                                                                                ; work         ;
+;             |lpm_mult:Mult1|                    ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult1                                                                                                        ; work         ;
+;                |mult_l8t:auto_generated|        ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult1|mult_l8t:auto_generated                                                                                ; work         ;
+;          |regfile:reg0|                         ; 161 (161)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|regfile:reg0                                                                                                                   ; work         ;
+;       |unidad_control:cu0|                      ; 112 (69)          ; 33 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|unidad_control:cu0                                                                                                                         ; work         ;
+;          |control_l:clogic0|                    ; 38 (38)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|control_l:clogic0                                                                                                       ; work         ;
+;          |multi:ge|                             ; 5 (5)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|multi:ge                                                                                                                ; work         ;
+;    |driverSegmentos:Segments|                   ; 28 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|driverSegmentos:Segments                                                                                                                                        ; work         ;
+;       |driver7Segmentos:h0|                     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|driverSegmentos:Segments|driver7Segmentos:h0                                                                                                                    ; work         ;
+;       |driver7Segmentos:h1|                     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|driverSegmentos:Segments|driver7Segmentos:h1                                                                                                                    ; work         ;
+;       |driver7Segmentos:h2|                     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|driverSegmentos:Segments|driver7Segmentos:h2                                                                                                                    ; work         ;
+;       |driver7Segmentos:h3|                     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|driverSegmentos:Segments|driver7Segmentos:h3                                                                                                                    ; work         ;
++-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 2           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 4           ;
+; Signed Embedded Multipliers           ; 1           ;
+; Unsigned Embedded Multipliers         ; 1           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------+
+; State Machine - |sisa|MemoryController:memory0|SRAMController:sram_controller|estat ;
++---------------+---------------+---------------+-------------------------------------+
+; Name          ; estat.WAITING ; estat.NOTHING ; estat.WRITING                       ;
++---------------+---------------+---------------+-------------------------------------+
+; estat.WRITING ; 0             ; 0             ; 0                                   ;
+; estat.NOTHING ; 0             ; 1             ; 1                                   ;
+; estat.WAITING ; 1             ; 0             ; 1                                   ;
++---------------+---------------+---------------+-------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                         ;
++-----------------------------------------------------------------------+--------------------+
+; Register name                                                         ; Reason for Removal ;
++-----------------------------------------------------------------------+--------------------+
+; MemoryController:memory0|SRAMController:sram_controller|estat.WAITING ; Lost fanout        ;
+; Total Number of Removed Registers = 1                                 ;                    ;
++-----------------------------------------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 167   ;
+; Number of registers using Synchronous Clear  ; 14    ;
+; Number of registers using Synchronous Load   ; 2     ;
+; Number of registers using Asynchronous Clear ; 1     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 159   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------+
+; Inverted Register Statistics                                                ;
++-------------------------------------------------------------------+---------+
+; Inverted Register                                                 ; Fan out ;
++-------------------------------------------------------------------+---------+
+; MemoryController:memory0|SRAMController:sram_controller|SRAM_WE_N ; 1       ;
+; Total number of inverted registers = 1                            ;         ;
++-------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|ir_actual[0]                  ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 30 LEs               ; 15 LEs                 ; Yes        ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|new_pc[14]                    ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|Mux10                                ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|TOy[7]                               ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; No         ; |sisa|MemoryController:memory0|SRAMController:sram_controller|dataReaded[6] ;
+; 16:1               ; 3 bits    ; 30 LEs        ; 3 LEs                ; 27 LEs                 ; No         ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|control_l:clogic0|Mux7        ;
+; 32:1               ; 3 bits    ; 63 LEs        ; 39 LEs               ; 24 LEs                 ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|Mux9                        ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 39 LEs               ; 27 LEs                 ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|Mux4                        ;
+; 33:1               ; 2 bits    ; 44 LEs        ; 28 LEs               ; 16 LEs                 ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|Mux13                       ;
+; 34:1               ; 2 bits    ; 44 LEs        ; 28 LEs               ; 16 LEs                 ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|Mux2                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult0 ;
++------------------------------------------------+------------+---------------------------------------------+
+; Parameter Name                                 ; Value      ; Type                                        ;
++------------------------------------------------+------------+---------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE                              ;
+; LPM_WIDTHA                                     ; 16         ; Untyped                                     ;
+; LPM_WIDTHB                                     ; 16         ; Untyped                                     ;
+; LPM_WIDTHP                                     ; 32         ; Untyped                                     ;
+; LPM_WIDTHR                                     ; 32         ; Untyped                                     ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                                     ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                                     ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                                     ;
+; LATENCY                                        ; 0          ; Untyped                                     ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped                                     ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                                     ;
+; USE_EAB                                        ; OFF        ; Untyped                                     ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped                                     ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                                     ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                                     ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K                         ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                                     ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                                     ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                                     ;
+; CBXI_PARAMETER                                 ; mult_h1t   ; Untyped                                     ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                                     ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                                     ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                                     ;
++------------------------------------------------+------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                             ;
++------------------------+----------------+------------------------------------------------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                                                          ;
+; LPM_WIDTHD             ; 16             ; Untyped                                                          ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                                          ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                          ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                          ;
+; CBXI_PARAMETER         ; lpm_divide_rto ; Untyped                                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                   ;
++------------------------+----------------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult1 ;
++------------------------------------------------+------------+---------------------------------------------+
+; Parameter Name                                 ; Value      ; Type                                        ;
++------------------------------------------------+------------+---------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE                              ;
+; LPM_WIDTHA                                     ; 16         ; Untyped                                     ;
+; LPM_WIDTHB                                     ; 16         ; Untyped                                     ;
+; LPM_WIDTHP                                     ; 32         ; Untyped                                     ;
+; LPM_WIDTHR                                     ; 32         ; Untyped                                     ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                                     ;
+; LPM_REPRESENTATION                             ; UNSIGNED   ; Untyped                                     ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                                     ;
+; LATENCY                                        ; 0          ; Untyped                                     ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped                                     ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                                     ;
+; USE_EAB                                        ; OFF        ; Untyped                                     ;
+; MAXIMIZE_SPEED                                 ; 6          ; Untyped                                     ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                                     ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                                     ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K                         ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                                     ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                                     ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                                     ;
+; CBXI_PARAMETER                                 ; mult_l8t   ; Untyped                                     ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                                     ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                                     ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                                     ;
++------------------------------------------------+------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div1 ;
++------------------------+----------------+------------------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                             ;
++------------------------+----------------+------------------------------------------------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                                                          ;
+; LPM_WIDTHD             ; 16             ; Untyped                                                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                          ;
+; CBXI_PARAMETER         ; lpm_divide_3gm ; Untyped                                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                                   ;
++------------------------+----------------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                                   ;
++---------------------------------------+----------------------------------------------------------+
+; Name                                  ; Value                                                    ;
++---------------------------------------+----------------------------------------------------------+
+; Number of entity instances            ; 2                                                        ;
+; Entity Instance                       ; ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 16                                                       ;
+;     -- LPM_WIDTHB                     ; 16                                                       ;
+;     -- LPM_WIDTHP                     ; 32                                                       ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                                   ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                       ;
+;     -- USE_EAB                        ; OFF                                                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                       ;
+; Entity Instance                       ; ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 16                                                       ;
+;     -- LPM_WIDTHB                     ; 16                                                       ;
+;     -- LPM_WIDTHP                     ; 32                                                       ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                 ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                       ;
+;     -- USE_EAB                        ; OFF                                                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                       ;
++---------------------------------------+----------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 64-Bit Analysis & Elaboration
+Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Mar 25 19:16:45 2023
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off proc -c ProcesadorBase --analysis_and_elaboration
+    Info: Processing started: Tue Mar 28 23:40:30 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off proc -c ProcesadorBase
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file ficheros/unidad_control.vhd
     Info (12022): Found design unit 1: unidad_control-Structure
@@ -211,10 +577,89 @@ Info (12128): Elaborating entity "MemoryController" for hierarchy "MemoryControl
 Info (12128): Elaborating entity "SRAMController" for hierarchy "MemoryController:memory0|SRAMController:sram_controller"
 Info (12128): Elaborating entity "driverSegmentos" for hierarchy "driverSegmentos:Segments"
 Info (12128): Elaborating entity "driver7Segmentos" for hierarchy "driverSegmentos:Segments|driver7Segmentos:h0"
-Info: Quartus II 64-Bit Analysis & Elaboration was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 13010 megabytes
-    Info: Processing ended: Sat Mar 25 19:16:49 2023
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:03
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "ProcesadorBase:proc0|datapath:d0|regfile:reg0|registro" is uninferred due to inappropriate RAM size
+Info (278001): Inferred 4 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "ProcesadorBase:proc0|datapath:d0|alu:alu0|Mult0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "ProcesadorBase:proc0|datapath:d0|alu:alu0|Div0"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "ProcesadorBase:proc0|datapath:d0|alu:alu0|Mult1"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "ProcesadorBase:proc0|datapath:d0|alu:alu0|Div1"
+Info (12130): Elaborated megafunction instantiation "ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "16"
+    Info (12134): Parameter "LPM_WIDTHB" = "16"
+    Info (12134): Parameter "LPM_WIDTHP" = "32"
+    Info (12134): Parameter "LPM_WIDTHR" = "32"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_h1t.tdf
+    Info (12023): Found entity 1: mult_h1t
+Info (12130): Elaborated megafunction instantiation "ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0"
+Info (12133): Instantiated megafunction "ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "16"
+    Info (12134): Parameter "LPM_WIDTHD" = "16"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_rto.tdf
+    Info (12023): Found entity 1: lpm_divide_rto
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_8dg.tdf
+    Info (12023): Found entity 1: abs_divider_8dg
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_s5f.tdf
+    Info (12023): Found entity 1: alt_u_div_s5f
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_lkc.tdf
+    Info (12023): Found entity 1: add_sub_lkc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_mkc.tdf
+    Info (12023): Found entity 1: add_sub_mkc
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2s9.tdf
+    Info (12023): Found entity 1: lpm_abs_2s9
+Info (12130): Elaborated megafunction instantiation "ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult1"
+Info (12133): Instantiated megafunction "ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult1" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "16"
+    Info (12134): Parameter "LPM_WIDTHB" = "16"
+    Info (12134): Parameter "LPM_WIDTHP" = "32"
+    Info (12134): Parameter "LPM_WIDTHR" = "32"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "6"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_l8t.tdf
+    Info (12023): Found entity 1: mult_l8t
+Info (12130): Elaborated megafunction instantiation "ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div1"
+Info (12133): Instantiated megafunction "ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div1" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "16"
+    Info (12134): Parameter "LPM_WIDTHD" = "16"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_3gm.tdf
+    Info (12023): Found entity 1: lpm_divide_3gm
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_dnh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_dnh
+Info (13014): Ignored 30 buffer(s)
+    Info (13016): Ignored 30 CARRY_SUM buffer(s)
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "SRAM_ADDR[15]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[16]" is stuck at GND
+    Warning (13410): Pin "SRAM_ADDR[17]" is stuck at GND
+    Warning (13410): Pin "SRAM_CE_N" is stuck at GND
+    Warning (13410): Pin "SRAM_OE_N" is stuck at GND
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1753 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 51 output pins
+    Info (21060): Implemented 16 bidirectional pins
+    Info (21061): Implemented 1680 logic cells
+    Info (21062): Implemented 4 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4674 megabytes
+    Info: Processing ended: Tue Mar 28 23:40:35 2023
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:02
 
 

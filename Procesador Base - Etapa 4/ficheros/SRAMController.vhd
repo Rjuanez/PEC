@@ -67,7 +67,7 @@ begin
 					else estat <= estat; --aguanta
 					end if;
 				when WRITING => -- Momento para empezar la escritura
-					SRAM_WE_N <= '0';
+					SRAM_WE_N <= '1';
 					estat <= WAITING;
 				when WAITING =>
 					SRAM_WE_N <= '1';
