@@ -19,7 +19,7 @@ L8
 Vj2:7W<hRd>5WbNidH`F`23
 Z10 OV;C;10.1d;51
 32
-Z11 !s108 1680039636.309000
+Z11 !s108 1680043081.616000
 Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/alu.vhd|
 Z13 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/alu.vhd|
 Z14 o-work work -2002 -explicit -O0
@@ -63,7 +63,7 @@ L22
 Vz7=:g106kSL^?zZa1_k1i2
 R10
 32
-Z22 !s108 1680039636.167000
+Z22 !s108 1680043081.478000
 Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/async_64Kx16.vhd|
 Z24 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/async_64Kx16.vhd|
 R14
@@ -107,7 +107,7 @@ R14
 R15
 !s100 YGV>iek]79Jd4_FABoDog0
 !i10b 1
-!s108 1680039636.354000
+!s108 1680043081.665000
 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/const_alu.vhd|
 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/const_alu.vhd|
 Econtrol_l
@@ -124,7 +124,7 @@ L6
 V=;@QR`VWA<0=BU5k`;PfK3
 R10
 32
-Z28 !s108 1680039636.390000
+Z28 !s108 1680043081.702000
 Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/control_l.vhd|
 Z30 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/control_l.vhd|
 R14
@@ -162,7 +162,7 @@ L5
 V_kCH0C>B0kOUMhh2L9k6?1
 R10
 32
-Z34 !s108 1680039636.435000
+Z34 !s108 1680043081.748000
 Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/datapath.vhd|
 Z36 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/datapath.vhd|
 R14
@@ -198,7 +198,7 @@ L4
 V_=8S4L7Q^<D_^`g[VjbRP2
 R10
 32
-Z39 !s108 1680039636.215000
+Z39 !s108 1680043081.526000
 Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driver7Segmentos.vhd|
 Z41 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driver7Segmentos.vhd|
 R14
@@ -233,7 +233,7 @@ L4
 Va:9e9f=dKzPabMg[=[mFL1
 R10
 32
-Z44 !s108 1680039636.268000
+Z44 !s108 1680043081.569000
 Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driverSegmentos.vhd|
 Z46 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driverSegmentos.vhd|
 R14
@@ -270,7 +270,7 @@ VhFeoDDQkCUB9=;8YcYZN^1
 R10
 32
 b1
-Z50 !s108 1680039636.478000
+Z50 !s108 1680043081.793000
 Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/func_ayuda_control_pkg.vhd|
 Z52 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/func_ayuda_control_pkg.vhd|
 R14
@@ -309,7 +309,7 @@ L6
 VPLoMf0oj;RB<P=VUa6jkS2
 R10
 32
-Z56 !s108 1680039636.524000
+Z56 !s108 1680043081.838000
 Z57 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/MemoryController.vhd|
 Z58 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/MemoryController.vhd|
 R14
@@ -346,7 +346,7 @@ L4
 V14NBh5f7z`nUY<]C1Om_?2
 R10
 32
-Z61 !s108 1680039636.583000
+Z61 !s108 1680043081.880000
 Z62 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/multi.vhd|
 Z63 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/multi.vhd|
 R14
@@ -384,7 +384,7 @@ L17
 V]QljGNTG0EJQ?X:f3a>TX1
 R10
 32
-Z66 !s108 1680039636.118000
+Z66 !s108 1680043081.433000
 Z67 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/package_timing.vhd|
 Z68 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/package_timing.vhd|
 R14
@@ -426,7 +426,7 @@ VabW^FY0na:iFW@RR:Fofg0
 R10
 32
 b1
-Z71 !s108 1680039636.069000
+Z71 !s108 1680043081.386000
 Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/package_utility.vhd|
 Z73 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/package_utility.vhd|
 R14
@@ -464,7 +464,7 @@ L4
 VglM8hhUjMg]MnEX2N=PLo2
 R10
 32
-Z77 !s108 1680039636.638000
+Z77 !s108 1680043081.923000
 Z78 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/proc.vhd|
 Z79 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/proc.vhd|
 R14
@@ -501,7 +501,7 @@ L5
 Vhnd2al3fiN[I^7670ZRFf3
 R10
 32
-Z82 !s108 1680039636.680000
+Z82 !s108 1680043081.965000
 Z83 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/regfile.vhd|
 Z84 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/regfile.vhd|
 R14
@@ -540,7 +540,7 @@ L6
 V:TlL9EOoWLcO1M>dk:n`@1
 R10
 32
-Z87 !s108 1680039636.724000
+Z87 !s108 1680043082.009000
 Z88 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/sisa.vhd|
 Z89 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/sisa.vhd|
 R14
@@ -579,7 +579,7 @@ L6
 VC2AV?EESPOZGcn4dfcYOD3
 R10
 32
-Z93 !s108 1680039636.777000
+Z93 !s108 1680043082.054000
 Z94 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/SRAMController.vhd|
 Z95 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/SRAMController.vhd|
 R14
@@ -618,7 +618,7 @@ VkAdhfn89W5`mY_=KPlfV]3
 R10
 32
 !i10b 1
-Z98 !s108 1680039636.869000
+Z98 !s108 1680043082.141000
 Z99 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/test_sisa.vhd|
 Z100 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/test_sisa.vhd|
 R14
@@ -655,7 +655,7 @@ L7
 V^8JzCbHPcDA9DUAnSe6=a1
 R10
 32
-Z107 !s108 1680039636.821000
+Z107 !s108 1680043082.097000
 Z108 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/unidad_control.vhd|
 Z109 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/unidad_control.vhd|
 R14
