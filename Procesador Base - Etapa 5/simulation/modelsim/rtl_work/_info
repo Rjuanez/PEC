@@ -1,0 +1,521 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\victo\Desktop\PEC-FIB\Procesador Base - Etapa 4\simulation\modelsim
+Ealu
+Z1 w1679771763
+Z2 DPx4 work 9 const_alu 0 22 =Gl=@YSQF:0YGn@fP0dFV1
+Z3 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z4 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z5 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z6 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z7 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z8 dC:\Users\victo\Desktop\PEC-FIB\Procesador Base - Etapa 4\simulation\modelsim
+Z9 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/alu.vhd
+Z10 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/alu.vhd
+l0
+L8
+Vm1oDY2zh0njgoTXMMTBYh1
+!s100 _CNjOX^Z0Nnj_dNn2E0Wz3
+Z11 OV;C;10.1d;51
+31
+!i10b 1
+Z12 !s108 1680038382.109000
+Z13 !s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/alu.vhd|
+Z14 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/alu.vhd|
+Z15 o-93 -work work -O0
+Z16 tExplicit 1
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 3 alu 0 22 m1oDY2zh0njgoTXMMTBYh1
+l34
+L17
+VRbmi:CHBb;WelgHR[=zfM3
+!s100 ]6I39Z?OmFWUJ`7>C3@S93
+R11
+31
+!i10b 1
+R12
+R13
+R14
+R15
+R16
+Pconst_alu
+R6
+R7
+w1679771801
+R8
+8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/const_alu.vhd
+FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/const_alu.vhd
+l0
+L4
+V=Gl=@YSQF:0YGn@fP0dFV1
+R11
+31
+R15
+R16
+!s100 YGV>iek]79Jd4_FABoDog0
+!i10b 1
+!s108 1680038381.986000
+!s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/const_alu.vhd|
+!s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/const_alu.vhd|
+Econtrol_l
+Z17 w1679771777
+R2
+R5
+R6
+R7
+R8
+Z18 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/control_l.vhd
+Z19 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/control_l.vhd
+l0
+L6
+V?ko9fVCYnCaoRzdY0Z?`>1
+R11
+31
+Z20 !s108 1680038382.066000
+Z21 !s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/control_l.vhd|
+Z22 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/control_l.vhd|
+R15
+R16
+!s100 1>EgEQ3Q3IhK];o@TV0_i3
+!i10b 1
+Astructure
+R2
+R5
+R6
+R7
+DEx4 work 9 control_l 0 22 ?ko9fVCYnCaoRzdY0Z?`>1
+l28
+L23
+V4i9043]2DdlMo1efX;4P20
+R11
+31
+R20
+R21
+R22
+R15
+R16
+!s100 hVZh8iX2ZW4e7G0S4m<@P1
+!i10b 1
+Edatapath
+Z23 w1679770045
+R5
+R6
+R7
+R8
+Z24 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/datapath.vhd
+Z25 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/datapath.vhd
+l0
+L5
+VhlS<=:DCj4O>Mhkn7o8@i0
+R11
+31
+Z26 !s108 1680038381.680000
+Z27 !s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/datapath.vhd|
+Z28 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/datapath.vhd|
+R15
+R16
+!s100 M;0JhSBMO5^RLUa]TP0i<1
+!i10b 1
+Astructure
+R5
+R6
+R7
+DEx4 work 8 datapath 0 22 hlS<=:DCj4O>Mhkn7o8@i0
+l53
+L26
+VSNF5dCf2mdNi3_GkU1BWz3
+R11
+31
+R26
+R27
+R28
+R15
+R16
+!s100 NF:kP8cbZ8IM]1JCm3`:<3
+!i10b 1
+Edriver7segmentos
+Z29 w1679488124
+R6
+R7
+R8
+Z30 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driver7Segmentos.vhd
+Z31 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driver7Segmentos.vhd
+l0
+L4
+V><JoJ8[dnJN[80o:E:<N20
+R11
+31
+Z32 !s108 1680038381.898000
+Z33 !s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driver7Segmentos.vhd|
+Z34 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driver7Segmentos.vhd|
+R15
+R16
+!s100 fm>0Dc7>BkIJV=lRQo7;H2
+!i10b 1
+Astructure
+R6
+R7
+DEx4 work 16 driver7segmentos 0 22 ><JoJ8[dnJN[80o:E:<N20
+l10
+L9
+VnC:;GK>FT`0^b0ze;E@><1
+R11
+31
+R32
+R33
+R34
+R15
+R16
+!s100 l?Q1bgTL__]`=]B<H6kNK0
+!i10b 1
+Edriversegmentos
+R29
+R6
+R7
+R8
+Z35 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driverSegmentos.vhd
+Z36 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driverSegmentos.vhd
+l0
+L4
+V<@kk<]Wj^Ya6HV8A^ShM10
+R11
+31
+Z37 !s108 1680038381.857000
+Z38 !s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driverSegmentos.vhd|
+Z39 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/driverSegmentos.vhd|
+R15
+R16
+!s100 nQ;GiAZWG78<8jJ[RjniJ0
+!i10b 1
+Astructure
+R6
+R7
+DEx4 work 15 driversegmentos 0 22 <@kk<]Wj^Ya6HV8A^ShM10
+l17
+L12
+VooiWW8bWfN6>b:HQN0[iP1
+R11
+31
+R37
+R38
+R39
+R15
+R16
+!s100 Pi6?ZMZfZVJ3PGaoe8D2c0
+!i10b 1
+Pfunc_ayuda_control_pkg
+R5
+R6
+R7
+Z40 w1679766458
+R8
+Z41 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/func_ayuda_control_pkg.vhd
+Z42 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/func_ayuda_control_pkg.vhd
+l0
+L5
+VL@gT2gFla6A=UPEL4b@KM1
+R11
+31
+b1
+Z43 !s108 1680038381.941000
+Z44 !s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/func_ayuda_control_pkg.vhd|
+Z45 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/func_ayuda_control_pkg.vhd|
+R15
+R16
+!s100 nz?YIbDLYjlo>G5Qdad772
+!i10b 1
+Bbody
+Z46 DPx4 work 22 func_ayuda_control_pkg 0 22 L@gT2gFla6A=UPEL4b@KM1
+R5
+R6
+R7
+l0
+L12
+VODWQC`HGHTCdM8=5jkj7X2
+R11
+31
+R43
+R44
+R45
+R15
+R16
+nbody
+!s100 dTA`n3`P?fe:>Q6[EjgUG2
+!i10b 1
+Ememorycontroller
+R29
+R4
+R3
+R6
+R7
+R8
+Z47 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/MemoryController.vhd
+Z48 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/MemoryController.vhd
+l0
+L6
+VY;NcTLT84g`Zc@DF8?3^G2
+R11
+31
+Z49 !s108 1680038381.730000
+Z50 !s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/MemoryController.vhd|
+Z51 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/MemoryController.vhd|
+R15
+R16
+!s100 :K4;^k=AgYVOh=G_LZCm[3
+!i10b 1
+Acomportament
+R4
+R3
+R6
+R7
+DEx4 work 16 memorycontroller 0 22 Y;NcTLT84g`Zc@DF8?3^G2
+l42
+L23
+VbC`OLikf1HK6eL_<31NYl3
+R11
+31
+R49
+R50
+R51
+R15
+R16
+!s100 8>AP;D6XzL9PQf:Jd>AJ?0
+!i10b 1
+Emulti
+R29
+R6
+R7
+R8
+Z52 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/multi.vhd
+Z53 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/multi.vhd
+l0
+L4
+V6`X;7V7^fWbBYgjmZJ5M32
+R11
+31
+Z54 !s108 1680038381.640000
+Z55 !s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/multi.vhd|
+Z56 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/multi.vhd|
+R15
+R16
+!s100 Vdh>l=a_@F>fVk^7NLZ710
+!i10b 1
+Astructure
+R6
+R7
+DEx4 work 5 multi 0 22 6`X;7V7^fWbBYgjmZJ5M32
+l28
+L19
+V:7=C>EbO8V<8;<fj<FKi=1
+R11
+31
+R54
+R55
+R56
+R15
+R16
+!s100 aV]knB>fo=53o3Fi2FX[E0
+!i10b 1
+Eprocesadorbase
+Z57 w1679768505
+R6
+R7
+R8
+Z58 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/proc.vhd
+Z59 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/proc.vhd
+l0
+L4
+VJ=oJLKz_cONL5GQIaJgE63
+R11
+31
+Z60 !s108 1680038381.597000
+Z61 !s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/proc.vhd|
+Z62 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/proc.vhd|
+R15
+R16
+!s100 UU[IR>a4@3J9dzjAh[MoM0
+!i10b 1
+Astructure
+R6
+R7
+DEx4 work 14 procesadorbase 0 22 J=oJLKz_cONL5GQIaJgE63
+l75
+L15
+VI5?X86]Xf0fDjfHH6DdNM3
+R11
+31
+R60
+R61
+R62
+R15
+R16
+!s100 4`V2^SlP_;CO3>@G>Q:SL1
+!i10b 1
+Eregfile
+R29
+R3
+R4
+R6
+R7
+R8
+Z63 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/regfile.vhd
+Z64 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/regfile.vhd
+l0
+L5
+VX6R`Hbh4nzCC:nR`G4gfV3
+R11
+31
+Z65 !s108 1680038381.515000
+Z66 !s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/regfile.vhd|
+Z67 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/regfile.vhd|
+R15
+R16
+!s100 4LJ982_ojQj>n07ZWE4<f2
+!i10b 1
+Astructure
+R3
+R4
+R6
+R7
+DEx4 work 7 regfile 0 22 X6R`Hbh4nzCC:nR`G4gfV3
+l22
+L17
+V?KhJ[0jHK6fLO^N0CdlhJ1
+R11
+31
+R65
+R66
+R67
+R15
+R16
+!s100 hCCLPn36M=ZQ`Ih_R=^eI3
+!i10b 1
+Esisa
+R29
+R4
+R3
+R6
+R7
+R8
+Z68 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/sisa.vhd
+Z69 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/sisa.vhd
+l0
+L6
+VYig[mXZ3NoKZN_<PVI^^81
+R11
+31
+Z70 !s108 1680038381.772000
+Z71 !s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/sisa.vhd|
+Z72 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/sisa.vhd|
+R15
+R16
+!s100 72X0=_GZUC^AoS=agJIo<3
+!i10b 1
+Astructure
+R4
+R3
+R6
+R7
+DEx4 work 4 sisa 0 22 Yig[mXZ3NoKZN_<PVI^^81
+l67
+L23
+VRm_j56E7]<]ZzoO=39mC[0
+R11
+31
+R70
+R71
+R72
+R15
+R16
+!s100 @GoHo]e26V6KYhk5z:TB42
+!i10b 1
+Esramcontroller
+R29
+R4
+R3
+R6
+R7
+R8
+Z73 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/SRAMController.vhd
+Z74 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/SRAMController.vhd
+l0
+L6
+V@FVf8m5W7ZVkUYNlWAeQ=3
+R11
+31
+Z75 !s108 1680038381.816000
+Z76 !s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/SRAMController.vhd|
+Z77 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/SRAMController.vhd|
+R15
+R16
+!s100 0Ba`Q7W`UoWaZOmiCMTh70
+!i10b 1
+Acomportament
+R4
+R3
+R6
+R7
+DEx4 work 14 sramcontroller 0 22 @FVf8m5W7ZVkUYNlWAeQ=3
+l34
+L24
+V96@zlY:`:F5Xz0f:?NezF0
+R11
+31
+R75
+R76
+R77
+R15
+R16
+!s100 jf;^5nSXZWPOP2zHGzN7S1
+!i10b 1
+Eunidad_control
+Z78 w1679767691
+R46
+R3
+R4
+R5
+R6
+R7
+R8
+Z79 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/unidad_control.vhd
+Z80 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/unidad_control.vhd
+l0
+L7
+V?@>FNV]bL@j<z<[oZTGAT2
+R11
+31
+Z81 !s108 1680038382.023000
+Z82 !s90 -reportprogress|300|-93|-work|work|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/unidad_control.vhd|
+Z83 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/ficheros/unidad_control.vhd|
+R15
+R16
+!s100 RXR=V`;S=Ug^k73DeE^XQ2
+!i10b 1
+Astructure
+R46
+R3
+R4
+R5
+R6
+R7
+DEx4 work 14 unidad_control 0 22 ?@>FNV]bL@j<z<[oZTGAT2
+l74
+L28
+V?CB:JeU[bS[n:8XhYaG4G1
+R11
+31
+R81
+R82
+R83
+R15
+R16
+!s100 QXS8hFjKXzCK5:;2HUG6O2
+!i10b 1
