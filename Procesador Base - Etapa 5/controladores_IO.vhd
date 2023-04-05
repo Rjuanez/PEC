@@ -12,7 +12,9 @@ ENTITY controladores_IO IS
 			wr_out : in std_logic;
 			rd_in : in std_logic;
 			led_verdes : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			led_rojos : OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
+			led_rojos : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			pulsadors : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			switches : IN STD_LOGIC_VECTOR(7 DOWNTO 0));
 END controladores_IO;
 
 ARCHITECTURE Structure OF controladores_IO IS
@@ -22,15 +24,28 @@ ARCHITECTURE Structure OF controladores_IO IS
 	
 BEGIN
 	escritura: process(CLOCK_50) 
+		variable not_wr : std_logic := '0';
 	begin
+		case addr_io(3 downto 0) is
+			when "0111" => -- pulsadores 7
+				not_wr := '1';
+			when "1000" => --switches 8
+				not_wr := '1';
+			when others => 
+				not_wr := '0';
+		end case;
+			
 		if rising_edge(CLOCK_50) then 
-			if wr_out = '1' then
+			-- Actualizamos los pulsadores y switches
+			registro_io(7)(3 downto 0) <= pulsadors;
+			registro_io(8)(7 downto 0) <= switches;
+			if wr_out = '1'  and not_wr = '0' then
 				registro_io(conv_integer(addr_io)) <= wr_io;
 			end if;
 		end if;
 	end process escritura;
 	
-	rd_io <= registro_io(conv_integer(addr_io)) when rd_in = '1';
+	rd_io <= registro_io(conv_integer(addr_io));
 	
 	led_verdes <= registro_io(5)(7 downto 0);
 	led_rojos <= registro_io(6)(7 downto 0);

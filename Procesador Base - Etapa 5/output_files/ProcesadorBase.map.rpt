@@ -1,5 +1,5 @@
 Analysis & Elaboration report for ProcesadorBase
-Wed Apr 05 00:46:39 2023
+Thu Apr 06 00:29:08 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Wed Apr 05 00:46:39 2023           ;
+; Analysis & Elaboration Status      ; Successful - Thu Apr 06 00:29:08 2023           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; ProcesadorBase                                  ;
 ; Top-level Entity Name              ; sisa                                            ;
@@ -155,7 +155,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Elaboration
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Apr 05 00:46:36 2023
+    Info: Processing started: Thu Apr 06 00:29:05 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off proc -c ProcesadorBase --analysis_and_elaboration
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file ficheros/unidad_control.vhd
@@ -213,27 +213,12 @@ Info (12128): Elaborating entity "regfile" for hierarchy "ProcesadorBase:proc0|d
 Info (12128): Elaborating entity "MemoryController" for hierarchy "MemoryController:memory0"
 Info (12128): Elaborating entity "SRAMController" for hierarchy "MemoryController:memory0|SRAMController:sram_controller"
 Info (12128): Elaborating entity "controladores_IO" for hierarchy "controladores_IO:controladosIO"
-Info (10041): Inferred latch for "rd_io[0]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[1]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[2]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[3]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[4]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[5]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[6]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[7]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[8]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[9]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[10]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[11]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[12]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[13]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[14]" at controladores_IO.vhd(33)
-Info (10041): Inferred latch for "rd_io[15]" at controladores_IO.vhd(33)
+Warning (10492): VHDL Process Statement warning at controladores_IO.vhd(29): signal "addr_io" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "driverSegmentos" for hierarchy "driverSegmentos:Segments"
 Info (12128): Elaborating entity "driver7Segmentos" for hierarchy "driverSegmentos:Segments|driver7Segmentos:h0"
-Info: Quartus II 64-Bit Analysis & Elaboration was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 12998 megabytes
-    Info: Processing ended: Wed Apr 05 00:46:39 2023
+Info: Quartus II 64-Bit Analysis & Elaboration was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 12999 megabytes
+    Info: Processing ended: Thu Apr 06 00:29:08 2023
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:02
 

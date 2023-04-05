@@ -12,13 +12,14 @@ ENTITY sisa IS
           SRAM_CE_N : out   std_logic := '1';
           SRAM_OE_N : out   std_logic := '1';
           SRAM_WE_N : out   std_logic := '1';
-          SW        : in 	 std_logic_vector(9 downto 9);
 			 LEDG		  : OUT   STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 LEDR		  : OUT	 STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 HEX0 	  : OUT std_logic_vector(6 downto 0);
 			 HEX1 	  : OUT std_logic_vector(6 downto 0);
 			 HEX2 	  : OUT std_logic_vector(6 downto 0);
-			 HEX3 	  : OUT std_logic_vector(6 downto 0));
+			 HEX3 	  : OUT std_logic_vector(6 downto 0);
+			 SW 		  : IN STD_LOGIC_VECTOR(9 DOWNTO 0); 
+			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0));
 			 
 END sisa;
 
@@ -73,7 +74,9 @@ ARCHITECTURE Structure OF sisa IS
 			wr_out : in std_logic;
 			rd_in : in std_logic;
 			led_verdes : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			led_rojos : OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
+			led_rojos : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			pulsadors : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+			switches : IN STD_LOGIC_VECTOR(7 DOWNTO 0));
 	END component;
 	
 	SIGNAL word_byteTObyte_m, wr_mTOwe : std_logic;
@@ -134,7 +137,9 @@ BEGIN
 														  wr_out => wr_outTOwr_out,
 														  rd_in => rd_inTOrd_in,
 														  led_verdes => LEDG,
-														  led_rojos => LEDR);
+														  led_rojos => LEDR,
+														  pulsadors => KEY,
+														  switches => SW(7 downto 0));
 			
 	Segments: driverSegmentos port map (codigoSegmentos => addr_mTOaddr, 
 													HEX0 => HEX0, 
