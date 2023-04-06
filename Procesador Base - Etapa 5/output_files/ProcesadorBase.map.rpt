@@ -1,5 +1,5 @@
 Analysis & Elaboration report for ProcesadorBase
-Thu Apr 06 00:29:08 2023
+Thu Apr 06 02:36:12 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Elaboration Status      ; Successful - Thu Apr 06 00:29:08 2023           ;
+; Analysis & Elaboration Status      ; Successful - Thu Apr 06 02:36:12 2023           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; ProcesadorBase                                  ;
 ; Top-level Entity Name              ; sisa                                            ;
@@ -155,7 +155,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Elaboration
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Apr 06 00:29:05 2023
+    Info: Processing started: Thu Apr 06 02:36:10 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off proc -c ProcesadorBase --analysis_and_elaboration
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file ficheros/unidad_control.vhd
@@ -213,13 +213,13 @@ Info (12128): Elaborating entity "regfile" for hierarchy "ProcesadorBase:proc0|d
 Info (12128): Elaborating entity "MemoryController" for hierarchy "MemoryController:memory0"
 Info (12128): Elaborating entity "SRAMController" for hierarchy "MemoryController:memory0|SRAMController:sram_controller"
 Info (12128): Elaborating entity "controladores_IO" for hierarchy "controladores_IO:controladosIO"
-Warning (10492): VHDL Process Statement warning at controladores_IO.vhd(29): signal "addr_io" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controladores_IO.vhd(30): signal "addr_io" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "driverSegmentos" for hierarchy "driverSegmentos:Segments"
 Info (12128): Elaborating entity "driver7Segmentos" for hierarchy "driverSegmentos:Segments|driver7Segmentos:h0"
 Info: Quartus II 64-Bit Analysis & Elaboration was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 12999 megabytes
-    Info: Processing ended: Thu Apr 06 00:29:08 2023
-    Info: Elapsed time: 00:00:03
+    Info: Processing ended: Thu Apr 06 02:36:12 2023
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
 

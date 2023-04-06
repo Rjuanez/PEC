@@ -75,6 +75,7 @@ ARCHITECTURE Structure OF sisa IS
 			rd_in : in std_logic;
 			led_verdes : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			led_rojos : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			visores : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			pulsadors : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			switches : IN STD_LOGIC_VECTOR(7 DOWNTO 0));
 	END component;
@@ -87,6 +88,7 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL addr_ioTOaddr_io : STD_LOGIC_VECTOR(7 DOWNTO 0);
 	SIGNAL wr_ioTOwr_io, rd_ioTOrd_io : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL wr_outTOwr_out, rd_inTOrd_in : STD_LOGIC;
+	SIGNAL visoresTO : STD_LOGIC_VECTOR(15 downto 0);
 	
 --	signal aux: std_LOGIC;
 	
@@ -138,10 +140,11 @@ BEGIN
 														  rd_in => rd_inTOrd_in,
 														  led_verdes => LEDG,
 														  led_rojos => LEDR,
+														  visores => visoresTO,
 														  pulsadors => KEY,
 														  switches => SW(7 downto 0));
 			
-	Segments: driverSegmentos port map (codigoSegmentos => addr_mTOaddr, 
+	Segments: driverSegmentos port map (codigoSegmentos => visoresTO, 
 													HEX0 => HEX0, 
 													HEX1 => HEX1, 
 													HEX2 => HEX2, 

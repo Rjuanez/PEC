@@ -13,6 +13,7 @@ ENTITY controladores_IO IS
 			rd_in : in std_logic;
 			led_verdes : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			led_rojos : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			visores 	 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			pulsadors : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			switches : IN STD_LOGIC_VECTOR(7 DOWNTO 0));
 END controladores_IO;
@@ -49,5 +50,6 @@ BEGIN
 	
 	led_verdes <= registro_io(5)(7 downto 0);
 	led_rojos <= registro_io(6)(7 downto 0);
+	visores <= registro_io(10);
 	
 END Structure; 
