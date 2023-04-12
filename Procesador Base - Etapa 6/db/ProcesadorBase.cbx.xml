@@ -3,7 +3,7 @@
 	<PROJECT NAME="ProcesadorBase">
 		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_rto.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult0" CBX_FILE_NAME="mult_h1t.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|controladores_IO:controladosIO|altsyncram:registro_io_rtl_0" CBX_FILE_NAME="altsyncram_koc1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|controladores_IO:controladosIO|altsyncram:registro_io_rtl_0" CBX_FILE_NAME="altsyncram_8oc1.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_3gm.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult1" CBX_FILE_NAME="mult_l8t.tdf"/>
 	</PROJECT>

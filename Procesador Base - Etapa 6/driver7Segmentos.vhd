@@ -24,7 +24,8 @@ BEGIN
 							 "1000110" when "1100",
 							 "0100001" when "1101",
 							 "0000110" when "1110",
-							 "0001110" when others;
+							 "0001110" when "1111",
+							 "1111111" when others;
 							 
  
 END Structure; 

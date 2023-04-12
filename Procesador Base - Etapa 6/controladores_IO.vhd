@@ -14,6 +14,7 @@ ENTITY controladores_IO IS
 			led_verdes 	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			led_rojos 	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			visores 	 	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			visor_enable: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 			pulsadors 	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			switches 	: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 			ps2_clk 		: INOUT std_LOGIC;
@@ -32,12 +33,17 @@ ARCHITECTURE Structure OF controladores_IO IS
           data_ready : out   STD_LOGIC);
 	end component;
 
-	--type BR_IO is array (255 downto 0) of std_logic_vector(15 downto 0);
+	--type BR_IO is array (255 downto 0) of std_logic_vector(15 downto 0); DESCOMENTAR ENTREGA
 	-- BANCO DE REGISTROS DE ENTRADA SALIDA
 	type BR_IO is array (32 downto 0) of std_logic_vector(15 downto 0) ; --quizas haria falta inicializar los valores a 0
    signal registro_io : BR_IO;
 	
+	signal char_key : STD_LOGIC_VECTOR (7 downto 0);
+	signal clear_reg: STD_LOGIC;
+	signal ack_key	 : STD_LOGIC;
+	
 BEGIN
+--Proceso de escritura en los registros del BR del controlador de entrada salida
 	escritura: process(CLOCK_50) 
 		variable not_wr : std_logic := '0';
 	begin
@@ -50,28 +56,44 @@ BEGIN
 				not_wr := '0';
 		end case;
 			
-		if rising_edge(CLOCK_50) then 
+		if rising_edge(CLOCK_50) then
+			--INICIALIZACIÖN DE LOS VISORES
+			if boot = '1' then
+				registro_io(9)(3 DOWNTO 0) <= "0000"; --APAGADOS al iniciar el dispositivo
+			end if;
+			
 			-- Actualizamos los pulsadores y switches
 			registro_io(7)(3 downto 0) <= pulsadors;
 			registro_io(8)(7 downto 0) <= switches;
+			registro_io(15)(7 downto 0) <= char_key;
+			registro_io(16)(0) <= ack_key;
+			
+			if addr_io = 16 then
+				clear_reg <= '1';
+			else
+				clear_reg <= '0';
+			end if;
+			
 			if wr_out = '1'  and not_wr = '0' then
-				registro_io(conv_integer(addr_io)) <= wr_io;
+				registro_io(conv_integer(addr_io(4 DOWNTO 0))) <= wr_io; --QUITAR SELECCIÓN DE 5 BITS AL ENTREGAR
 			end if;
 		end if;
 	end process escritura;
 	
-	rd_io <= registro_io(conv_integer(addr_io));
+	rd_io <= registro_io(conv_integer(addr_io(4 DOWNTO 0))); --QUITAR SELECCIÓN DE 5 BITS AL ENTREGAR
 	
+	--LECTURAS
 	led_verdes <= registro_io(5)(7 downto 0);
 	led_rojos <= registro_io(6)(7 downto 0);
 	visores <= registro_io(10);
+	visor_enable <= registro_io(9)(3 DOWNTO 0);
 	
 	controladorKeyboard: keyboard_controller port map(clk => CLOCK_50,
-																  reset => ,
-																  ps2_clk => ,
-																  ps2_data => ,
-																  read_char => ,
-																  clear_char => ,
-																  data_ready => );
+																  reset => boot,
+																  ps2_clk => ps2_clk,
+																  ps2_data => ps2_data,
+																  read_char => char_key,
+																  clear_char => clear_reg,
+																  data_ready => ack_key);
 	
 END Structure; 

@@ -21,7 +21,7 @@ ENTITY sisa IS
 			 SW 		  : IN STD_LOGIC_VECTOR(9 DOWNTO 0); 
 			 KEY		  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			 PS2_CLK   : INOUT std_LOGIC;
-			 PS2_DATA  : INOUT std_LOGIC));
+			 PS2_DATA  : INOUT std_LOGIC);
 			 
 END sisa;
 
@@ -61,6 +61,7 @@ ARCHITECTURE Structure OF sisa IS
 	
 	COMPONENT driverSegmentos IS
 	PORT( codigoSegmentos : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			visors_enabled  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			 HEX0 : OUT std_logic_vector(6 downto 0);
 			 HEX1 : OUT std_logic_vector(6 downto 0);
 			 HEX2 : OUT std_logic_vector(6 downto 0);
@@ -78,10 +79,11 @@ ARCHITECTURE Structure OF sisa IS
 			led_verdes 	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			led_rojos 	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			visores 		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			visor_enable: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 			pulsadors 	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			switches 	: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 			ps2_clk 		: INOUT std_LOGIC;
-			ps2_data		: INOUT std_LOGIC));
+			ps2_data		: INOUT std_LOGIC);
 	END component;
 	
 	SIGNAL word_byteTObyte_m, wr_mTOwe : std_logic;
@@ -93,6 +95,7 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL wr_ioTOwr_io, rd_ioTOrd_io : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL wr_outTOwr_out, rd_inTOrd_in : STD_LOGIC;
 	SIGNAL visoresTO : STD_LOGIC_VECTOR(15 downto 0);
+	SIGNAL visorenableTO : STD_LOGIC_VECTOR(3 downto 0);
 	
 --	signal aux: std_LOGIC;
 	
@@ -145,12 +148,14 @@ BEGIN
 														  led_verdes => LEDG,
 														  led_rojos => LEDR,
 														  visores => visoresTO,
+														  visor_enable => visorenableTO,
 														  pulsadors => KEY,
 														  switches => SW(7 downto 0),
 														  ps2_clk => PS2_CLK,
 														  ps2_data => PS2_DATA);
 																	  
 	Segments: driverSegmentos port map (codigoSegmentos => visoresTO, 
+													visors_enabled => visorenableTO,
 													HEX0 => HEX0, 
 													HEX1 => HEX1, 
 													HEX2 => HEX2, 
