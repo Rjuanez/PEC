@@ -1,0 +1,6 @@
+
+State Machine - |sisa|MemoryController:memory0|SRAMController:sram_controller|estat
+Name estat.WAITING estat.NOTHING estat.WRITING 
+estat.WRITING 0 0 0 
+estat.NOTHING 0 1 1 
+estat.WAITING 1 0 1 
