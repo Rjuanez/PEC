@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 64-Bit"
 -- VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
 
--- DATE "03/28/2023 23:40:49"
+-- DATE "04/13/2023 19:23:56"
 
 -- 
 -- Device: Altera EP2C20F484C7 Package FBGA484
@@ -2326,12 +2326,12 @@ SIGNAL \Segments|h3|Mux3~0_combout\ : std_logic;
 SIGNAL \Segments|h3|Mux2~0_combout\ : std_logic;
 SIGNAL \Segments|h3|Mux1~0_combout\ : std_logic;
 SIGNAL \Segments|h3|Mux0~0_combout\ : std_logic;
-SIGNAL \proc0|d0|alu0|Div0|auto_generated|divider|divider|sel\ : std_logic_vector(271 DOWNTO 0);
-SIGNAL \SW~combout\ : std_logic_vector(9 DOWNTO 9);
 SIGNAL counter_clock : std_logic_vector(2 DOWNTO 0);
 SIGNAL \proc0|cu0|new_pc\ : std_logic_vector(15 DOWNTO 0);
 SIGNAL \proc0|cu0|ir_actual\ : std_logic_vector(15 DOWNTO 0);
 SIGNAL \proc0|d0|alu0|Div1|auto_generated|divider|divider|selnose\ : std_logic_vector(271 DOWNTO 0);
+SIGNAL \proc0|d0|alu0|Div0|auto_generated|divider|divider|sel\ : std_logic_vector(271 DOWNTO 0);
+SIGNAL \SW~combout\ : std_logic_vector(9 DOWNTO 9);
 SIGNAL \Segments|h3|ALT_INV_Mux0~0_combout\ : std_logic;
 SIGNAL \Segments|h2|ALT_INV_Mux0~0_combout\ : std_logic;
 SIGNAL \Segments|h1|ALT_INV_Mux0~0_combout\ : std_logic;

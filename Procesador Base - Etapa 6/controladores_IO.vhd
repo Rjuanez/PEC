@@ -18,7 +18,9 @@ ENTITY controladores_IO IS
 			pulsadors 	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 			switches 	: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
 			ps2_clk 		: INOUT std_LOGIC;
-			ps2_data		: INOUT std_LOGIC);
+			ps2_data		: INOUT std_LOGIC;
+			vga_cursor	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			vga_cursor_enable : OUT STD_LOGIC);
 END controladores_IO;
 
 ARCHITECTURE Structure OF controladores_IO IS
@@ -39,54 +41,64 @@ ARCHITECTURE Structure OF controladores_IO IS
    signal registro_io : BR_IO;
 	
 	signal char_key : STD_LOGIC_VECTOR (7 downto 0);
-	signal clear_reg: STD_LOGIC;
-	signal ack_key	 : STD_LOGIC;
+	signal clear_reg: STD_LOGIC := '0';
+	signal ack_key	 : STD_LOGIC := '0';
 	
 BEGIN
 --Proceso de escritura en los registros del BR del controlador de entrada salida
 	escritura: process(CLOCK_50) 
 		variable not_wr : std_logic := '0';
 	begin
-		case addr_io(3 downto 0) is
-			when "0111" => -- pulsadores 7
+		case addr_io is
+			when "00000111" => -- pulsadores 7
 				not_wr := '1';
-			when "1000" => --switches 8
+			when "00001000" => --switches 8
 				not_wr := '1';
 			when others => 
 				not_wr := '0';
 		end case;
 			
 		if rising_edge(CLOCK_50) then
-			--INICIALIZACIÖN DE LOS VISORES
+			--INICIALIZACIÓN DE LOS VISORES
 			if boot = '1' then
 				registro_io(9)(3 DOWNTO 0) <= "0000"; --APAGADOS al iniciar el dispositivo
+				registro_io(16) <= x"0000";
 			end if;
+
+			clear_reg <= '0';
 			
 			-- Actualizamos los pulsadores y switches
 			registro_io(7)(3 downto 0) <= pulsadors;
 			registro_io(8)(7 downto 0) <= switches;
-			registro_io(15)(7 downto 0) <= char_key;
-			registro_io(16)(0) <= ack_key;
 			
-			if addr_io = 16 then
-				clear_reg <= '1';
-			else
-				clear_reg <= '0';
+			if ack_key = '1' then 
+				registro_io(15)(7 downto 0) <= char_key;
+				registro_io(16)<="000000000000000"&ack_key;
 			end if;
 			
 			if wr_out = '1'  and not_wr = '0' then
-				registro_io(conv_integer(addr_io(4 DOWNTO 0))) <= wr_io; --QUITAR SELECCIÓN DE 5 BITS AL ENTREGAR
+				registro_io(conv_integer(addr_io)) <= wr_io; 
+				
+				if addr_io = 16 then
+					clear_reg <= '1';
+					registro_io(16)<=X"0000";
+				end if;
+				
 			end if;
 		end if;
 	end process escritura;
 	
-	rd_io <= registro_io(conv_integer(addr_io(4 DOWNTO 0))); --QUITAR SELECCIÓN DE 5 BITS AL ENTREGAR
+	rd_io <= registro_io(conv_integer(addr_io)); 
 	
 	--LECTURAS
 	led_verdes <= registro_io(5)(7 downto 0);
 	led_rojos <= registro_io(6)(7 downto 0);
 	visores <= registro_io(10);
 	visor_enable <= registro_io(9)(3 DOWNTO 0);
+	
+	--USAMOS VGA1 
+	vga_cursor <= x"0000";
+	vga_cursor_enable <= '0';
 	
 	controladorKeyboard: keyboard_controller port map(clk => CLOCK_50,
 																  reset => boot,
