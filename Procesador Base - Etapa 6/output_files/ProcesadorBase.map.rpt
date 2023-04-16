@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ProcesadorBase
-Sun Apr 16 20:55:54 2023
+Sun Apr 16 23:23:41 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -66,15 +66,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Apr 16 20:55:54 2023           ;
+; Analysis & Synthesis Status        ; Successful - Sun Apr 16 23:23:41 2023           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; ProcesadorBase                                  ;
 ; Top-level Entity Name              ; sisa                                            ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 4,979                                           ;
-;     Total combinational functions  ; 4,377                                           ;
-;     Dedicated logic registers      ; 788                                             ;
-; Total registers                    ; 788                                             ;
+; Total logic elements               ; 5,034                                           ;
+;     Total combinational functions  ; 4,432                                           ;
+;     Dedicated logic registers      ; 820                                             ;
+; Total registers                    ; 820                                             ;
 ; Total pins                         ; 114                                             ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 65,536                                          ;
@@ -241,20 +241,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                                                                       ;
 +---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 4,979                                                                                                                       ;
+; Estimated Total logic elements              ; 5,034                                                                                                                       ;
 ;                                             ;                                                                                                                             ;
-; Total combinational functions               ; 4377                                                                                                                        ;
+; Total combinational functions               ; 4432                                                                                                                        ;
 ; Logic element usage by number of LUT inputs ;                                                                                                                             ;
-;     -- 4 input functions                    ; 3270                                                                                                                        ;
-;     -- 3 input functions                    ; 878                                                                                                                         ;
-;     -- <=2 input functions                  ; 229                                                                                                                         ;
+;     -- 4 input functions                    ; 3268                                                                                                                        ;
+;     -- 3 input functions                    ; 897                                                                                                                         ;
+;     -- <=2 input functions                  ; 267                                                                                                                         ;
 ;                                             ;                                                                                                                             ;
 ; Logic elements by mode                      ;                                                                                                                             ;
-;     -- normal mode                          ; 3960                                                                                                                        ;
-;     -- arithmetic mode                      ; 417                                                                                                                         ;
+;     -- normal mode                          ; 3985                                                                                                                        ;
+;     -- arithmetic mode                      ; 447                                                                                                                         ;
 ;                                             ;                                                                                                                             ;
-; Total registers                             ; 788                                                                                                                         ;
-;     -- Dedicated logic registers            ; 788                                                                                                                         ;
+; Total registers                             ; 820                                                                                                                         ;
+;     -- Dedicated logic registers            ; 820                                                                                                                         ;
 ;     -- I/O registers                        ; 0                                                                                                                           ;
 ;                                             ;                                                                                                                             ;
 ; I/O pins                                    ; 114                                                                                                                         ;
@@ -262,8 +262,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Embedded Multiplier 9-bit elements          ; 4                                                                                                                           ;
 ; Maximum fan-out node                        ; vga_controller:video_controller|vga_ram_dual:U_MonitorRam|altsyncram:mem0_rtl_0|altsyncram_qug1:auto_generated|ram_block1a2 ;
 ; Maximum fan-out                             ; 678                                                                                                                         ;
-; Total fan-out                               ; 19087                                                                                                                       ;
-; Average fan-out                             ; 3.60                                                                                                                        ;
+; Total fan-out                               ; 19290                                                                                                                       ;
+; Average fan-out                             ; 3.58                                                                                                                        ;
 +---------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -272,11 +272,11 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                   ; Library Name ;
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |sisa                                           ; 4377 (4)          ; 788 (3)      ; 65536       ; 4            ; 0       ; 2         ; 114  ; 0            ; |sisa                                                                                                                                                                 ; work         ;
+; |sisa                                           ; 4432 (4)          ; 820 (3)      ; 65536       ; 4            ; 0       ; 2         ; 114  ; 0            ; |sisa                                                                                                                                                                 ; work         ;
 ;    |MemoryController:memory0|                   ; 61 (51)           ; 3 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|MemoryController:memory0                                                                                                                                        ; work         ;
 ;       |SRAMController:sram_controller|          ; 10 (10)           ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|MemoryController:memory0|SRAMController:sram_controller                                                                                                         ; work         ;
-;    |ProcesadorBase:proc0|                       ; 1831 (0)          ; 161 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0                                                                                                                                            ; work         ;
-;       |datapath:d0|                             ; 1715 (456)        ; 128 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0                                                                                                                                ; work         ;
+;    |ProcesadorBase:proc0|                       ; 1829 (0)          ; 161 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0                                                                                                                                            ; work         ;
+;       |datapath:d0|                             ; 1715 (457)        ; 128 (0)      ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0                                                                                                                                ; work         ;
 ;          |alu:alu0|                             ; 1095 (453)        ; 0 (0)        ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0                                                                                                                       ; work         ;
 ;             |lpm_divide:Div0|                   ; 354 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0                                                                                                       ; work         ;
 ;                |lpm_divide_rto:auto_generated|  ; 354 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_divide:Div0|lpm_divide_rto:auto_generated                                                                         ; work         ;
@@ -295,11 +295,11 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                |mult_h1t:auto_generated|        ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult0|mult_h1t:auto_generated                                                                                ; work         ;
 ;             |lpm_mult:Mult1|                    ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult1                                                                                                        ; work         ;
 ;                |mult_l8t:auto_generated|        ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|lpm_mult:Mult1|mult_l8t:auto_generated                                                                                ; work         ;
-;          |regfile:reg0|                         ; 164 (164)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|regfile:reg0                                                                                                                   ; work         ;
-;       |unidad_control:cu0|                      ; 116 (67)          ; 33 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|unidad_control:cu0                                                                                                                         ; work         ;
-;          |control_l:clogic0|                    ; 46 (46)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|control_l:clogic0                                                                                                       ; work         ;
-;          |multi:ge|                             ; 3 (3)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|multi:ge                                                                                                                ; work         ;
-;    |controladores_IO:controladosIO|             ; 391 (95)          ; 600 (529)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controladores_IO:controladosIO                                                                                                                                  ; work         ;
+;          |regfile:reg0|                         ; 163 (163)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|datapath:d0|regfile:reg0                                                                                                                   ; work         ;
+;       |unidad_control:cu0|                      ; 114 (67)          ; 33 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|unidad_control:cu0                                                                                                                         ; work         ;
+;          |control_l:clogic0|                    ; 45 (45)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|control_l:clogic0                                                                                                       ; work         ;
+;          |multi:ge|                             ; 2 (2)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|multi:ge                                                                                                                ; work         ;
+;    |controladores_IO:controladosIO|             ; 448 (152)         ; 632 (561)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controladores_IO:controladosIO                                                                                                                                  ; work         ;
 ;       |keyboard_controller:controladorKeyboard| ; 296 (7)           ; 71 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controladores_IO:controladosIO|keyboard_controller:controladorKeyboard                                                                                          ; work         ;
 ;          |ps2_keyboard_interface:k0|            ; 289 (289)         ; 61 (61)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|controladores_IO:controladosIO|keyboard_controller:controladorKeyboard|ps2_keyboard_interface:k0                                                                ; work         ;
 ;    |driverSegmentos:Segments|                   ; 28 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sisa|driverSegmentos:Segments                                                                                                                                        ; work         ;
@@ -422,12 +422,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 788   ;
+; Total registers                              ; 820   ;
 ; Number of registers using Synchronous Clear  ; 52    ;
-; Number of registers using Synchronous Load   ; 11    ;
+; Number of registers using Synchronous Load   ; 27    ;
 ; Number of registers using Asynchronous Clear ; 22    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 724   ;
+; Number of registers using Clock Enable       ; 708   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -457,29 +457,30 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |sisa|controladores_IO:controladosIO|registro_io[8][5]                                                                       ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sisa|controladores_IO:controladosIO|registro_io[7][3]                                                                       ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |sisa|vga_controller:video_controller|vga_sync:u_vga_sync|v_count_reg[5]                                                     ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |sisa|controladores_IO:controladosIO|keyboard_controller:controladorKeyboard|ps2_keyboard_interface:k0|q[0]                  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|ir_actual[3]                                                                   ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |sisa|controladores_IO:controladosIO|keyboard_controller:controladorKeyboard|ps2_keyboard_interface:k0|timer_60usec_count[1] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |sisa|controladores_IO:controladosIO|keyboard_controller:controladorKeyboard|ps2_keyboard_interface:k0|timer_5usec_count[2]  ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |sisa|controladores_IO:controladosIO|keyboard_controller:controladorKeyboard|ps2_keyboard_interface:k0|rx_ascii[7]           ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sisa|controladores_IO:controladosIO|registro_io[9][0]                                                                       ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sisa|controladores_IO:controladosIO|keyboard_controller:controladorKeyboard|ps2_keyboard_interface:k0|bit_count[1]          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |sisa|controladores_IO:controladosIO|registro_io[8][3]                                                                       ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sisa|controladores_IO:controladosIO|registro_io[7][1]                                                                       ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |sisa|vga_controller:video_controller|vga_sync:u_vga_sync|v_count_reg[9]                                                     ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |sisa|controladores_IO:controladosIO|keyboard_controller:controladorKeyboard|ps2_keyboard_interface:k0|q[10]                 ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|ir_actual[9]                                                                   ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |sisa|controladores_IO:controladosIO|keyboard_controller:controladorKeyboard|ps2_keyboard_interface:k0|timer_60usec_count[5] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |sisa|controladores_IO:controladosIO|keyboard_controller:controladorKeyboard|ps2_keyboard_interface:k0|timer_5usec_count[1]  ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |sisa|controladores_IO:controladosIO|keyboard_controller:controladorKeyboard|ps2_keyboard_interface:k0|rx_ascii[2]           ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sisa|controladores_IO:controladosIO|registro_io[9][1]                                                                       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |sisa|controladores_IO:controladosIO|keyboard_controller:controladorKeyboard|ps2_keyboard_interface:k0|bit_count[2]          ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |sisa|controladores_IO:controladosIO|registro_io[15][2]                                                                      ;
-; 5:1                ; 15 bits   ; 45 LEs        ; 30 LEs               ; 15 LEs                 ; Yes        ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|new_pc[1]                                                                      ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |sisa|controladores_IO:controladosIO|registro_io[16][13]                                                                     ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sisa|vga_controller:video_controller|vga_ram_dual:U_MonitorRam|mem0                                                         ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|TOy[3]                                                                                ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 30 LEs               ; 15 LEs                 ; Yes        ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|new_pc[2]                                                                      ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |sisa|controladores_IO:controladosIO|registro_io[16][5]                                                                      ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |sisa|controladores_IO:controladosIO|contador_milisegundos[2]                                                                ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sisa|vga_controller:video_controller|vga_ram_dual:U_MonitorRam|mem1                                                         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|TOy[7]                                                                                ;
 ; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |sisa|MemoryController:memory0|rd_data[14]                                                                                   ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|control_l:clogic0|in_d[1]                                                      ;
 ; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |sisa|MemoryController:memory0|rd_data[2]                                                                                    ;
-; 16:1               ; 3 bits    ; 30 LEs        ; 3 LEs                ; 27 LEs                 ; No         ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|control_l:clogic0|Mux8                                                         ;
-; 36:1               ; 16 bits   ; 384 LEs       ; 384 LEs              ; 0 LEs                  ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|Mux2                                                                                  ;
+; 16:1               ; 3 bits    ; 30 LEs        ; 3 LEs                ; 27 LEs                 ; No         ; |sisa|ProcesadorBase:proc0|unidad_control:cu0|control_l:clogic0|Mux7                                                         ;
+; 36:1               ; 16 bits   ; 384 LEs       ; 384 LEs              ; 0 LEs                  ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|Mux5                                                                                  ;
 ; 33:1               ; 3 bits    ; 66 LEs        ; 39 LEs               ; 27 LEs                 ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|Mux6                                                                         ;
 ; 32:1               ; 3 bits    ; 63 LEs        ; 39 LEs               ; 24 LEs                 ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|Mux10                                                                        ;
-; 34:1               ; 2 bits    ; 44 LEs        ; 28 LEs               ; 16 LEs                 ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|Mux3                                                                         ;
+; 34:1               ; 2 bits    ; 44 LEs        ; 28 LEs               ; 16 LEs                 ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|Mux2                                                                         ;
 ; 33:1               ; 2 bits    ; 44 LEs        ; 28 LEs               ; 16 LEs                 ; No         ; |sisa|ProcesadorBase:proc0|datapath:d0|alu:alu0|Mux13                                                                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------+
 
@@ -868,7 +869,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:14     ;
+; Top            ; 00:00:15     ;
 +----------------+--------------+
 
 
@@ -878,7 +879,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun Apr 16 20:55:38 2023
+    Info: Processing started: Sun Apr 16 23:23:25 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off proc -c ProcesadorBase
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file ficheros/unidad_control.vhd
@@ -954,7 +955,7 @@ Info (12128): Elaborating entity "regfile" for hierarchy "ProcesadorBase:proc0|d
 Info (12128): Elaborating entity "MemoryController" for hierarchy "MemoryController:memory0"
 Info (12128): Elaborating entity "SRAMController" for hierarchy "MemoryController:memory0|SRAMController:sram_controller"
 Info (12128): Elaborating entity "controladores_IO" for hierarchy "controladores_IO:controladosIO"
-Warning (10492): VHDL Process Statement warning at controladores_IO.vhd(52): signal "addr_io" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at controladores_IO.vhd(55): signal "addr_io" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "keyboard_controller" for hierarchy "controladores_IO:controladosIO|keyboard_controller:controladorKeyboard"
 Warning (10036): Verilog HDL or VHDL warning at keyboard_controller.vhd(39): object "rx_extended" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at keyboard_controller.vhd(44): object "tx_write_ack_o" assigned a value but never read
@@ -1117,16 +1118,16 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[8]"
-Info (21057): Implemented 5147 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 5202 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 81 output pins
     Info (21060): Implemented 18 bidirectional pins
-    Info (21061): Implemented 5013 logic cells
+    Info (21061): Implemented 5068 logic cells
     Info (21064): Implemented 16 RAM segments
     Info (21062): Implemented 4 DSP elements
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 36 warnings
-    Info: Peak virtual memory: 4673 megabytes
-    Info: Processing ended: Sun Apr 16 20:55:54 2023
+    Info: Peak virtual memory: 4681 megabytes
+    Info: Processing ended: Sun Apr 16 23:23:41 2023
     Info: Elapsed time: 00:00:16
     Info: Total CPU time (on all processors): 00:00:06
 

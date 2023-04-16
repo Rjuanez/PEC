@@ -44,6 +44,9 @@ ARCHITECTURE Structure OF controladores_IO IS
 	signal clear_reg: STD_LOGIC := '0';
 	signal ack_key	 : STD_LOGIC := '0';
 	
+	signal contador_ciclos : STD_LOGIC_VECTOR(15 downto 0):=x"0000";
+	signal contador_milisegundos : STD_LOGIC_VECTOR(15 downto 0):=x"0000";
+	
 BEGIN
 --Proceso de escritura en los registros del BR del controlador de entrada salida
 	escritura: process(CLOCK_50) 
@@ -67,6 +70,15 @@ BEGIN
 
 			clear_reg <= '0';
 			
+			if contador_ciclos=0 then
+				contador_ciclos<=x"C350"; -- tiempo de ciclo=20ns(50Mhz) 1ms=50000ciclos
+				if contador_milisegundos>0 then
+					contador_milisegundos <= contador_milisegundos-1;
+				end if;
+			else
+				contador_ciclos <= contador_ciclos-1;
+			end if;
+			
 			-- Actualizamos los pulsadores y switches
 			registro_io(7)(3 downto 0) <= pulsadors;
 			registro_io(8)(7 downto 0) <= switches;
@@ -82,9 +94,12 @@ BEGIN
 				if addr_io = 16 then
 					clear_reg <= '1';
 					registro_io(16)<=X"0000";
+				elsif addr_io = 21 then
+					contador_milisegundos <= wr_io;
 				end if;
-				
 			end if;
+			registro_io(20) <= contador_ciclos;
+			registro_io(21) <= contador_milisegundos;
 		end if;
 	end process escritura;
 	

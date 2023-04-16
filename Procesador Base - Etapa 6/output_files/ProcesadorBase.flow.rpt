@@ -1,5 +1,5 @@
 Flow report for ProcesadorBase
-Sun Apr 16 20:56:18 2023
+Sun Apr 16 23:24:05 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Sun Apr 16 20:56:18 2023           ;
+; Flow Status                        ; Successful - Sun Apr 16 23:24:05 2023           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; ProcesadorBase                                  ;
 ; Top-level Entity Name              ; sisa                                            ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 4,665 / 18,752 ( 25 % )                         ;
-;     Total combinational functions  ; 4,377 / 18,752 ( 23 % )                         ;
-;     Dedicated logic registers      ; 788 / 18,752 ( 4 % )                            ;
-; Total registers                    ; 788                                             ;
+; Total logic elements               ; 4,701 / 18,752 ( 25 % )                         ;
+;     Total combinational functions  ; 4,432 / 18,752 ( 24 % )                         ;
+;     Dedicated logic registers      ; 820 / 18,752 ( 4 % )                            ;
+; Total registers                    ; 820                                             ;
 ; Total pins                         ; 114 / 315 ( 36 % )                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 65,536 / 239,616 ( 27 % )                       ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/16/2023 20:55:38 ;
+; Start date & time ; 04/16/2023 23:23:25 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; ProcesadorBase      ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+--------------------------------------------------------------------------------------------------+----------------+-------------+----------------+
 ; Assignment Name                     ; Value                                                                                            ; Default Value  ; Entity Name ; Section Id     ;
 +-------------------------------------+--------------------------------------------------------------------------------------------------+----------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 96830608885729.168167133821188                                                                   ; --             ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 96830608885729.168168020526480                                                                   ; --             ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                                                                             ; --             ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                                                                           ; <None>         ; --          ; --             ;
 ; ENABLE_SIGNALTAP                    ; On                                                                                               ; --             ; --          ; --             ;
@@ -98,12 +98,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:15     ; 1.0                     ; 4673 MB             ; 00:00:06                           ;
-; Fitter                    ; 00:00:17     ; 1.0                     ; 4893 MB             ; 00:00:06                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 4571 MB             ; 00:00:00                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 4641 MB             ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4560 MB             ; 00:00:00                           ;
-; Total                     ; 00:00:35     ; --                      ; --                  ; 00:00:13                           ;
+; Analysis & Synthesis      ; 00:00:16     ; 1.0                     ; 4681 MB             ; 00:00:06                           ;
+; Fitter                    ; 00:00:17     ; 1.0                     ; 4883 MB             ; 00:00:07                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 4557 MB             ; 00:00:00                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 4632 MB             ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4560 MB             ; 00:00:01                           ;
+; Total                     ; 00:00:36     ; --                      ; --                  ; 00:00:15                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
