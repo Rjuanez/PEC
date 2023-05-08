@@ -1,0 +1,20 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.numeric_std.all;
+use IEEE.std_logic_unsigned.all;
+
+entity pulsadores is
+    Port (clk        	: in     STD_LOGIC;
+          boot				: in     STD_LOGIC;
+          inta				: in		STD_LOGIC;
+			 intr				: out		STD_LOGIC;
+			 keys_in			: in		STD_LOGIC_VECTOR(3 DOWNTO 0);
+			 keys_out		: out		STD_LOGIC_VECTOR(3 DOWNTO 0));
+end pulsadores;
+
+ARCHITECTURE Structure OF controladores_IO IS
+
+SIGNAL mem_values : STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+BEGIN
+END Structure;
