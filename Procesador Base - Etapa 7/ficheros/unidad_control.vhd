@@ -2,31 +2,36 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
 USE ieee.std_logic_unsigned.all;
-USE work.func_ayuda_control_pkg.all;
+
 
 ENTITY unidad_control IS
-    PORT (boot      : IN  STD_LOGIC;
-          clk       : IN  STD_LOGIC;
-          datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 Z			  : IN  STD_LOGIC;
-			 jump_dir  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op        : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-          wrd       : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-          addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_b    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          pc        : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          ins_dad   : OUT STD_LOGIC;
-          in_d      : OUT STD_LOGIC_VECTOR(1 downto 0);
-          immed_x2  : OUT STD_LOGIC;
-          wr_m      : OUT STD_LOGIC;
-          word_byte : OUT STD_LOGIC;
-			 Rb_N		  : OUT STD_LOGIC;
-			 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 rd_in	  : OUT STD_LOGIC;
-			 wr_out	  : OUT STD_LOGIC;
-			 int_act   : OUT STD_LOGIC_VECTOR(2 DOWNTO 0));
+    PORT (boot      	: IN  STD_LOGIC;
+          clk       	: IN  STD_LOGIC;
+          datard_m  	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 Z			  	: IN  STD_LOGIC;
+			 jump_dir  	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          op        	: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+          wrd       	: OUT STD_LOGIC;
+          addr_a    	: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_b    	: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_d    	: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          immed     	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          pc        	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          ins_dad   	: OUT STD_LOGIC;
+          in_d      	: OUT STD_LOGIC_VECTOR(2 downto 0);
+          immed_x2  	: OUT STD_LOGIC;
+          wr_m      	: OUT STD_LOGIC;
+          word_byte 	: OUT STD_LOGIC;
+			 Rb_N		  	: OUT STD_LOGIC;
+			 addr_io	  	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 rd_in	  	: OUT STD_LOGIC;
+			 wr_out	  	: OUT STD_LOGIC;
+			 sys_a	  	: OUT STD_LOGIC; -- señal que viene des de control_l y controla si sale el registo de sistema por el a del regfile
+			 wr_sys	  	: OUT STD_LOGIC;  -- señal que viene des de control_l y controla si se puede escribir en el registro ed sistema
+			 reg_op	  	: OUT STD_LOGIC_VECTOR(2 DOWNTO 0); --señal que indica las operaciones que tiene que hacer la alu
+			 intr		  	: IN STD_LOGIC;
+			 inta		  : OUT STD_LOGIC;
+			 int_enabled: IN STD_LOGIC);
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
@@ -34,50 +39,64 @@ ARCHITECTURE Structure OF unidad_control IS
 	 PORT (ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 op        : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
           ldpc      : OUT STD_LOGIC;
-          wrd       : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+          wrd       : OUT STD_LOGIC;
           addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_b    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           wr_m      : OUT STD_LOGIC;
-          in_d      : OUT STD_LOGIC_VECTOR(1 downto 0);
+          in_d      : OUT STD_LOGIC_VECTOR(2 downto 0);
           immed_x2  : OUT STD_LOGIC;
           word_byte : OUT STD_LOGIC;
 			 Rb_N		  : OUT STD_LOGIC;
 			 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 rd_in	  : OUT STD_LOGIC;
 			 wr_out	  : OUT STD_LOGIC;
-			 int_act   : OUT STD_LOGIC_VECTOR(2 DOWNTO 0));
+			 tknbr	  : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+			 Z			  : IN  STD_LOGIC;
+			 sys_a	  : OUT STD_LOGIC;
+			 wr_sys	  : OUT STD_LOGIC;
+			 system_act: IN  STD_LOGIC;
+			 inta		  : OUT STD_LOGIC;
+			 reg_op	  : OUT STD_LOGIC_VECTOR(2 DOWNTO 0));
 	END component;
 	
 	COMPONENT multi is
     port(clk       : IN  STD_LOGIC;
          boot      : IN  STD_LOGIC;
          ldpc_l    : IN  STD_LOGIC;
-         wrd_l     : IN  STD_LOGIC_VECTOR(1 DOWNTO 0);
+         wrd_l     : IN  STD_LOGIC;
          wr_m_l    : IN  STD_LOGIC;
          w_b       : IN  STD_LOGIC;
          ldpc      : OUT STD_LOGIC;
-         wrd       : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+         wrd       : OUT STD_LOGIC;
          wr_m      : OUT STD_LOGIC;
          ldir      : OUT STD_LOGIC;
          ins_dad   : OUT STD_LOGIC;
-         word_byte : OUT STD_LOGIC);
+         word_byte : OUT STD_LOGIC;
+			to_system : IN  STD_LOGIC;
+			system_act: OUT STD_LOGIC);
 	end component;
 
     -- Tambien crearemos los cables/buses (signals) necesarios para unir las entidades
     -- Aqui iria la definicion del program counter
 	 SIGNAL mux_ldpc : STD_LOGIC;	--señal que indica si se puede incrementar el pc, el halt la pone a 0
-	 SIGNAL new_pc : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	 SIGNAL new_pc, temp_pc : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	 
 	 SIGNAL ir_actual : std_LOGIC_VECTOR(15 DOWNTO 0);
 	 SIGNAL ldpcTOmulti : std_logic;
-	 SIGNAL wrd_lTOmulti : std_logic_VECTOR(1 DOWNTO 0);
+	 SIGNAL wrd_lTOmulti : std_logic;
 	 SIGNAL w_bTOmulti : std_logic;
 	 SIGNAL wr_m_lTOmulti : std_logic;
 	 SIGNAL ldir_aux : std_logic; --para saber si cargamos nuevo ir
 	 
+	 SIGNAL tknbrS : STD_LOGIC_VECTOR(1 DOWNTO 0);
+	 
 	 SIGNAL inm_pc : std_LOGIC_VECTOR(15 DOWNTO 0); --inmediato multiplicado por 2
+	 
+	 SIGNAL to_systemTO : STD_LOGIC;
+	 
+	 SIGNAL system_actTOsystem_act : STD_LOGIC;
 	 
 BEGIN
 	 -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
@@ -101,7 +120,13 @@ BEGIN
 		addr_io => addr_io,
 		rd_in => rd_in,
 		wr_out => wr_out,
-		int_act => int_act);
+		tknbr => tknbrS,
+		Z => Z,
+		sys_a => sys_a,
+		wr_sys => wr_sys,
+		reg_op => reg_op,
+		system_act => system_actTOsystem_act,
+		inta => inta);
 	
 	ge: multi port map (
 		clk => clk,
@@ -115,12 +140,25 @@ BEGIN
 		wr_m => wr_m,
 		ldir => ldir_aux,
 		ins_dad => ins_dad,
-		word_byte => word_byte);
+		word_byte => word_byte,
+		to_system => to_systemTO,
+		system_act => system_actTOsystem_act);
 	
 	pc <= new_pc;
 	
-	-- Bus que contiene la direccion de salto relativo, se 
+	-- esta señal es asincrona dado que el cambio de ciclo es sincrono y por tanto no hace falta que esta también lo sea
+	to_systemTO <= intr and int_enabled;
+	
 	inm_pc <= (15 downto 9 => ir_actual(7)) & ir_actual(7 downto 0) & '0'; -- multiplicamos por 2 u
+	-- se usa la señal tknb que viene de control_l para determinar el siguiente pc, se hace asi para tener toda la logica de control en un mismo fichero
+	
+
+	
+	with tknbrS select
+		temp_pc <= new_pc + 2 + inm_pc when "01",
+					  jump_dir 				 when "10",
+					  new_pc + 2			 when others;
+	
 	
 	update_pc: process(clk) 
 	begin
@@ -128,13 +166,7 @@ BEGIN
 			if(boot = '1') then --señal de boot a 1 indica que el procesador se reinicia
 				new_pc <= x"C000";
 			elsif(mux_ldpc = '1') then -- ldpc esta a 1 si hay que cargar nuevo pc
-				if hay_que_hacer_salto_relativo(ir => ir_actual, z => Z) then
-				new_pc <= new_pc + 2 + inm_pc;
-				elsif hay_que_hacer_salto_absoluto(ir => ir_actual, z => Z) then
-				new_pc <= jump_dir;
-				else
-				new_pc <= new_pc + 2;
-				end if;
+				new_pc <= temp_pc;
 			end if;
 		end if;
 	end process;

@@ -20,20 +20,62 @@ ENTITY controladores_IO IS
 			ps2_clk 		: INOUT std_LOGIC;
 			ps2_data		: INOUT std_LOGIC;
 			vga_cursor	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			vga_cursor_enable : OUT STD_LOGIC);
+			vga_cursor_enable : OUT STD_LOGIC;
+			intr			: OUT STD_LOGIC;
+			inta 			: IN STD_LOGIC);
 END controladores_IO;
 
 ARCHITECTURE Structure OF controladores_IO IS
 
-	COMPONENT keyboard_controller is
+	component keyboard_controller is
     Port (clk        : in    STD_LOGIC;
           reset      : in    STD_LOGIC;
           ps2_clk    : inout STD_LOGIC;
           ps2_data   : inout STD_LOGIC;
           read_char  : out   STD_LOGIC_VECTOR (7 downto 0);
           clear_char : in    STD_LOGIC;
-          data_ready : out   STD_LOGIC);
+          data_ready : out   STD_LOGIC;
+			 inta 		: in	  STD_LOGIC;
+			 intr       : out 	  STD_LOGIC);
 	end component;
+	
+	component controlador_interrupciones IS
+	Port (boot 			: IN STD_LOGIC;
+			clk 			: IN std_logic;
+			inta			: IN STD_LOGIC;
+			intr			: OUT STD_LOGIC;
+			key_inta		: OUT STD_LOGIC;
+			key_intr		: IN STD_LOGIC;
+			switch_inta	: OUT STD_LOGIC;
+			switch_intr	: IN STD_LOGIC;
+			ps2_inta		: OUT STD_LOGIC;
+			ps2_intr		: IN STD_LOGIC;
+			tim_inta		: OUT STD_LOGIC;
+			tim_intr		: IN STD_LOGIC;
+			iid			: OUT STD_LOGIC_VECTOR (7 DOWNTO 0));
+	end component;
+	
+	component int_controller is
+		Generic (
+				IN_VEC_SIZE : integer := 8
+		);
+		Port (clk        		: in     STD_LOGIC;
+				boot				: in     STD_LOGIC;
+				inta				: in		STD_LOGIC;
+				intr				: out		STD_LOGIC;
+				value_in			: in		STD_LOGIC_VECTOR(IN_VEC_SIZE-1 DOWNTO 0));
+	end component;
+	
+	component timmer IS
+	generic (
+		numero_inicial: natural := 500000000
+	);
+	PORT( 
+		Clock_in : IN std_logic;
+		intr		: OUT std_logic;
+		inta		: IN std_logic);
+	END component;
+
 
 	--type BR_IO is array (255 downto 0) of std_logic_vector(15 downto 0); DESCOMENTAR ENTREGA
 	-- BANCO DE REGISTROS DE ENTRADA SALIDA
@@ -47,7 +89,16 @@ ARCHITECTURE Structure OF controladores_IO IS
 	signal contador_ciclos : STD_LOGIC_VECTOR(15 downto 0):=x"0000";
 	signal contador_milisegundos : STD_LOGIC_VECTOR(15 downto 0):=x"0000";
 	
+	signal intrS, intaS : STD_LOGIC; -- temp
+	
+	signal intr_keyboard, inta_keyboard : STD_LOGIC; 
+	signal intr_pusladores, inta_pusladores : STD_LOGIC; 
+	signal intr_interruptores, inta_interruptores : STD_LOGIC;
+	signal intr_timmer, inta_timmer : STD_LOGIC;
+	signal iidTO : STD_LOGIC_VECTOR(7 DOWNTO 0);
+	
 BEGIN
+	
 --Proceso de escritura en los registros del BR del controlador de entrada salida
 	escritura: process(CLOCK_50) 
 		variable not_wr : std_logic := '0';
@@ -62,6 +113,7 @@ BEGIN
 		end case;
 			
 		if rising_edge(CLOCK_50) then
+		
 			--INICIALIZACIÓN DE LOS VISORES
 			if boot = '1' then
 				registro_io(9)(3 DOWNTO 0) <= "0000"; --APAGADOS al iniciar el dispositivo
@@ -83,11 +135,13 @@ BEGIN
 			registro_io(7)(3 downto 0) <= pulsadors;
 			registro_io(8)(7 downto 0) <= switches;
 			
+			-- registros del keyboard
 			if ack_key = '1' then 
 				registro_io(15)(7 downto 0) <= char_key;
 				registro_io(16)<="000000000000000"&ack_key;
 			end if;
 			
+			--escritura a registros 
 			if wr_out = '1'  and not_wr = '0' then
 				registro_io(conv_integer(addr_io)) <= wr_io; 
 				
@@ -100,10 +154,22 @@ BEGIN
 			end if;
 			registro_io(20) <= contador_ciclos;
 			registro_io(21) <= contador_milisegundos;
+			
+			
+			-- SI SE ESTA EJECUANTANDO getiid SE ENVIA EL IID POR RD_IO
+			-- el rd_io llega hasta datapath y entra por d para guardar el valor del iid en cualquier registro
+			-- sino se envia el valor de los registros de entrad/salida
+			if inta = '1' then
+				rd_io <= (15 downto 8 => '0')&iidTO;
+			else 
+				rd_io <= registro_io(conv_integer(addr_io));
+			end if;
 		end if;
+		
+		
 	end process escritura;
 	
-	rd_io <= registro_io(conv_integer(addr_io)); 
+
 	
 	--LECTURAS
 	led_verdes <= registro_io(5)(7 downto 0);
@@ -115,12 +181,51 @@ BEGIN
 	vga_cursor <= x"0000";
 	vga_cursor_enable <= '0';
 	
+	prio_int_controller: controlador_interrupciones
+	port map(boot 			=> boot,
+				clk  			=> CLOCK_50,
+				inta 			=> inta,
+				intr 			=> intr,
+				key_inta		=> inta_pusladores,
+				key_intr		=> intr_pusladores,
+				switch_inta	=> inta_interruptores,
+				switch_intr	=>	intr_interruptores,
+				ps2_inta		=> inta_keyboard,
+				ps2_intr		=> intr_keyboard,
+				tim_inta		=> inta_timmer,
+				tim_intr		=> intr_timmer,
+				iid			=> iidTO);
+				
+	int_pulsadores: int_controller
+	generic map(IN_VEC_SIZE => 4)
+	port map(boot 			=> boot,
+				clk  			=> CLOCK_50,
+				inta 			=> inta_pusladores,
+				intr 			=> intr_pusladores,
+				value_in		=> pulsadors);
+				
+	int_interruptores: int_controller			
+	generic map(IN_VEC_SIZE => 8)
+	port map(boot 			=> boot,
+				clk  			=> CLOCK_50,
+				inta 			=> inta_interruptores,
+				intr 			=> intr_interruptores,
+				value_in		=> switches);
+				
+	int_timmer: timmer			
+	generic map(numero_inicial => 1250000)
+	port map(Clock_in  	=> CLOCK_50,
+				inta 			=> inta_timmer,
+				intr 			=> intr_timmer);
+	
 	controladorKeyboard: keyboard_controller port map(clk => CLOCK_50,
 																  reset => boot,
 																  ps2_clk => ps2_clk,
 																  ps2_data => ps2_data,
 																  read_char => char_key,
 																  clear_char => clear_reg,
-																  data_ready => ack_key);
+																  data_ready => ack_key,
+																  inta => inta_keyboard,
+																  intr => intr_keyboard);
 	
 END Structure; 

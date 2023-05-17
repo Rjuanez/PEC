@@ -44,7 +44,9 @@ ARCHITECTURE Structure OF sisa IS
 				 wr_io	  : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 				 rd_in	  : OUT STD_LOGIC;
-				 wr_out	  : OUT STD_LOGIC);
+				 wr_out	  : OUT STD_LOGIC;
+				 inta		  : OUT STD_LOGIC;
+				 intr		  : IN STD_LOGIC);
 	END component;
 
 	COMPONENT MemoryController is
@@ -95,7 +97,9 @@ ARCHITECTURE Structure OF sisa IS
 			ps2_clk 		: INOUT std_LOGIC;
 			ps2_data		: INOUT std_LOGIC;
 			vga_cursor	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			vga_cursor_enable : OUT STD_LOGIC);
+			vga_cursor_enable : OUT STD_LOGIC;
+			intr			: OUT STD_LOGIC;
+			inta		   : IN STD_LOGIC);
 	END component;
 	
 	COMPONENT vga_controller is
@@ -129,6 +133,7 @@ ARCHITECTURE Structure OF sisa IS
 	SIGNAL wr_outTOwr_out, rd_inTOrd_in : STD_LOGIC;
 	SIGNAL visoresTO : STD_LOGIC_VECTOR(15 downto 0);
 	SIGNAL visorenableTO : STD_LOGIC_VECTOR(3 downto 0);
+	SIGNAL intrTOintr, intaTOinta		: STD_LOGIC;
 	
 	--Señales de conexión MemoryController y vga_controller
 	SIGNAL addr_memTOvga : STD_LOGIC_VECTOR(12 downto 0);
@@ -141,6 +146,8 @@ ARCHITECTURE Structure OF sisa IS
 	
 	--Señales conversión colores vga
 	SIGNAL red, green, blue : STD_LOGIC_VECTOR(7 downto 0);
+	
+	
 	
 BEGIN
 	clk_counter: process(CLOCK_50) 
@@ -165,7 +172,9 @@ BEGIN
 						 wr_io => wr_ioTOwr_io,
 						 addr_io => addr_ioTOaddr_io,
 						 wr_out => wr_outTOwr_out,
-						 rd_in => rd_inTOrd_in);
+						 rd_in => rd_inTOrd_in,
+						 intr => intrTOintr,
+						 inta => intaTOinta);
 	
 	memory0: MemoryController port map(CLOCK_50 => CLOCK_50, 
 							addr => addr_mTOaddr,
@@ -202,7 +211,9 @@ BEGIN
 														  ps2_clk => PS2_CLK,
 														  ps2_data => PS2_DAT,
 														  vga_cursor => cursor_IOTOvga,
-														  vga_cursor_enable => enable_IOTOvga);
+														  vga_cursor_enable => enable_IOTOvga,
+														  intr => intrTOintr,
+														  inta => intaTOinta);
 	
 	video_controller: vga_controller port map(clk_50mhz => CLOCK_50,
 															reset => SW(9),

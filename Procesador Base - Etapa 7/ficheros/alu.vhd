@@ -87,6 +87,7 @@ BEGIN
 			  multu(31 DOWNTO 16)						when MULHU,
 			  divi											when DIV,
 			  diviu											when DIVU,
+			  x												when OUT_X,
 			  x + y 											when others; -- ADD, ADDI, LD, ST, LDB, STB
 
 END Structure;

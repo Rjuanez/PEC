@@ -22,3 +22,9 @@ Name estat.WAITING estat.NOTHING estat.WRITING
 estat.WRITING 0 0 0 
 estat.NOTHING 0 1 1 
 estat.WAITING 1 0 1 
+
+State Machine - |sisa|ProcesadorBase:proc0|unidad_control:cu0|multi:ge|estat
+Name estat.SYSTEM estat.DEMW estat.F 
+estat.F 0 0 0 
+estat.DEMW 0 1 1 
+estat.SYSTEM 1 0 1 

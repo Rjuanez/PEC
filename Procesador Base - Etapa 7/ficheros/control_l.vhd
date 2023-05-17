@@ -2,36 +2,82 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
 use work.const_alu.all;
+USE work.func_ayuda_control_pkg.all;
 
 ENTITY control_l IS
     PORT (ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
           op        : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
           ldpc      : OUT STD_LOGIC;
-          wrd       : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+          wrd       : OUT STD_LOGIC;
           addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_b    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
           immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
           wr_m      : OUT STD_LOGIC; 
-          in_d      : OUT STD_LOGIC_VECTOR(1 downto 0);
+          in_d      : OUT STD_LOGIC_VECTOR(2 downto 0);
           immed_x2  : OUT STD_LOGIC;
           word_byte : OUT STD_LOGIC;
 			 Rb_N		  : OUT STD_LOGIC;
 			 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 			 rd_in	  : OUT STD_LOGIC;
 			 wr_out	  : OUT STD_LOGIC;
-			 int_act   : OUT STD_LOGIC_VECTOR(2 DOWNTO 0));
+			 tknbr	  : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+			 Z			  : IN  STD_LOGIC;
+			 sys_a	  : OUT STD_LOGIC;
+			 wr_sys	  : OUT STD_LOGIC;
+			 system_act: IN  STD_LOGIC;
+			 inta		  : OUT STD_LOGIC;
+			 reg_op	  : OUT STD_LOGIC_VECTOR(2 DOWNTO 0));
 END control_l;
 
 
 ARCHITECTURE Structure OF control_l IS
 	SIGNAL arit    : STD_LOGIC_VECTOR(4 DOWNTO 0);
 	SIGNAL cmp     : STD_LOGIC_VECTOR(4 DOWNTO 0);
+	SIGNAL special : STD_LOGIC_VECTOR(4 DOWNTO 0);
 	SIGNAL ext_arit: STD_LOGIC_VECTOR(4 DOWNTO 0);
 	SIGNAL mov		: STD_LOGIC_VECTOR(4 DOWNTO 0);
 	SIGNAL in_out	: STD_LOGIC_VECTOR(4 DOWNTO 0);
 BEGIN
 
+		-- GETIID: inta = '1' y in_d se pone para que entre rd_io
+		inta <= '1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "101000" else '0';
+		-- MODO SITEMA: cuando esta en el ciclo de sistema, lo primero que tiene que hacer es desactivar las interrupciones
+		-- hay que guardar pc en S51
+		-- hay que poner S5 en pc, por tanto hay que activat sys_a = '1' y tknbrn 
+
+		--RETI: esta instruccion restaura S0 en S7 y ademas envia el valor del registro especial de S1 a PC. ESto lo hace a traves del jump dir. Por tanto, como jump dir esta conectadao a la salida a,
+		-- 	  solo se tiene que hacer que por la salida a salga s1, por tanto sys_a = '1' y reg_op ="100" y que el siguiente pc sea jump_dir
+
+		-- EI /DI envian "001" i "010" respecitvamente, la operacion llega hasta el regflie y segnu sea hace una cosa o otra.
+		
+		--primero hay que poner la señal de system_act, porque siempre hay instruciones ejecutandose y por tanto hay riesgo que no llegue a activarse la op de registro, dado que
+		-- haya coincidencia de instruccion y no llegue a comprovar si system_act esta en "1".
+		reg_op <= "101" when system_act = '1' else
+					 "001" when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100000" else -- EI
+					 "010" when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100001" else -- DI
+					 "100" when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100100" else --RETI
+					 "000";
+		-- RDS: cuando se quiere leer el banco de registros especiales, se tiene que sacar por a el valor de banco de registros especiales y despues meter por d hacia el banco de registros normal
+		-- WRD: cuando se quiere escribir en el banco de registros especiales, se tiene que sacar por a el valor del banco de registro sy meter por d el valor para el banco de regsitros especiales
+		-- Para ambas instrucciones se necesita que la alu deje pasar el valor por x hasta w y despues entre la w por la d del regfile. Para eso se usa la operacion de OUT_X, por la alu.
+		-- para que la salida de la w llegue a la d, tiene que estar en in_d "00", por tanto no hay que cambiar nada mas, dado que es el valor por defecto.
+		
+		-- sys_a es la señal que permite que por puerto a del regfile, salga el valor pertinente del registro de sistema
+		sys_a	 <= '1' when system_act = '1' else
+					 '1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "101100" else -- RDS
+					 '1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100100" else --RETI
+					 '0';
+		wr_sys <= '1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "110000" else -- WRS
+					 '0';
+		
+		--señal de control del sguiente pc a cargar. "00": pc+2 || "01" pc + 2 + inmediato || "10" pc = jumpdir
+		tknbr <= "10" when system_act = '1' else -- cargamos jumpdir cuando estamos en modo sistema
+					"01" when hay_que_hacer_salto_relativo(ir => ir, z => Z) else
+					"10" when hay_que_hacer_salto_absoluto(ir => ir, z => Z) else
+					"10" when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100100" else --RETI
+					"00";
+					
 	with ir(15 DOWNTO 12) select -- Rb_N pone en la entrada y de la alu la salida del banco de registros si es 1
 		Rb_N <= '1' when "0000",  	-- Aritmeticas
 			'1' when "0001",		  	-- Comparaciones
@@ -41,36 +87,32 @@ BEGIN
 			'0' when others;
 
 	 --Permiso de escritura en el banco de registros
-		wrd <= "01" when "0101" = ir(15 DOWNTO 12) else  -- MOVI, MOVHI
-				 "01" when "0011"  = ir(15 DOWNTO 12) else-- Load 
-				 "01" when "1101" = ir(15 DOWNTO 12) else -- Load Byte
-				 "01" when "0000" = ir(15 DOWNTO 12) else -- Aritmeticas
-				 "01" when "0001" = ir(15 DOWNTO 12) else -- Comparaciones
-				 "01" when "1000" = ir(15 DOWNTO 12) else -- Extension aritmetica
-				 "01" when "0010" = ir(15 DOWNTO 12) else -- Addi
-				 "01" when "1010" = ir(15 DOWNTO 12) and ir(2 DOWNTO 0) = "100"  else --JAL
-				 "01" when "0111" = ir(15 DOWNTO 12) and ir(8) = '0'  else --IN
-				 "10" when "1111" = ir(15 DOWNTO 12) and "101100" = ir(5 downto 0) else --RDS Se compreueba que tipo de instruccion esepcial ees
-				 "10" when "1111" = ir(15 DOWNTO 12) and "110000" = ir(5 downto 0) else -- WRS
-				 "00"; -- Stores
+		wrd <= '1' when "0101" = ir(15 DOWNTO 12) else  -- MOVI, MOVHI
+				 '1' when "0011"  = ir(15 DOWNTO 12) else-- Load 
+				 '1' when "1101" = ir(15 DOWNTO 12) else -- Load Byte
+				 '1' when "0000" = ir(15 DOWNTO 12) else -- Aritmeticas
+				 '1' when "0001" = ir(15 DOWNTO 12) else -- Comparaciones
+				 '1' when "1000" = ir(15 DOWNTO 12) else -- Extension aritmetica
+				 '1' when "0010" = ir(15 DOWNTO 12) else -- Addi
+				 '1' when "1010" = ir(15 DOWNTO 12) and ir(2 DOWNTO 0) = "100"  else --JAL
+				 '1' when "0111" = ir(15 DOWNTO 12) and ir(8) = '0'  else --IN
+				 '1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "101100" else -- RDS
+				 '1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "101000" else --GETIID
+				 '0'; -- Stores
 				 
-	--bus de operaciones especiales en el banco de registros especiales cuando hay una interrupcion
-	int_act <= "010" when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100000" else 
-				  "011" when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100001" else 
-				  "100" when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100100" else
-				  "000";
-				  
 	with ir(15 DOWNTO 12) select -- Permiso escritura de memoria
 		wr_m <='1' when "0100", --Store
 				 '1' when "1110",  -- Store Byte
 				 '0' when others;
 				 
-	 -- Entrada del banco de regitros: 01 : memoria, 00: alu, 10: pc, 11: IO controler
-		in_d <="01" when ir(15 DOWNTO 12) = "0011" else --Load
-				 "01" when ir(15 DOWNTO 12) = "1101" else --Load Byte
-				 "10" when ir(15 DOWNTO 12) = "1010" and ir(2 DOWNTO 0) = "100" else -- JAL
-				 "11" when ir(15 DOWNTO 12) = "0111" else -- IN
-				 "00" ; -- operaciones de alu
+	 -- Entrada del banco de regitros: 001 : memoria, 000: alu, 010: pc+2
+		in_d <="100" when system_act = '1' else
+				 "011" when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "101000" else --GETIID
+				 "001" when ir(15 DOWNTO 12) = "0011" else --Load
+				 "001" when ir(15 DOWNTO 12) = "1101" else --Load Byte
+				 "010" when ir(15 DOWNTO 12) = "1010" and ir(2 DOWNTO 0) = "100" else -- JAL
+				 "011" when ir(15 DOWNTO 12) = "0111" else -- IN
+				 "000" ;
 				 
 	with ir(15 DOWNTO 12) select -- Hay que desplazar el immediato o no a una posición par
 		immed_x2 <= '1' when "0011", --Load
@@ -102,7 +144,13 @@ BEGIN
 	with ir(15 DOWNTO 12) select
 		immed(15 downto 0)  <=(15 downto 8 => ir(7)) & ir(7 downto 0) when "0101", -- MOVI, MOVHI (immed: 8 bits)
 									 (15 downto 6 => ir(5)) & ir(5 downto 0) when others; --Loads, Stores and addi (immed: 6 bits)
-
+									 
+	-- seleciona la operacion a ejecutar cuando se usan instrucciones especiales
+	with ir(5 DOWNTO 0) select 
+		special <= OUT_X when "101100", -- RDS : deja pasar el valor que le viene por x hacia w 
+					  OUT_X when "110000", -- WRS
+					  NO_OP when others;
+				  
 
 	with ir(5 DOWNTO 3) select 
 		arit <= AND_OP when "000",
@@ -152,6 +200,7 @@ BEGIN
 		
 	with ir(15 DOWNTO 12) select
 		op <= mov when "0101", -- MOVI, MOVHI
+				special when "1111",
 				arit when "0000",
 				cmp when "0001",
 				ext_arit when "1000",
@@ -161,8 +210,6 @@ BEGIN
 				ST when "0100",
 				LDB when "1101",
 				STB when others;
-				
-	
 				
 	
 	

@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C20F484) Path("C:/Users/pec01/Desktop/PEC-FIB-master/Procesador Base - Etapa 6/output_files/") File("ProcesadorBase.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C20F484) Path("C:/Users/pec01/Downloads/PEC-FIB-master/Procesador Base - Etapa 7/output_files/") File("ProcesadorBase.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
