@@ -215,6 +215,7 @@ BEGIN
 	int_timmer: timmer			
 	generic map(numero_inicial => 1250000)
 	port map(Clock_in  	=> CLOCK_50,
+				boot 			=> boot, --linea no testada
 				inta 			=> inta_timmer,
 				intr 			=> intr_timmer);
 	

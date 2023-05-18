@@ -1,0 +1,27 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+
+
+
+ENTITY exception_controller IS
+    PORT (boot					: IN	STD_LOGIC;
+			 clk					: IN	STD_LOGIC;
+			 exception_num		: OUT	STD_LOGIC_VECTOR(3 DOWNTO 0); --bus que se usa para enviarle el numero de excecion a el regflie
+          system_act			: IN	STD_LOGIC; -- señal que se usa para saber si estamos en el ciclo de sistema
+			 intr					: IN	STD_LOGIC;
+			 exep_UP				: OUT	STD_LOGIC; -- señal que se usa para indicar si hay alguna excepcion
+			 excep_enabled		: IN 	STD_LOGIC -- señal que viene del banco de registros para saber si estan activadas las excepeciones
+ 			 );
+END exception_controller;
+
+
+ARCHITECTURE Structure OF exception_controller IS
+
+BEGIN
+	
+		
+				
+	
+	
+END Structure;

@@ -1,0 +1,23 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+
+package func_ayuda_control is
+
+procedure hay_que_hacer_salto(variable ir : STD_LOGIC_VECTOR; variable z : STD_LOGIC ) return boolean;
+
+procedure hay_que_hacer_salto(variable ir : STD_LOGIC_VECTOR; variable z : STD_LOGIC ) return boolean is
+variable salto : boolean : false;
+begin 
+	if ir(15 downto 12) = "0110" then
+		if ir(8) = '0' and z = '0' then
+			salto := true;
+		elsif ir(8) = '1' and z <> '0' then
+			salto := true
+		end if;
+	end if;
+
+end hay_que_hacer_salto;
+
+
+end package body proc_func_control_pkg;

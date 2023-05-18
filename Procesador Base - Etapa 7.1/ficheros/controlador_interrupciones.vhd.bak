@@ -1,0 +1,26 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
+
+ENTITY controlador_interrupciones IS
+	PORT (boot 			: IN STD_LOGIC;
+			clk 	: IN std_logic;
+			inta	: IN STD_LOGIC;
+			intr	: OUT STD_LOGIC;
+			timer_inta	: IN STD_LOGIC;
+			timer_intr	: OUT STD_LOGIC;
+			key_inta	: IN STD_LOGIC;
+			key_intr	: OUT STD_LOGIC;
+			switch_inta	: IN STD_LOGIC;
+			switch_intr	: OUT STD_LOGIC;
+			ps2_inta	: IN STD_LOGIC;
+			ps2_intr	: OUT STD_LOGIC;
+			);
+END controlador_interrupciones;
+
+ARCHITECTURE Structure OF controlador_interrupciones IS
+	
+BEGIN
+
+END Structure; 
