@@ -12,10 +12,9 @@ add wave -noupdate /test_sisa/SoC/controladosIO/prio_int_controller/intr
 add wave -noupdate /test_sisa/SoC/proc0/e0/excep_UP
 add wave -noupdate /test_sisa/SoC/proc0/e0/exception_id
 add wave -noupdate /test_sisa/SoC/proc0/d0/reg0/registro_sistema(2)
-add wave -noupdate /test_sisa/SoC/proc0/cu0/to_systemTO
 add wave -noupdate /test_sisa/SoC/proc0/cu0/ge/to_system
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {906271 ps} 0}
+WaveRestoreCursors {{Cursor 1} {0 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 315
 configure wave -valuecolwidth 100
@@ -31,4 +30,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {3360 ns}
+WaveRestoreZoom {0 ps} {6720 ns}

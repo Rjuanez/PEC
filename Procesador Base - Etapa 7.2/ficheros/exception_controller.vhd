@@ -15,8 +15,8 @@ ENTITY exception_controller IS
 			 excep_UP			: OUT	STD_LOGIC; -- señal que se usa para indicar si hay alguna excepcion
 			 excep_enabled		: IN 	STD_LOGIC; -- señal que viene del banco de registros para saber si estan activadas las excepeciones
 			 invalid_address	: IN	STD_LOGIC; -- señal que viene del meory controller para saber si le ha llegado alguna direccion invalida
-			 isLDorST			: IN	STD_LOGIC -- señal que viene del contro_l para saber si se esta ejecutando un load o un store
-			 
+			 isLDorST			: IN	STD_LOGIC; -- señal que viene del contro_l para saber si se esta ejecutando un load o un store
+			 fetch				: IN	STD_LOGIC
  			 );
 END exception_controller;
 
@@ -31,6 +31,7 @@ BEGIN
 					'1';
 	
 	exception_idS <= "0100" when div_zero = '1' and excep_enabled = '1' else
+						  "0001" when invalid_address = '1' and fetch = '1' and excep_enabled = '1' else
 						  "0001" when invalid_address = '1' and isLDorST = '1' and excep_enabled = '1' else
 						  "1111" when intr = '1' and excep_enabled = '1' else --interrupciones
 						  "0000";

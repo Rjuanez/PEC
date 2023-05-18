@@ -80,7 +80,8 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 			 wr_sys	  		: OUT STD_LOGIC;
 			 reg_op	  		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 to_system		: IN STD_LOGIC;
-			 inta		  		: OUT STD_LOGIC
+			 inta		  		: OUT STD_LOGIC;
+			 fetch			: OUT	STD_LOGIC
 			 );
 	 END COMPONENT;
 	 
@@ -94,9 +95,10 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 			 div_zero			: IN	STD_LOGIC;
 			 excep_UP			: OUT	STD_LOGIC; -- señal que se usa para indicar si hay alguna excepcion
 			 excep_enabled		: IN 	STD_LOGIC; -- señal que viene del banco de registros para saber si estan activadas las excepeciones
-			 invalid_address	: IN STD_LOGIC;	 -- señal que viene del meory controller para saber si le ha llegado alguna direccion invalida
-			 isLDorST			: IN	STD_LOGIC -- señal que viene del contro_l para saber si se esta ejecutando un load o un store
- 			 );
+			 invalid_address	: IN 	STD_LOGIC; -- señal que viene del meory controller para saber si le ha llegado alguna direccion invalida
+			 isLDorST			: IN	STD_LOGIC; -- señal que viene del contro_l para saber si se esta ejecutando un load o un store
+			 fetch				: IN	STD_LOGIC -- señal que viene de unidad de control (multi) que indiica si se est cargando un nuevo pc
+			 );
 	END COMPONENT;
 	 
 	 SIGNAL opTOop : STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -117,7 +119,7 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 	 SIGNAL int_enabledTOint_enabled : STD_LOGIC;
 	 SIGNAL exception_idTOexception_id : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	 SIGNAL excep_UPTOto_system : STD_LOGIC;
-	 SIGNAL div_zeroTOdiv_zero : STD_LOGIC;
+	 SIGNAL div_zeroTOdiv_zero, fetchTOfetch : STD_LOGIC;
 BEGIN
 
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
@@ -148,7 +150,8 @@ BEGIN
 		wr_sys => wr_sysTOwr_sys,
 		reg_op => reg_opTOreg_op,
 		to_system => excep_UPTOto_system,
-		inta => inta);
+		inta => inta,
+		fetch => fetchTOfetch);
 		
 	d0: datapath port map (
 		clk => clk, 
@@ -186,7 +189,7 @@ BEGIN
 		excep_UP => excep_UPTOto_system,
 		div_zero => div_zeroTOdiv_zero,
 		invalid_address => invalid_address,
-		isLDorST => immed_x2TO --se usa esta señal que en princio era para generar los imediatos multiplicados por 2 para aceder a memoria para saber si se hace un load o store 
-		);
+		isLDorST => immed_x2TO, --se usa esta señal que en princio era para generar los imediatos multiplicados por 2 para aceder a memoria para saber si se hace un load o store 
+		fetch => fetchTOfetch);
 		
 END Structure;

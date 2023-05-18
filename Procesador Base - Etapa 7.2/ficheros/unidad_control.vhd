@@ -29,8 +29,9 @@ ENTITY unidad_control IS
 			 sys_a	  	: OUT STD_LOGIC; -- señal que viene des de control_l y controla si sale el registo de sistema por el a del regfile
 			 wr_sys	  	: OUT STD_LOGIC;  -- señal que viene des de control_l y controla si se puede escribir en el registro ed sistema
 			 reg_op	  	: OUT STD_LOGIC_VECTOR(2 DOWNTO 0); --señal que indica las operaciones que tiene que hacer la alu
-			 to_system	: IN STD_LOGIC;
-			 inta		  : OUT STD_LOGIC);
+			 to_system	: IN 	STD_LOGIC;
+			 inta		  	: OUT STD_LOGIC;
+			 fetch 		: OUT	STD_LOGIC);
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
@@ -143,6 +144,8 @@ BEGIN
 		system_act => system_actTOsystem_act);
 	
 	pc <= new_pc;
+	
+	fetch <= not mux_ldpc; --se usa ldpc invertido dado que ldpc esta activo en los cilcos DEMW y SYSTEM, y bajo en FETCH
 	
 
 	inm_pc <= (15 downto 9 => ir_actual(7)) & ir_actual(7 downto 0) & '0'; -- multiplicamos por 2 u

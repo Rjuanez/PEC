@@ -40,14 +40,14 @@ ARCHITECTURE Structure OF sisa IS
 				 data_wr   			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 wr_m      			: OUT STD_LOGIC;
 				 word_byte 			: OUT STD_LOGIC;
-				 rd_io  	  			: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 wr_io	  			: OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
+				 rd_io  	  			: IN	STD_LOGIC_VECTOR(15 DOWNTO 0);
+				 wr_io	  			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 				 addr_io	  			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 				 rd_in	  			: OUT STD_LOGIC;
 				 wr_out	  			: OUT STD_LOGIC;
 				 inta		  			: OUT STD_LOGIC;
-				 intr		  			: IN STD_LOGIC;
-				 invalid_address	: IN STD_LOGIC);
+				 intr		  			: IN 	STD_LOGIC;
+				 invalid_address	: IN 	STD_LOGIC);
 	END component;
 
 	COMPONENT MemoryController is
