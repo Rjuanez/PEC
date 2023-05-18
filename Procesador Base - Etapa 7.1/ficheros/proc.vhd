@@ -48,9 +48,7 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 			 sys_a	 		: IN STD_LOGIC;
 			 wr_sys	 		: IN STD_LOGIC;
 			 int_enabled 	: OUT STD_LOGIC;
-			 reg_op	 		: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-			 exception_id 	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-			 div_zero 		: OUT STD_LOGIC);
+			 reg_op	 		: IN STD_LOGIC_VECTOR(2 DOWNTO 0));
 	 END COMPONENT;
 	 
 	 COMPONENT unidad_control IS
@@ -78,23 +76,10 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 			 sys_a	  		: OUT STD_LOGIC;
 			 wr_sys	  		: OUT STD_LOGIC;
 			 reg_op	  		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-			 to_system		: IN STD_LOGIC;
-			 inta		  		: OUT STD_LOGIC
-			 );
+			 intr		  		: IN STD_LOGIC;
+			 inta		  		: OUT STD_LOGIC;
+			 int_enabled 	: IN STD_LOGIC);
 	 END COMPONENT;
-	 
-	 
-	 COMPONENT exception_controller IS
-    PORT (boot					: IN	STD_LOGIC;
-			 clk					: IN	STD_LOGIC;
-			 exception_id		: OUT	STD_LOGIC_VECTOR(3 DOWNTO 0); --bus que se usa para enviarle el numero de excecion a el regflie
-          --system_act			: IN	STD_LOGIC; -- señal que se usa para saber si estamos en el ciclo de sistema
-			 intr					: IN	STD_LOGIC;
-			 div_zero			: IN	STD_LOGIC;
-			 excep_UP			: OUT	STD_LOGIC; -- señal que se usa para indicar si hay alguna excepcion
-			 excep_enabled		: IN 	STD_LOGIC -- señal que viene del banco de registros para saber si estan activadas las excepeciones
- 			 );
-	END COMPONENT;
 	 
 	 SIGNAL opTOop : STD_LOGIC_VECTOR(4 DOWNTO 0);
 	 SIGNAL wrdTOwrd : STD_LOGIC;
@@ -112,9 +97,6 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 	 SIGNAL sys_aTOsys_a, wr_sysTOwr_sys : STD_LOGIC;
 	 SIGNAL reg_opTOreg_op : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	 SIGNAL int_enabledTOint_enabled : STD_LOGIC;
-	 SIGNAL exception_idTOexception_id : STD_LOGIC_VECTOR(3 DOWNTO 0);
-	 SIGNAL excep_UPTOto_system : STD_LOGIC;
-	 SIGNAL div_zeroTOdiv_zero : STD_LOGIC;
 BEGIN
 
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
@@ -144,7 +126,8 @@ BEGIN
 		sys_a => sys_aTOsys_a,
 		wr_sys => wr_sysTOwr_sys,
 		reg_op => reg_opTOreg_op,
-		to_system => excep_UPTOto_system,
+		intr => intr,
+		int_enabled => int_enabledTOint_enabled,
 		inta => inta);
 		
 	d0: datapath port map (
@@ -170,17 +153,6 @@ BEGIN
 		sys_a => sys_aTOsys_a,
 		wr_sys => wr_sysTOwr_sys,
 		reg_op => reg_opTOreg_op,
-		int_enabled => int_enabledTOint_enabled,
-		exception_id => exception_idTOexception_id,
-		div_zero => div_zeroTOdiv_zero);
-		
-	e0: exception_controller port map(
-		boot => boot,
-		clk => clk,
-		exception_id => exception_idTOexception_id,
-		excep_enabled => int_enabledTOint_enabled,
-		intr => intr,
-		excep_UP => excep_UPTOto_system,
-		div_zero => div_zeroTOdiv_zero );
+		int_enabled => int_enabledTOint_enabled);
 		
 END Structure;

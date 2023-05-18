@@ -60,17 +60,17 @@ architecture vga_controller_rtl of vga_controller is
          data : out std_logic_vector(7 downto 0));
     end component;
 
---    component vga_ram_dual
---    generic(d_width    : integer;
---            addr_width : integer);
---    port (o2     : out STD_LOGIC_VECTOR(d_width - 1 downto 0);
---          we1    : in STD_LOGIC;
---          clk    : in STD_LOGIC;
---          d1     : in STD_LOGIC_VECTOR(d_width - 1 downto 0);
---          addr1  : in unsigned(addr_width downto 0);
---          addr2  : in unsigned(addr_width - 1 downto 0);
---          byte_m : in std_logic);
---    end component;
+    component vga_ram_dual
+    generic(d_width    : integer;
+            addr_width : integer);
+    port (o2     : out STD_LOGIC_VECTOR(d_width - 1 downto 0);
+          we1    : in STD_LOGIC;
+          clk    : in STD_LOGIC;
+          d1     : in STD_LOGIC_VECTOR(d_width - 1 downto 0);
+          addr1  : in unsigned(addr_width downto 0);
+          addr2  : in unsigned(addr_width - 1 downto 0);
+          byte_m : in std_logic);
+    end component;
 
     -- pixel signal
     signal video_on     : std_logic;
@@ -133,20 +133,20 @@ architecture vga_controller_rtl of vga_controller is
             data => rom_data
         );
 
---        U_MonitorRam: vga_ram_dual
---        generic map (d_width    => 16,
---                     addr_width => 12)  -- 12 bits ==> 4096 words ==> 8192 bytes ==> Mem_VGA[0xA000-0xBFFF]
---        port map (
---            clk    => clk_25mhz ,
---            --write
---            we1    => we,
---            d1     => wr_data,
---            addr1  => unsigned(addr_vga),
---            byte_m => byte_m,
---            --read
---            o2     => ram_q2,
---            addr2  => unsigned(ram_addr2)
---        );
+        U_MonitorRam: vga_ram_dual
+        generic map (d_width    => 16,
+                     addr_width => 12)  -- 12 bits ==> 4096 words ==> 8192 bytes ==> Mem_VGA[0xA000-0xBFFF]
+        port map (
+            clk    => clk_25mhz ,
+            --write
+            we1    => we,
+            d1     => wr_data,
+            addr1  => unsigned(addr_vga),
+            byte_m => byte_m,
+            --read
+            o2     => ram_q2,
+            addr2  => unsigned(ram_addr2)
+        );
 
 
 

@@ -6,12 +6,11 @@ use work.const_alu.all;
 
 
 ENTITY alu IS
-    PORT (x  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          y  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op 			: IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-          w  			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 z  			: OUT STD_LOGIC;
-			 div_zero 	: OUT STD_LOGIC);
+    PORT (x  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          y  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          op : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+          w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 z  : OUT STD_LOGIC);
 END alu;
 
 
@@ -33,16 +32,6 @@ ARCHITECTURE Structure OF alu IS
 	SIGNAL diviu : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	
 BEGIN
-
-
-	-- DETECION DE DIVISON POR 0
-	
-	div_zero <= '1' when op = DIV and y = (15 downto 0 => '0') else
-					'1' when op = DIVU and y = (15 downto 0 => '0') else
-					'0';
-				
-	
-	
 	
 	z <= '1' when y = (15 downto 0 => '0') else '0'; -- '1' cuando la salida de w es igual a 0
 	

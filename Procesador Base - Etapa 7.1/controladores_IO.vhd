@@ -72,7 +72,6 @@ ARCHITECTURE Structure OF controladores_IO IS
 	);
 	PORT( 
 		Clock_in : IN std_logic;
-		boot		: IN STD_logic;
 		intr		: OUT std_logic;
 		inta		: IN std_logic);
 	END component;
@@ -162,10 +161,8 @@ BEGIN
 			-- sino se envia el valor de los registros de entrad/salida
 			if inta = '1' then
 				rd_io <= (15 downto 8 => '0')&iidTO;
-			elsif rd_in = '1' then
-				rd_io <= registro_io(conv_integer(addr_io));
 			else 
-				rd_io <= x"0000";
+				rd_io <= registro_io(conv_integer(addr_io));
 			end if;
 		end if;
 		
@@ -218,7 +215,7 @@ BEGIN
 	int_timmer: timmer			
 	generic map(numero_inicial => 1250000)
 	port map(Clock_in  	=> CLOCK_50,
-				boot			=> boot, --no testada
+				boot 			=> boot, --linea no testada
 				inta 			=> inta_timmer,
 				intr 			=> intr_timmer);
 	

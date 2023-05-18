@@ -29,8 +29,9 @@ ENTITY unidad_control IS
 			 sys_a	  	: OUT STD_LOGIC; -- señal que viene des de control_l y controla si sale el registo de sistema por el a del regfile
 			 wr_sys	  	: OUT STD_LOGIC;  -- señal que viene des de control_l y controla si se puede escribir en el registro ed sistema
 			 reg_op	  	: OUT STD_LOGIC_VECTOR(2 DOWNTO 0); --señal que indica las operaciones que tiene que hacer la alu
-			 to_system	: IN STD_LOGIC;
-			 inta		  : OUT STD_LOGIC);
+			 intr		  	: IN STD_LOGIC;
+			 inta		  : OUT STD_LOGIC;
+			 int_enabled: IN STD_LOGIC);
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
@@ -93,6 +94,7 @@ ARCHITECTURE Structure OF unidad_control IS
 	 
 	 SIGNAL inm_pc : std_LOGIC_VECTOR(15 DOWNTO 0); --inmediato multiplicado por 2
 	 
+	 SIGNAL to_systemTO : STD_LOGIC;
 	 
 	 SIGNAL system_actTOsystem_act : STD_LOGIC;
 	 
@@ -139,12 +141,14 @@ BEGIN
 		ldir => ldir_aux,
 		ins_dad => ins_dad,
 		word_byte => word_byte,
-		to_system => to_system,
+		to_system => to_systemTO,
 		system_act => system_actTOsystem_act);
 	
 	pc <= new_pc;
 	
-
+	-- esta señal es asincrona dado que el cambio de ciclo es sincrono y por tanto no hace falta que esta también lo sea
+	to_systemTO <= intr and int_enabled;
+	
 	inm_pc <= (15 downto 9 => ir_actual(7)) & ir_actual(7 downto 0) & '0'; -- multiplicamos por 2 u
 	-- se usa la señal tknb que viene de control_l para determinar el siguiente pc, se hace asi para tener toda la logica de control en un mismo fichero
 	

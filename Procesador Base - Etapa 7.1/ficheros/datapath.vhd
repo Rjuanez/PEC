@@ -25,22 +25,18 @@ ENTITY datapath IS
 			 sys_a	 		: IN STD_LOGIC;
 			 wr_sys	 		: IN STD_LOGIC;
 			 int_enabled 	: OUT STD_LOGIC;
-			 reg_op	 		: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-			 --EXCEPTION SIGNALS
-			 exception_id 	: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-			 div_zero 		: OUT STD_LOGIC);
+			 reg_op	 		: IN STD_LOGIC_VECTOR(2 DOWNTO 0));
 END datapath;
 
 
 ARCHITECTURE Structure OF datapath IS
 
 	COMPONENT alu IS
-    PORT (x  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          y  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op 			: IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-          w  			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 z	 			: OUT STD_LOGIC;
-			 div_zero 	: OUT STD_LOGIC);
+    PORT (x  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          y  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          op : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+          w  : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 z	 : OUT STD_LOGIC);
 	END component;
 
 	COMPONENT regfile IS
@@ -55,8 +51,7 @@ ARCHITECTURE Structure OF datapath IS
 			 sys_a  			: IN STD_LOGIC;
 			 wr_sys 			: IN STD_LOGIC;
 			 int_enabled 	: OUT STD_LOGIC;
-			 reg_op	 		: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-			 exception_id 	: IN STD_LOGIC_VECTOR(3 DOWNTO 0));
+			 reg_op	 		: IN STD_LOGIC_VECTOR(2 DOWNTO 0));
 	END component;
 	
 	signal aTOx : STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -68,9 +63,9 @@ ARCHITECTURE Structure OF datapath IS
 
 BEGIN
 	
-	alu0: alu port map(x => aTOx, y => TOy, op => op, w => wTO, z => Z, div_zero => div_zero);
+	alu0: alu port map(x => aTOx, y => TOy, op => op, w => wTO, z => Z);
 	reg0: regfile port map(clk => clk, wrd => wrd, d => TOd, addr_a => addr_a, addr_b => addr_b, addr_d => addr_d, a => aTOx, b => bTO,
-								  sys_a => sys_a, wr_sys => wr_sys, reg_op => reg_op, int_enabled => int_enabled, exception_id => exception_id);
+								  sys_a => sys_a, wr_sys => wr_sys, reg_op => reg_op, int_enabled => int_enabled);
 	 
 	TOy <= bTO when Rb_N = '1' else 
 			 immed when immed_x2 = '0' else
