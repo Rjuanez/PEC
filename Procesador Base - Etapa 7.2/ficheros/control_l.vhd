@@ -5,30 +5,30 @@ use work.const_alu.all;
 USE work.func_ayuda_control_pkg.all;
 
 ENTITY control_l IS
-    PORT (ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op        : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-          ldpc      : OUT STD_LOGIC;
-          wrd       : OUT STD_LOGIC;
-          addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_b    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          wr_m      : OUT STD_LOGIC; 
-          in_d      : OUT STD_LOGIC_VECTOR(2 downto 0);
-          immed_x2  : OUT STD_LOGIC;
-          word_byte : OUT STD_LOGIC;
-			 Rb_N		  : OUT STD_LOGIC;
-			 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 rd_in	  : OUT STD_LOGIC;
-			 wr_out	  : OUT STD_LOGIC;
-			 tknbr	  : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-			 Z			  : IN  STD_LOGIC;
-			 sys_a	  : OUT STD_LOGIC;
-			 wr_sys	  : OUT STD_LOGIC;
-			 system_act: IN  STD_LOGIC;
-			 inta		  : OUT STD_LOGIC;
-			 reg_op	  : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
-			 );
+    PORT (ir        		: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          op        		: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+          ldpc      		: OUT STD_LOGIC;
+          wrd       		: OUT STD_LOGIC;
+          addr_a    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_b    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_d    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          immed     		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          wr_m      		: OUT STD_LOGIC; 
+          in_d      		: OUT STD_LOGIC_VECTOR(2 downto 0);
+          immed_x2  		: OUT STD_LOGIC;
+          word_byte 		: OUT STD_LOGIC;
+			 Rb_N		  		: OUT STD_LOGIC;
+			 addr_io	  		: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 rd_in	  		: OUT STD_LOGIC;
+			 wr_out	  		: OUT STD_LOGIC;
+			 tknbr	  		: OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+			 Z			  		: IN  STD_LOGIC;
+			 sys_a	  		: OUT STD_LOGIC;
+			 wr_sys	  		: OUT STD_LOGIC;
+			 system_act		: IN  STD_LOGIC;
+			 inta		  		: OUT STD_LOGIC;
+			 reg_op	  		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+			 illegal_inst	: OUT STD_LOGIC);
 END control_l;
 
 
@@ -79,7 +79,31 @@ BEGIN
 					"10" when hay_que_hacer_salto_absoluto(ir => ir, z => Z) else
 					"10" when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100100" else --RETI
 					"00";
-					
+		
+		--señal de control de excepción por Instrucción Ilegal
+		--Se comprueban todos los caso inexistentes o que no han llegado a ser implementados
+		illegal_inst <= '1' when ir(15 DOWNTO 12) = "0001" and (ir(5 DOWNTO 3) = "010" or ir(5 DOWNTO 3) = "110" or ir(5 DOWNTO 3) = "111") else 			-- Comparaciones
+							 '1' when ir(15 DOWNTO 12) = "1000" and (ir(5 DOWNTO 3) = "011" or ir(5 DOWNTO 3) = "110" or ir(5 DOWNTO 3) = "111") else 			-- Extension aritmetica
+							 '1' when ir(15 DOWNTO 12) = "1001" and ir(5 DOWNTO 3) = "110" else																		  			-- Op/Cmp Float
+							 '1' when ir(15 DOWNTO 12) = "1010" and (ir(2 DOWNTO 0) = "010" or ir(2 DOWNTO 0) = "101" or ir(2 DOWNTO 0) = "110") else 			-- Ruptura de secuencia (no implementadas)
+							 '1' when ir(15 DOWNTO 12) = "1010" and ir(2 DOWNTO 0) = "011" and ir(11 DOWNTO 0) /= "000" else 								  			-- Ruptura de secuencia (JMP incorrecto)
+							 '1' when ir(15 DOWNTO 12) = "1010" and ir(2 DOWNTO 0) = "111" and ir(11 DOWNTO 0) /= "000" else 								  			-- Ruptura de secuencia (CALLS incorrectas)
+							 '1' when ir(15 DOWNTO 12) = "1010" and ir(5 DOWNTO 3) /= "000" else 								  									  			-- Reservadas futura ampliación
+							 '1' when ir(15 DOWNTO 12) = "1111" and ir(5) = '0' else 								  									  				  			-- Reservadas futura ampliación
+							 '1' when ir(15 DOWNTO 12) = "1111" and (ir(4 DOWNTO 0) = "00010" or ir(4 DOWNTO 0) = "00011") else							  			-- Inst Especiales 1
+							 '1' when ir(15 DOWNTO 12) = "1111" and (ir(4 DOWNTO 0) = "00101" or ir(4 DOWNTO 0) = "00110" or ir(4 DOWNTO 0) = "00111") else	-- Inst Especiales 2
+							 '1' when ir(15 DOWNTO 12) = "1111" and (ir(4 DOWNTO 0) = "01001" or ir(4 DOWNTO 0) = "01010" or ir(4 DOWNTO 0) = "01011") else	-- Inst Especiales 3
+							 '1' when ir(15 DOWNTO 12) = "1111" and (ir(4 DOWNTO 0) = "01101" or ir(4 DOWNTO 0) = "01110" or ir(4 DOWNTO 0) = "01111") else	-- Inst Especiales 4
+							 '1' when ir(15 DOWNTO 12) = "1111" and (ir(4 DOWNTO 0) = "10001" or ir(4 DOWNTO 0) = "10010" or ir(4 DOWNTO 0) = "10011") else	-- Inst Especiales 5
+							 '1' when ir(15 DOWNTO 12) = "1111" and (ir(4 DOWNTO 0) = "11001" or ir(4 DOWNTO 0) = "11010" or ir(4 DOWNTO 0) = "11011") else	-- Inst Especiales 6
+							 '1' when ir(15 DOWNTO 12) = "1111" and (ir(4 DOWNTO 0) = "11100" or ir(4 DOWNTO 0) = "11101" or ir(4 DOWNTO 0) = "11110") else	-- Inst Especiales 7
+							 '1' when ir(15 DOWNTO 12) = "1111" and ir(11 DOWNTO 6) /= "000000" and (ir(4 DOWNTO 0) = "00000" or ir(4 DOWNTO 0) = "00001" or ir(4 DOWNTO 0) = "00100") else -- Inst Especiales (incorrect: EI, DI, RETI)
+							 '1' when ir(15 DOWNTO 12) = "1111" and ir(8 DOWNTO 6) /= "000" and ir(4 DOWNTO 0) = "01000" else 																				 	 -- Inst Especiales (incorrect: GETIID)
+							 '1' when ir(15 DOWNTO 12) = "1111" and ir(11 DOWNTO 9) /= "000" and ir(4 DOWNTO 0) = "11000" else 																				 -- Inst Especiales (incorrect: FLUSH)
+							 '1' when ir(15 DOWNTO 12) = "1111" and ir(11 DOWNTO 6) /= "111111" and ir(4 DOWNTO 0) = "11111" else 																			 -- Inst Especiales (incorrect: HALT)
+							 '0';
+							 
+		
 	with ir(15 DOWNTO 12) select -- Rb_N pone en la entrada y de la alu la salida del banco de registros si es 1
 		Rb_N <= '1' when "0000",  	-- Aritmeticas
 			'1' when "0001",		  	-- Comparaciones

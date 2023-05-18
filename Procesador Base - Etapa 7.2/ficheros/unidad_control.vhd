@@ -5,60 +5,62 @@ USE ieee.std_logic_unsigned.all;
 
 
 ENTITY unidad_control IS
-    PORT (boot      	: IN  STD_LOGIC;
-          clk       	: IN  STD_LOGIC;
-          datard_m  	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 Z			  	: IN  STD_LOGIC;
-			 jump_dir  	: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op        	: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-          wrd       	: OUT STD_LOGIC;
-          addr_a    	: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_b    	: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_d    	: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          immed     	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          pc        	: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          ins_dad   	: OUT STD_LOGIC;
-          in_d      	: OUT STD_LOGIC_VECTOR(2 downto 0);
-          immed_x2  	: OUT STD_LOGIC;
-          wr_m      	: OUT STD_LOGIC;
-          word_byte 	: OUT STD_LOGIC;
-			 Rb_N		  	: OUT STD_LOGIC;
-			 addr_io	  	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 rd_in	  	: OUT STD_LOGIC;
-			 wr_out	  	: OUT STD_LOGIC;
-			 sys_a	  	: OUT STD_LOGIC; -- señal que viene des de control_l y controla si sale el registo de sistema por el a del regfile
-			 wr_sys	  	: OUT STD_LOGIC;  -- señal que viene des de control_l y controla si se puede escribir en el registro ed sistema
-			 reg_op	  	: OUT STD_LOGIC_VECTOR(2 DOWNTO 0); --señal que indica las operaciones que tiene que hacer la alu
-			 to_system	: IN 	STD_LOGIC;
-			 inta		  	: OUT STD_LOGIC;
-			 fetch 		: OUT	STD_LOGIC);
+    PORT (boot      		: IN  STD_LOGIC;
+          clk       		: IN  STD_LOGIC;
+          datard_m  		: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 Z			  		: IN  STD_LOGIC;
+			 jump_dir  		: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          op        		: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+          wrd       		: OUT STD_LOGIC;
+          addr_a    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_b    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_d    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          immed     		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          pc        		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          ins_dad   		: OUT STD_LOGIC;
+          in_d      		: OUT STD_LOGIC_VECTOR(2 downto 0);
+          immed_x2  		: OUT STD_LOGIC;
+          wr_m      		: OUT STD_LOGIC;
+          word_byte 		: OUT STD_LOGIC;
+			 Rb_N		  		: OUT STD_LOGIC;
+			 addr_io	  		: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 rd_in	  		: OUT STD_LOGIC;
+			 wr_out	  		: OUT STD_LOGIC;
+			 sys_a	  		: OUT STD_LOGIC; -- señal que viene des de control_l y controla si sale el registo de sistema por el a del regfile
+			 wr_sys	  		: OUT STD_LOGIC;  -- señal que viene des de control_l y controla si se puede escribir en el registro ed sistema
+			 reg_op	  		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0); --señal que indica las operaciones que tiene que hacer la alu
+			 to_system		: IN 	STD_LOGIC;
+			 inta		  		: OUT STD_LOGIC;
+			 fetch 			: OUT	STD_LOGIC;
+			 illegal_inst	: OUT STD_LOGIC);
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
 	COMPONENT control_l IS
-	 PORT (ir        : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 op        : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-          ldpc      : OUT STD_LOGIC;
-          wrd       : OUT STD_LOGIC;
-          addr_a    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_b    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_d    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          immed     : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          wr_m      : OUT STD_LOGIC;
-          in_d      : OUT STD_LOGIC_VECTOR(2 downto 0);
-          immed_x2  : OUT STD_LOGIC;
-          word_byte : OUT STD_LOGIC;
-			 Rb_N		  : OUT STD_LOGIC;
-			 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 rd_in	  : OUT STD_LOGIC;
-			 wr_out	  : OUT STD_LOGIC;
-			 tknbr	  : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-			 Z			  : IN  STD_LOGIC;
-			 sys_a	  : OUT STD_LOGIC;
-			 wr_sys	  : OUT STD_LOGIC;
-			 system_act: IN  STD_LOGIC;
-			 inta		  : OUT STD_LOGIC;
-			 reg_op	  : OUT STD_LOGIC_VECTOR(2 DOWNTO 0));
+	 PORT (ir        		: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 op        		: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+          ldpc      		: OUT STD_LOGIC;
+          wrd       		: OUT STD_LOGIC;
+          addr_a    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_b    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_d    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          immed     		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          wr_m      		: OUT STD_LOGIC;
+          in_d      		: OUT STD_LOGIC_VECTOR(2 downto 0);
+          immed_x2  		: OUT STD_LOGIC;
+          word_byte 		: OUT STD_LOGIC;
+			 Rb_N		  		: OUT STD_LOGIC;
+			 addr_io	  		: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 rd_in	  		: OUT STD_LOGIC;
+			 wr_out	  		: OUT STD_LOGIC;
+			 tknbr	  		: OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+			 Z			  		: IN  STD_LOGIC;
+			 sys_a	  		: OUT STD_LOGIC;
+			 wr_sys	  		: OUT STD_LOGIC;
+			 system_act		: IN  STD_LOGIC;
+			 inta		  		: OUT STD_LOGIC;
+			 reg_op	  		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+			 illegal_inst	: OUT STD_LOGIC);
 	END component;
 	
 	COMPONENT multi is
@@ -125,7 +127,8 @@ BEGIN
 		wr_sys => wr_sys,
 		reg_op => reg_op,
 		system_act => system_actTOsystem_act,
-		inta => inta);
+		inta => inta,
+		illegal_inst => illegal_inst);
 	
 	ge: multi port map (
 		clk => clk,

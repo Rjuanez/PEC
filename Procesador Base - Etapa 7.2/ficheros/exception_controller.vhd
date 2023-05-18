@@ -14,10 +14,10 @@ ENTITY exception_controller IS
 			 div_zero			: IN  STD_LOGIC;
 			 excep_UP			: OUT	STD_LOGIC; -- señal que se usa para indicar si hay alguna excepcion
 			 excep_enabled		: IN 	STD_LOGIC; -- señal que viene del banco de registros para saber si estan activadas las excepeciones
-			 invalid_address	: IN	STD_LOGIC; -- señal que viene del meory controller para saber si le ha llegado alguna direccion invalida
-			 isLDorST			: IN	STD_LOGIC; -- señal que viene del contro_l para saber si se esta ejecutando un load o un store
-			 fetch				: IN	STD_LOGIC
- 			 );
+			 invalid_address	: IN	STD_LOGIC; -- señal que viene del memory controller para saber si le ha llegado alguna direccion invalida
+			 isLDorST			: IN	STD_LOGIC; -- señal que viene del control_l para saber si se esta ejecutando un load o un store
+			 fetch				: IN	STD_LOGIC; -- señal que viene de unidad de control (multi) que indiica si se est cargando un nuevo pc
+ 			 illegal_inst		: IN STD_LOGIC); -- señal que viene de control_l para saber si hay una instruccion ilegal
 END exception_controller;
 
 
@@ -31,10 +31,11 @@ BEGIN
 					'1';
 	
 	exception_idS <= "0100" when div_zero = '1' and excep_enabled = '1' else
+						  "0000" when illegal_inst = '1' and excep_enabled = '1' else
 						  "0001" when invalid_address = '1' and fetch = '1' and excep_enabled = '1' else
 						  "0001" when invalid_address = '1' and isLDorST = '1' and excep_enabled = '1' else
 						  "1111" when intr = '1' and excep_enabled = '1' else --interrupciones
-						  "0000";
+						  "1000"; -- valor arbitrario
 		
 				
 	-- realmente no se si hace falta el proceso, pero dado que cuando se entra en el ciclo de systema siempre tiene que haber un rising edge tampoco pasa nada si esta
