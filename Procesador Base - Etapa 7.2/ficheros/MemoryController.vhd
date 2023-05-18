@@ -4,25 +4,27 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 entity MemoryController is
-    port (CLOCK_50  : in  std_logic;
-	       addr      : in  std_logic_vector(15 downto 0);
-          wr_data   : in  std_logic_vector(15 downto 0);
-          rd_data   : out std_logic_vector(15 downto 0);
-          we        : in  std_logic;
-          byte_m    : in  std_logic;
+    port (CLOCK_50  			: in  std_logic;
+	       addr      			: in  std_logic_vector(15 downto 0);
+          wr_data   			: in  std_logic_vector(15 downto 0);
+          rd_data   			: out std_logic_vector(15 downto 0);
+          we        			: in  std_logic;
+          byte_m    			: in  std_logic;
+			 --SEÑALES PARA EXCEPCIONEs
+			 invalid_address	: out std_logic;
           -- señales para la placa de desarrollo
-          SRAM_ADDR : out   std_logic_vector(17 downto 0);
-          SRAM_DQ   : inout std_logic_vector(15 downto 0);
-          SRAM_UB_N : out   std_logic;
-          SRAM_LB_N : out   std_logic;
-          SRAM_CE_N : out   std_logic := '1';
-          SRAM_OE_N : out   std_logic := '1';
-          SRAM_WE_N : out   std_logic := '1';
-			 vga_addr  : out std_logic_vector(12 downto 0);
-			 vga_we 	  : out std_logic;
-			 vga_wr_data : out std_logic_vector(15 downto 0);
-			 vga_rd_data : in std_logic_vector(15 downto 0);
-			 vga_byte_m: out std_logic);
+          SRAM_ADDR 			: out   std_logic_vector(17 downto 0);
+          SRAM_DQ   			: inout std_logic_vector(15 downto 0);
+          SRAM_UB_N 			: out   std_logic;
+          SRAM_LB_N 			: out   std_logic;
+          SRAM_CE_N 			: out   std_logic := '1';
+          SRAM_OE_N 			: out   std_logic := '1';
+          SRAM_WE_N 			: out   std_logic := '1';
+			 vga_addr  			: out std_logic_vector(12 downto 0);
+			 vga_we 	  			: out std_logic;
+			 vga_wr_data 		: out std_logic_vector(15 downto 0);
+			 vga_rd_data 		: in std_logic_vector(15 downto 0);
+			 vga_byte_m			: out std_logic);
 end MemoryController;
 
 architecture comportament of MemoryController is
@@ -48,6 +50,12 @@ architecture comportament of MemoryController is
 	SIGNAL dataReadMem  : std_logic_vector(15 downto 0);
 
 begin
+		--deteccion de direcciones invalidas cuando la direcion es impar y se estan direcionando words
+--	process (CLOCK_50) begin
+--		if rising_edge(CLOCK_50) then
+			invalid_address <= '1' when byte_m = '0' and addr(0) = '1' else '0';
+--		end if;
+--	end process;
 	--Control que no accedan a las posiciones superiores de la memoria
 	wrTO <= we when  addr < x"C000" else '0';
 

@@ -11,17 +11,17 @@ Z3 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
 Z4 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
 Z5 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z6 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
-Z7 dZ:\Documents\UNIVERSIDAD\PEC\PEC-FIB\Procesador Base - Etapa 7.1
-Z8 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/alu.vhd
-Z9 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/alu.vhd
+Z7 d\\Mac\Home\Documents\UNIVERSIDAD\PEC\PEC-FIB\Procesador Base - Etapa 7.2
+Z8 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/alu.vhd
+Z9 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/alu.vhd
 l0
 L8
 V<GN9dD:1L`2n<;91l?aC^0
 Z10 OV;C;10.1d;51
 32
-Z11 !s108 1684367623.950000
-Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/alu.vhd|
-Z13 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/alu.vhd|
+Z11 !s108 1684409350.166000
+Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/alu.vhd|
+Z13 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/alu.vhd|
 Z14 o-work work -2002 -explicit -O0
 Z15 tExplicit 1
 !s100 2lNcdX8k93iPA]CDB8Jf32
@@ -56,16 +56,16 @@ R3
 R5
 R6
 R7
-Z20 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/async_64Kx16.vhd
-Z21 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/async_64Kx16.vhd
+Z20 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/async_64Kx16.vhd
+Z21 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/async_64Kx16.vhd
 l0
 L22
 Vz7=:g106kSL^?zZa1_k1i2
 R10
 32
-Z22 !s108 1684367623.293000
-Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/async_64Kx16.vhd|
-Z24 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/async_64Kx16.vhd|
+Z22 !s108 1684409349.322000
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/async_64Kx16.vhd|
+Z24 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/async_64Kx16.vhd|
 R14
 R15
 !s100 >mUGlnEO[;>2_SQSo6jO>0
@@ -96,8 +96,8 @@ R5
 R6
 w1684236434
 R7
-8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/const_alu.vhd
-FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/const_alu.vhd
+8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/const_alu.vhd
+F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/const_alu.vhd
 l0
 L4
 VOlIlFgnVI:955V>`iS>@G1
@@ -107,30 +107,30 @@ R14
 R15
 !s100 _RYL_jUMn?Jc^G2H1MbfO1
 !i10b 1
-!s108 1684367624.079000
-!s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/const_alu.vhd|
-!s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/const_alu.vhd|
+!s108 1684409350.265000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/const_alu.vhd|
+!s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/const_alu.vhd|
 Econtrol_l
-Z25 w1684257776
+Z25 w1684408868
 Z26 DPx4 work 22 func_ayuda_control_pkg 0 22 hFeoDDQkCUB9=;8YcYZN^1
 R1
 R4
 R5
 R6
 R7
-Z27 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/control_l.vhd
-Z28 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/control_l.vhd
+Z27 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/control_l.vhd
+Z28 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/control_l.vhd
 l0
 L7
 Vm1ZAaaal[a5_@dR2A0MEH2
 R10
 32
-Z29 !s108 1684367624.222000
-Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/control_l.vhd|
-Z31 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/control_l.vhd|
+Z29 !s108 1684409350.345000
+Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/control_l.vhd|
+Z31 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/control_l.vhd|
 R14
 R15
-!s100 nS7]ODV331fP;6LXAUXnB2
+!s100 fdY;0>1JU4NEVZF4Ta`6z0
 !i10b 1
 Astructure
 R26
@@ -139,8 +139,8 @@ R4
 R5
 R6
 DEx4 work 9 control_l 0 22 m1ZAaaal[a5_@dR2A0MEH2
-l41
-L34
+l42
+L35
 VQk37[b3cYihVB5QAEEVU23
 R10
 32
@@ -149,7 +149,7 @@ R30
 R31
 R14
 R15
-!s100 <DQ@[^3cga09KdGk:?8QL2
+!s100 FI^D62`PDUW9T1c:27_RX0
 !i10b 1
 Econtrolador_interrupciones
 Z32 w1684248906
@@ -159,16 +159,16 @@ R4
 R5
 R6
 R7
-Z33 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/controlador_interrupciones.vhd
-Z34 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/controlador_interrupciones.vhd
+Z33 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/controlador_interrupciones.vhd
+Z34 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/controlador_interrupciones.vhd
 l0
 L6
 VfdB:703PmEQ@=N^J0kC1:0
 R10
 32
-Z35 !s108 1684367624.377000
-Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/controlador_interrupciones.vhd|
-Z37 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/controlador_interrupciones.vhd|
+Z35 !s108 1684409350.444000
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/controlador_interrupciones.vhd|
+Z37 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/controlador_interrupciones.vhd|
 R14
 R15
 !s100 kB5MmAY?Md1lLY:S8^aWF2
@@ -200,16 +200,16 @@ R4
 R5
 R6
 R7
-Z39 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/controladores_IO.vhd
-Z40 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/controladores_IO.vhd
+Z39 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/controladores_IO.vhd
+Z40 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/controladores_IO.vhd
 l0
 L6
 VSJiU4IODbfadmBez^;86V0
 R10
 32
-Z41 !s108 1684367623.433000
-Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/controladores_IO.vhd|
-Z43 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/controladores_IO.vhd|
+Z41 !s108 1684409349.434000
+Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/controladores_IO.vhd|
+Z43 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/controladores_IO.vhd|
 R14
 R15
 !s100 bCeJ80LLQbG8hmTaG@4C_1
@@ -239,16 +239,16 @@ R4
 R5
 R6
 R7
-Z45 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/datapath.vhd
-Z46 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/datapath.vhd
+Z45 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/datapath.vhd
+Z46 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/datapath.vhd
 l0
 L5
 Vmf70<7P3W4<e=3UPIK78X3
 R10
 32
-Z47 !s108 1684367624.543000
-Z48 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/datapath.vhd|
-Z49 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/datapath.vhd|
+Z47 !s108 1684409350.542000
+Z48 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/datapath.vhd|
+Z49 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/datapath.vhd|
 R14
 R15
 !s100 GiD3mdYS0X:EEo^l>9`io0
@@ -275,16 +275,16 @@ R16
 R5
 R6
 R7
-Z50 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/driver7Segmentos.vhd
-Z51 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/driver7Segmentos.vhd
+Z50 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/driver7Segmentos.vhd
+Z51 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/driver7Segmentos.vhd
 l0
 L4
 V_=8S4L7Q^<D_^`g[VjbRP2
 R10
 32
-Z52 !s108 1684367626.082000
-Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/driver7Segmentos.vhd|
-Z54 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/driver7Segmentos.vhd|
+Z52 !s108 1684409349.541000
+Z53 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/driver7Segmentos.vhd|
+Z54 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/driver7Segmentos.vhd|
 R14
 R15
 !s100 fm>0Dc7>BkIJV=lRQo7;H2
@@ -310,16 +310,16 @@ R16
 R5
 R6
 R7
-Z55 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/driverSegmentos.vhd
-Z56 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/driverSegmentos.vhd
+Z55 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/driverSegmentos.vhd
+Z56 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/driverSegmentos.vhd
 l0
 L4
 VMeJCJ2YJ<eKb?LhjMTAHZ0
 R10
 32
-Z57 !s108 1684367626.232000
-Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/driverSegmentos.vhd|
-Z59 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/driverSegmentos.vhd|
+Z57 !s108 1684409349.624000
+Z58 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/driverSegmentos.vhd|
+Z59 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/driverSegmentos.vhd|
 R14
 R15
 !s100 [Nf;;bV>WNM=iINMniech0
@@ -331,7 +331,6 @@ DEx4 work 15 driversegmentos 0 22 MeJCJ2YJ<eKb?LhjMTAHZ0
 l20
 L13
 V;H603[_i5ofKhOkCS6k_U2
-!s100 6K9BB0lz5O6JM02eM1oM[2
 R10
 32
 R57
@@ -339,61 +338,62 @@ R58
 R59
 R14
 R15
+!s100 6K9BB0lz5O6JM02eM1oM[2
 !i10b 1
 Eexception_controller
-Z60 w1684367562
+Z60 w1684409313
 R4
 R5
 R6
 R7
-Z61 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/exception_controller.vhd
-Z62 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/exception_controller.vhd
+Z61 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/exception_controller.vhd
+Z62 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/exception_controller.vhd
 l0
 L7
-V34kl__7A9I[BLVZ>9W<n:3
-!s100 Wik^Z?7gEX2S4[c=1Pl=90
+VM?[P?FDoTmhMM>X5a4h=[1
 R10
 32
-!i10b 1
-Z63 !s108 1684367626.333000
-Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/exception_controller.vhd|
-Z65 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/exception_controller.vhd|
+Z63 !s108 1684409350.637000
+Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/exception_controller.vhd|
+Z65 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/exception_controller.vhd|
 R14
 R15
+!s100 ]=3Z8Ul9?oR96A31;;9Q32
+!i10b 1
 Astructure
 R4
 R5
 R6
-Z66 DEx4 work 20 exception_controller 0 22 34kl__7A9I[BLVZ>9W<n:3
-l26
-L22
-Z67 V`fbL6`dF7PQ@I`KFPoWO;0
-Z68 !s100 F;QX_n;n>A^a6n[NSTcW;2
+DEx4 work 20 exception_controller 0 22 M?[P?FDoTmhMM>X5a4h=[1
+l28
+L24
+VPfSk9_mQ[[<:MeZSeYQ_M0
 R10
 32
-!i10b 1
 R63
 R64
 R65
 R14
 R15
+!s100 W:7HEKPc:2NjG:M]MRzZz3
+!i10b 1
 Pfunc_ayuda_control_pkg
 R4
 R5
 R6
 R16
 R7
-Z69 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/func_ayuda_control_pkg.vhd
-Z70 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/func_ayuda_control_pkg.vhd
+Z66 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/func_ayuda_control_pkg.vhd
+Z67 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/func_ayuda_control_pkg.vhd
 l0
 L5
 VhFeoDDQkCUB9=;8YcYZN^1
 R10
 32
 b1
-Z71 !s108 1684367624.715000
-Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/func_ayuda_control_pkg.vhd|
-Z73 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/func_ayuda_control_pkg.vhd|
+Z68 !s108 1684409350.729000
+Z69 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/func_ayuda_control_pkg.vhd|
+Z70 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/func_ayuda_control_pkg.vhd|
 R14
 R15
 !s100 nz?YIbDLYjlo>G5Qdad772
@@ -408,32 +408,32 @@ L12
 VTQ9c=4?i<hOD>ejR^LLIz0
 R10
 32
-R71
-R72
-R73
+R68
+R69
+R70
 R14
 R15
 nbody
 !s100 dTA`n3`P?fe:>Q6[EjgUG2
 !i10b 1
 Eint_controller
-Z74 w1684246916
+Z71 w1684246916
 R2
 R3
 R4
 R5
 R6
 R7
-Z75 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/int_controller.vhd
-Z76 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/int_controller.vhd
+Z72 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/int_controller.vhd
+Z73 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/int_controller.vhd
 l0
 L6
 Vfg8z:Dh6XRnS3P=V61WJ?2
 R10
 32
-Z77 !s108 1684367624.873000
-Z78 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/int_controller.vhd|
-Z79 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/int_controller.vhd|
+Z74 !s108 1684409350.824000
+Z75 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/int_controller.vhd|
+Z76 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/int_controller.vhd|
 R14
 R15
 !s100 gYlH@RM3m[iSn8nX[E^ll3
@@ -450,31 +450,31 @@ L17
 VbLF09djlbHm]DTL7W]CWj1
 R10
 32
-R77
-R78
-R79
+R74
+R75
+R76
 R14
 R15
 !s100 j9zUHgQ`ZmjQ59lR^z@:n2
 !i10b 1
 Ekeyboard_controller
-Z80 w1684249138
+Z77 w1684249138
 R2
 R3
 R4
 R5
 R6
 R7
-Z81 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/keyboard_controller.vhd
-Z82 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/keyboard_controller.vhd
+Z78 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/keyboard_controller.vhd
+Z79 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/keyboard_controller.vhd
 l0
 L7
 Va0R3dgb8knE;1W7mi^XPP0
 R10
 32
-Z83 !s108 1684367623.623000
-Z84 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/keyboard_controller.vhd|
-Z85 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/keyboard_controller.vhd|
+Z80 !s108 1684409349.707000
+Z81 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/keyboard_controller.vhd|
+Z82 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/keyboard_controller.vhd|
 R14
 R15
 !s100 m28X]0nYz6INeS>RgIT951
@@ -491,67 +491,67 @@ L19
 V10J66Z2indo2<mM4a7Bfe2
 R10
 32
-R83
-R84
-R85
+R80
+R81
+R82
 R14
 R15
 !s100 Z_0P7=YBKJTF9ocFkfdT33
 !i10b 1
 Ememorycontroller
-R16
+Z83 w1684409300
 R3
 R2
 R5
 R6
 R7
-Z86 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/MemoryController.vhd
-Z87 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/MemoryController.vhd
+Z84 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/MemoryController.vhd
+Z85 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/MemoryController.vhd
 l0
 L6
-VkKeLF:MbB]3?6B9hY>cRz1
+V3AzzlCFJ>kNdlohY41=7b1
 R10
 32
-Z88 !s108 1684367624.993000
-Z89 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/MemoryController.vhd|
-Z90 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/MemoryController.vhd|
+Z86 !s108 1684409350.919000
+Z87 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/MemoryController.vhd|
+Z88 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/MemoryController.vhd|
 R14
 R15
-!s100 2ZU3=0AeDBLRVYS@P]Y^g1
+!s100 ^4b54WJl6dnN8m4l>f2ME0
 !i10b 1
 Acomportament
 R3
 R2
 R5
 R6
-DEx4 work 16 memorycontroller 0 22 kKeLF:MbB]3?6B9hY>cRz1
-l50
-L28
-V[S2OTDB`:OJ39G@=??5SC2
+DEx4 work 16 memorycontroller 0 22 3AzzlCFJ>kNdlohY41=7b1
+l52
+L30
+VkdnOaYmhREN1L5kPnE[M;2
 R10
 32
+R86
+R87
 R88
-R89
-R90
 R14
 R15
-!s100 ^ZPM0^Q=32ASkGR]A?C1n2
+!s100 :93CM2b;8i6NRQdB`5>9o2
 !i10b 1
 Emulti
-Z91 w1684253572
+Z89 w1684253572
 R5
 R6
 R7
-Z92 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/multi.vhd
-Z93 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/multi.vhd
+Z90 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/multi.vhd
+Z91 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/multi.vhd
 l0
 L4
 V@?;?3DTYi=nboBzVB>oEG2
 R10
 32
-Z94 !s108 1684367625.099000
-Z95 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/multi.vhd|
-Z96 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/multi.vhd|
+Z92 !s108 1684409351.011000
+Z93 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/multi.vhd|
+Z94 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/multi.vhd|
 R14
 R15
 !s100 __dVdW_<nUR]OB<NldUZ22
@@ -565,9 +565,9 @@ L21
 VBdc`DZBNo=kT4I7?RTibR3
 R10
 32
+R92
+R93
 R94
-R95
-R96
 R14
 R15
 !s100 ]DSTe@i>nailgT<=nZ:691
@@ -578,18 +578,18 @@ R3
 R2
 R5
 R6
-Z97 w1679488124
-Z98 dC:\Users\victo\Desktop\PEC-FIB\Procesador Base - Etapa 4
-Z99 8C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/package_timing.vhd
-Z100 FC:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/package_timing.vhd
+R16
+R7
+Z95 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/package_timing.vhd
+Z96 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/package_timing.vhd
 l0
 L17
 V]QljGNTG0EJQ?X:f3a>TX1
 R10
 32
-Z101 !s108 1680043081.433000
-Z102 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/package_timing.vhd|
-Z103 !s107 C:/Users/victo/Desktop/PEC-FIB/Procesador Base - Etapa 4/package_timing.vhd|
+Z97 !s108 1684409349.801000
+Z98 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/package_timing.vhd|
+Z99 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/package_timing.vhd|
 R14
 R15
 !s100 7[5MEfJ`HFPK=zP7G66<i1
@@ -606,9 +606,9 @@ L59
 VfeQXi[8kmeXD5NlH1A^G91
 R10
 32
-R101
-R102
-R103
+R97
+R98
+R99
 R14
 R15
 nbody
@@ -621,17 +621,17 @@ R5
 R6
 R16
 R7
-Z104 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/package_utility.vhd
-Z105 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/package_utility.vhd
+Z100 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/package_utility.vhd
+Z101 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/package_utility.vhd
 l0
 L15
 VabW^FY0na:iFW@RR:Fofg0
 R10
 32
 b1
-Z106 !s108 1684367623.741000
-Z107 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/package_utility.vhd|
-Z108 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/package_utility.vhd|
+Z102 !s108 1684409349.892000
+Z103 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/package_utility.vhd|
+Z104 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/package_utility.vhd|
 R14
 R15
 !s100 n9b5dM?H5oLDz7geaYPkN1
@@ -647,66 +647,105 @@ L22
 V1dAT5_E6[=Q4>0kGEF5@]3
 R10
 32
-R106
-R107
-R108
+R102
+R103
+R104
 R14
 R15
 nbody
 !s100 =i4<XdWXU:J]Ih;Vo<NgP3
 !i10b 1
 Eprocesadorbase
-Z109 w1684367612
+Z105 w1684409232
 R5
 R6
 R7
-Z110 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/proc.vhd
-Z111 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/proc.vhd
+Z106 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/proc.vhd
+Z107 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/proc.vhd
 l0
 L4
-VKV4;Q9izc[TT>h0CdFm=B1
+VD2o97k=57B3]YKg71Mj9h1
 R10
 32
-Z112 !s108 1684367625.201000
-Z113 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/proc.vhd|
-Z114 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/proc.vhd|
+Z108 !s108 1684409351.094000
+Z109 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/proc.vhd|
+Z110 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/proc.vhd|
 R14
 R15
-!s100 Ki[eLiK=c`3CngVN?ZdII2
+!s100 o6l7c0V180C>98l0^@lQT2
 !i10b 1
 Astructure
 R5
 R6
-DEx4 work 14 procesadorbase 0 22 KV4;Q9izc[TT>h0CdFm=B1
-l118
-L22
-V;VlY`nblW80TW`8U?iKGF2
+DEx4 work 14 procesadorbase 0 22 D2o97k=57B3]YKg71Mj9h1
+l121
+L23
+VUJ=@e<AElZDQk9HGN6IIY3
 R10
 32
-R112
-R113
-R114
+R108
+R109
+R110
 R14
 R15
-!s100 SX>`9j_5k2NP@BN_V`PN]1
+!s100 iimSLRUGb7m[4k`@:WTj63
 !i10b 1
-Eregfile
-Z115 w1684366208
+Eps2_keyboard_interface
+R16
 R2
 R3
 R5
 R6
 R7
-Z116 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/regfile.vhd
-Z117 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/regfile.vhd
+Z111 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ps2_keyboard.vhd
+Z112 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ps2_keyboard.vhd
+l0
+L122
+V5^^o1WM<I<13TLR9OGm6X3
+R10
+32
+Z113 !s108 1684409349.982000
+Z114 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ps2_keyboard.vhd|
+Z115 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ps2_keyboard.vhd|
+R14
+R15
+!s100 VS?01B]caEG3LaE0f;Ylo0
+!i10b 1
+Atrans
+R2
+R3
+R5
+R6
+DEx4 work 22 ps2_keyboard_interface 0 22 5^^o1WM<I<13TLR9OGm6X3
+l233
+L154
+V0@lM>0X3`2K2;_A`g_8gZ3
+R10
+32
+R113
+R114
+R115
+R14
+R15
+!s100 j<zV5hkF?44S1l^eK2JI41
+!i10b 1
+Eregfile
+Z116 w1684407095
+R2
+R3
+R5
+R6
+R7
+Z117 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/regfile.vhd
+Z118 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/regfile.vhd
 l0
 L5
 V3[`:E>^ldz8bDfl^bL@`62
 R10
 32
-Z118 !s108 1684367625.300000
-Z119 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/regfile.vhd|
-Z120 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/regfile.vhd|
+Z119 !s108 1684409351.181000
+Z120 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/regfile.vhd|
+Z121 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/regfile.vhd|
 R14
 R15
 !s100 4G44mhdYaMQ6Y69;VlV`T0
@@ -722,30 +761,30 @@ L22
 V4KLAmjGO>TQA7YDZJG3fb2
 R10
 32
-R118
 R119
 R120
+R121
 R14
 R15
 !s100 2JdROCk4]J7DlQO]W<z4G2
 !i10b 1
 Esisa
-Z121 w1684254334
+Z122 w1684409339
 R3
 R2
 R5
 R6
 R7
-Z122 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/sisa.vhd
-Z123 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/sisa.vhd
+Z123 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/sisa.vhd
+Z124 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/sisa.vhd
 l0
 L6
 V6[AgfoA]<EIBGDAd3ZAAe0
 R10
 32
-Z124 !s108 1684367625.438000
-Z125 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/sisa.vhd|
-Z126 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/sisa.vhd|
+Z125 !s108 1684409351.271000
+Z126 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/sisa.vhd|
+Z127 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/sisa.vhd|
 R14
 R15
 !s100 @N<[02lV2^Kg;m6PK2`7L1
@@ -756,17 +795,17 @@ R2
 R5
 R6
 DEx4 work 4 sisa 0 22 6[AgfoA]<EIBGDAd3ZAAe0
-l152
+l158
 L33
-V:?IS?mGYYoo4?aGdMEMB[2
+Vh2Kf9md57<4=D@<V@=CWW3
 R10
 32
-R124
 R125
 R126
+R127
 R14
 R15
-!s100 V9g>:L_Tl40;V[88nObfX3
+!s100 5P>hA4F3D2kf05:R?WAW72
 !i10b 1
 Esramcontroller
 R16
@@ -775,16 +814,16 @@ R2
 R5
 R6
 R7
-Z127 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/SRAMController.vhd
-Z128 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/SRAMController.vhd
+Z128 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/SRAMController.vhd
+Z129 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/SRAMController.vhd
 l0
 L6
 VC2AV?EESPOZGcn4dfcYOD3
 R10
 32
-Z129 !s108 1684367625.610000
-Z130 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/SRAMController.vhd|
-Z131 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/SRAMController.vhd|
+Z130 !s108 1684409351.365000
+Z131 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/SRAMController.vhd|
+Z132 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/SRAMController.vhd|
 R14
 R15
 !s100 0Ba`Q7W`UoWaZOmiCMTh70
@@ -800,28 +839,28 @@ L24
 VMSG3435@XC_Zab]UhMGNe1
 R10
 32
-R129
 R130
 R131
+R132
 R14
 R15
 !s100 6fgC>oZGoG`]IQHWXFhkB2
 !i10b 1
 Etest_sisa
-Z132 w1684350675
+Z133 w1684350675
 R5
 R6
 R7
-Z133 8Z:\Documents\UNIVERSIDAD\PEC\PEC-FIB\Procesador Base - Etapa 7.1\test_sisa.vhd
-Z134 FZ:\Documents\UNIVERSIDAD\PEC\PEC-FIB\Procesador Base - Etapa 7.1\test_sisa.vhd
+Z134 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/test_sisa.vhd
+Z135 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/test_sisa.vhd
 l0
 L5
 VkAdhfn89W5`mY_=KPlfV]3
 R10
 32
-Z135 !s108 1684367623.849000
-Z136 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:\Documents\UNIVERSIDAD\PEC\PEC-FIB\Procesador Base - Etapa 7.1\test_sisa.vhd|
-Z137 !s107 Z:\Documents\UNIVERSIDAD\PEC\PEC-FIB\Procesador Base - Etapa 7.1\test_sisa.vhd|
+Z136 !s108 1684409350.080000
+Z137 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/test_sisa.vhd|
+Z138 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/test_sisa.vhd|
 R14
 R15
 !s100 688X_8OZ0BkG::B3fT5kf3
@@ -835,30 +874,30 @@ L8
 VVMXM^<9WF<zNFn<7dJ_jX0
 R10
 32
-R135
 R136
 R137
+R138
 R14
 R15
 !s100 Vm>g<Md54n48aj5?6J=]40
 !i10b 1
 Etimmer
-Z138 w1684250284
+Z139 w1684250284
 R3
 R2
 R5
 R6
 R7
-Z139 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/timmer.vhd
-Z140 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/timmer.vhd
+Z140 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/timmer.vhd
+Z141 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/timmer.vhd
 l0
 L6
 VO2TMA[SN^F8ho<=GQ2m[O3
 R10
 32
-Z141 !s108 1684367625.758000
-Z142 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/timmer.vhd|
-Z143 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/timmer.vhd|
+Z142 !s108 1684409351.457000
+Z143 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/timmer.vhd|
+Z144 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/timmer.vhd|
 R14
 R15
 !s100 _6^^gHDVBkD??QU_>Q6YD3
@@ -872,53 +911,53 @@ DEx4 work 6 timmer 0 22 O2TMA[SN^F8ho<=GQ2m[O3
 l21
 L18
 VYj5NJbEMFlabWAeQPdhE<2
+!s100 7LBVfBT5=^2R8PoFP4o^L3
 R10
 32
-R141
 R142
 R143
+R144
 R14
 R15
-!s100 7LBVfBT5=^2R8PoFP4o^L3
 !i10b 1
 Eunidad_control
-Z144 w1684366880
+Z145 w1684366880
 R2
 R3
 R4
 R5
 R6
 R7
-Z145 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/unidad_control.vhd
-Z146 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/unidad_control.vhd
+Z146 8//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/unidad_control.vhd
+Z147 F//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/unidad_control.vhd
 l0
 L7
 V;26TGH10P5z3C>9]^CdBf0
+!s100 ZOY=LiU9b;EI5<im2iK4<0
 R10
 32
-Z147 !s108 1684367625.897000
-Z148 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/unidad_control.vhd|
-Z149 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.1/ficheros/unidad_control.vhd|
+!i10b 1
+Z148 !s108 1684409351.548000
+Z149 !s90 -reportprogress|300|-work|work|-2002|-explicit|//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/unidad_control.vhd|
+Z150 !s107 //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/unidad_control.vhd|
 R14
 R15
-!s100 ZOY=LiU9b;EI5<im2iK4<0
-!i10b 1
 Astructure
 R2
 R3
 R4
 R5
 R6
-DEx4 work 14 unidad_control 0 22 ;26TGH10P5z3C>9]^CdBf0
+Z151 DEx4 work 14 unidad_control 0 22 ;26TGH10P5z3C>9]^CdBf0
 l99
 L36
-V^k_Z[c@G;AUoFAZ2Xo]Ae3
+Z152 V^k_Z[c@G;AUoFAZ2Xo]Ae3
+Z153 !s100 i4BN15hlLPdJTFUYk>BB[2
 R10
 32
-R147
+!i10b 1
 R148
 R149
+R150
 R14
 R15
-!s100 i4BN15hlLPdJTFUYk>BB[2
-!i10b 1

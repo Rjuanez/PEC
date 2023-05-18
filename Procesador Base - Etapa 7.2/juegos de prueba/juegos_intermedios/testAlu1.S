@@ -5,9 +5,9 @@ movhi r5, 192
 wrs s5, r5
 ei
 div r2, r0, r1
-load r2, (r1)
+store 0(r1), r2
 halt
-getiid r7
-load r7, 2(r1)
+rds r7, s2
+store 2(r1), r7
 reti
 

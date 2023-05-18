@@ -27,7 +27,8 @@ ENTITY control_l IS
 			 wr_sys	  : OUT STD_LOGIC;
 			 system_act: IN  STD_LOGIC;
 			 inta		  : OUT STD_LOGIC;
-			 reg_op	  : OUT STD_LOGIC_VECTOR(2 DOWNTO 0));
+			 reg_op	  : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+			 );
 END control_l;
 
 
@@ -39,7 +40,8 @@ ARCHITECTURE Structure OF control_l IS
 	SIGNAL mov		: STD_LOGIC_VECTOR(4 DOWNTO 0);
 	SIGNAL in_out	: STD_LOGIC_VECTOR(4 DOWNTO 0);
 BEGIN
-
+		
+		
 		-- GETIID: inta = '1' y in_d se pone para que entre rd_io
 		inta <= '1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "101000" else '0';
 		-- MODO SITEMA: cuando esta en el ciclo de sistema, lo primero que tiene que hacer es desactivar las interrupciones
@@ -53,7 +55,7 @@ BEGIN
 		
 		--primero hay que poner la señal de system_act, porque siempre hay instruciones ejecutandose y por tanto hay riesgo que no llegue a activarse la op de registro, dado que
 		-- haya coincidencia de instruccion y no llegue a comprovar si system_act esta en "1".
-		reg_op <= "101" when system_act = '1' else
+		reg_op <= "101" when system_act = '1' else --SYSTEM
 					 "001" when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100000" else -- EI
 					 "010" when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100001" else -- DI
 					 "100" when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100100" else --RETI

@@ -2,20 +2,21 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 
 ENTITY ProcesadorBase IS
-    PORT (clk       : IN  STD_LOGIC;
-          boot      : IN  STD_LOGIC;
-          datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          addr_m    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          data_wr   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          wr_m      : OUT STD_LOGIC;
-          word_byte : OUT STD_LOGIC;
-			 rd_io  	  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 wr_io	  : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 rd_in	  : OUT STD_LOGIC;
-			 wr_out	  : OUT STD_LOGIC;
-			 inta		  : OUT STD_LOGIC;
-			 intr		  : IN STD_LOGIC);
+    PORT (clk       			: IN  STD_LOGIC;
+          boot      			: IN  STD_LOGIC;
+          datard_m  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          addr_m    			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          data_wr   			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          wr_m      			: OUT STD_LOGIC;
+          word_byte 			: OUT STD_LOGIC;
+			 rd_io  	  			: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 wr_io	  			: OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 addr_io	  			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 rd_in	  			: OUT STD_LOGIC;
+			 wr_out	  			: OUT STD_LOGIC;
+			 inta		  			: OUT STD_LOGIC;
+			 intr		  			: IN STD_LOGIC;
+			 invalid_address	: IN STD_LOGIC);
 END ProcesadorBase;
 
 
@@ -92,7 +93,9 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 			 intr					: IN	STD_LOGIC;
 			 div_zero			: IN	STD_LOGIC;
 			 excep_UP			: OUT	STD_LOGIC; -- señal que se usa para indicar si hay alguna excepcion
-			 excep_enabled		: IN 	STD_LOGIC -- señal que viene del banco de registros para saber si estan activadas las excepeciones
+			 excep_enabled		: IN 	STD_LOGIC; -- señal que viene del banco de registros para saber si estan activadas las excepeciones
+			 invalid_address	: IN STD_LOGIC;	 -- señal que viene del meory controller para saber si le ha llegado alguna direccion invalida
+			 isLDorST			: IN	STD_LOGIC -- señal que viene del contro_l para saber si se esta ejecutando un load o un store
  			 );
 	END COMPONENT;
 	 
@@ -103,7 +106,7 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 	 SIGNAL addTOadd : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	 SIGNAL immTOimm : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	 SIGNAL pcTOpc : STD_LOGIC_VECTOR(15 DOWNTO 0);
-	 SIGNAL immed_x2TOimmed_x2 : STD_LOGIC;
+	 SIGNAL immed_x2TO : STD_LOGIC;
 	 SIGNAL ins_dadTOins_dad : STD_LOGIC;
 	 SIGNAL in_dTOin_d : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	 SIGNAL Rb_NTORb_N : STD_LOGIC;
@@ -132,7 +135,7 @@ BEGIN
 		pc => pcTOpc,
 		ins_dad => ins_dadTOins_dad,
 		in_d => in_dTOin_d,
-		immed_x2 => immed_x2TOimmed_x2,
+		immed_x2 => immed_x2TO,
 		wr_m => wr_m,
 		word_byte => word_byte,
 		Rb_N => Rb_NTORb_N,
@@ -155,7 +158,7 @@ BEGIN
 		addr_b => adbTOadb,
 		addr_d=> addTOadd, 
 		immed => immTOimm,
-		immed_x2 => immed_x2TOimmed_x2,
+		immed_x2 => immed_x2TO,
 		datard_m => datard_m,
 		ins_dad => ins_dadTOins_dad,
 		pc => pcTOpc,
@@ -181,6 +184,9 @@ BEGIN
 		excep_enabled => int_enabledTOint_enabled,
 		intr => intr,
 		excep_UP => excep_UPTOto_system,
-		div_zero => div_zeroTOdiv_zero );
+		div_zero => div_zeroTOdiv_zero,
+		invalid_address => invalid_address,
+		isLDorST => immed_x2TO --se usa esta señal que en princio era para generar los imediatos multiplicados por 2 para aceder a memoria para saber si se hace un load o store 
+		);
 		
 END Structure;

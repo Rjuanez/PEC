@@ -42,7 +42,7 @@ BEGIN
 				registro_sistema(7)(1) <= '0';
 			elsif reg_op = "100" then -- RETI
 				registro_sistema(7) <= registro_sistema(0);
-			elsif reg_op = "101" then -- RETI
+			elsif reg_op = "101" then -- SISTEMA
 				registro_sistema(0) <= registro_sistema(7);
 				registro_sistema(1) <= d;
 				registro_sistema(2) <= (15 downto 4 => '0') & exception_id;

@@ -15,7 +15,8 @@ entity multi is
          ins_dad   : OUT STD_LOGIC;
          word_byte : OUT STD_LOGIC;
 			to_system : IN  STD_LOGIC;
-			system_act: OUT STD_LOGIC);
+			system_act: OUT STD_LOGIC;
+			to_);
 end entity;
 
 architecture Structure of multi is

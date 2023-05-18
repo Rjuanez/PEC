@@ -33,42 +33,45 @@ END sisa;
 ARCHITECTURE Structure OF sisa IS
 
 	COMPONENT ProcesadorBase IS
-		 PORT (clk       : IN  STD_LOGIC;
-				 boot      : IN  STD_LOGIC;
-				 datard_m  : IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 addr_m    : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 data_wr   : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 wr_m      : OUT STD_LOGIC;
-				 word_byte : OUT STD_LOGIC;
-				 rd_io  	  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 wr_io	  : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
-				 addr_io	  : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-				 rd_in	  : OUT STD_LOGIC;
-				 wr_out	  : OUT STD_LOGIC;
-				 inta		  : OUT STD_LOGIC;
-				 intr		  : IN STD_LOGIC);
+		 PORT (clk       			: IN  STD_LOGIC;
+				 boot      			: IN  STD_LOGIC;
+				 datard_m  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+				 addr_m    			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+				 data_wr   			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+				 wr_m      			: OUT STD_LOGIC;
+				 word_byte 			: OUT STD_LOGIC;
+				 rd_io  	  			: IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+				 wr_io	  			: OUT  STD_LOGIC_VECTOR(15 DOWNTO 0);
+				 addr_io	  			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+				 rd_in	  			: OUT STD_LOGIC;
+				 wr_out	  			: OUT STD_LOGIC;
+				 inta		  			: OUT STD_LOGIC;
+				 intr		  			: IN STD_LOGIC;
+				 invalid_address	: IN STD_LOGIC);
 	END component;
 
 	COMPONENT MemoryController is
-		 port (CLOCK_50  : in  std_logic;
-				 addr      : in  std_logic_vector(15 downto 0);
-				 wr_data   : in  std_logic_vector(15 downto 0);
-				 rd_data   : out std_logic_vector(15 downto 0);
-				 we        : in  std_logic;
-				 byte_m    : in  std_logic;
+		 port (CLOCK_50  			: in  std_logic;
+				 addr      			: in  std_logic_vector(15 downto 0);
+				 wr_data   			: in  std_logic_vector(15 downto 0);
+				 rd_data   			: out std_logic_vector(15 downto 0);
+				 we        			: in  std_logic;
+				 byte_m    			: in  std_logic;
+				 --SEÑALES PARA EXCEPCIONEs
+				 invalid_address	: out std_logic;
 				 -- señales para la placa de desarrollo
-				 SRAM_ADDR : out   std_logic_vector(17 downto 0);
-				 SRAM_DQ   : inout std_logic_vector(15 downto 0);
-				 SRAM_UB_N : out   std_logic;
-				 SRAM_LB_N : out   std_logic;
-				 SRAM_CE_N : out   std_logic := '1';
-				 SRAM_OE_N : out   std_logic := '1';
-				 SRAM_WE_N : out   std_logic := '1';
-				 vga_addr  : out std_logic_vector(12 downto 0);
-				 vga_we 	  : out std_logic;
-				 vga_wr_data : out std_logic_vector(15 downto 0);
-				 vga_rd_data : in std_logic_vector(15 downto 0);
-				 vga_byte_m: out std_logic);
+				 SRAM_ADDR 			: out   std_logic_vector(17 downto 0);
+				 SRAM_DQ   			: inout std_logic_vector(15 downto 0);
+				 SRAM_UB_N 			: out   std_logic;
+				 SRAM_LB_N 			: out   std_logic;
+				 SRAM_CE_N 			: out   std_logic := '1';
+				 SRAM_OE_N 			: out   std_logic := '1';
+				 SRAM_WE_N 			: out   std_logic := '1';
+				 vga_addr  			: out std_logic_vector(12 downto 0);
+				 vga_we 	  			: out std_logic;
+				 vga_wr_data 		: out std_logic_vector(15 downto 0);
+				 vga_rd_data 		: in std_logic_vector(15 downto 0);
+				 vga_byte_m			: out std_logic);
 	end COMPONENT;
 	
 	COMPONENT driverSegmentos IS
@@ -147,6 +150,9 @@ ARCHITECTURE Structure OF sisa IS
 	--Señales conversión colores vga
 	SIGNAL red, green, blue : STD_LOGIC_VECTOR(7 downto 0);
 	
+	--señales de conexion Memory controller y procesador "excepciones"
+	SIGNAL invalid_addressTOinvalid_address	: STD_LOGIC;
+	
 	
 	
 BEGIN
@@ -174,7 +180,8 @@ BEGIN
 						 wr_out => wr_outTOwr_out,
 						 rd_in => rd_inTOrd_in,
 						 intr => intrTOintr,
-						 inta => intaTOinta);
+						 inta => intaTOinta,
+						 invalid_address => invalid_addressTOinvalid_address);
 	
 	memory0: MemoryController port map(CLOCK_50 => CLOCK_50, 
 							addr => addr_mTOaddr,
@@ -193,7 +200,8 @@ BEGIN
 							vga_we => we_memTOvga,
 							vga_wr_data => wrdat_memTOvga,
 							vga_rd_data => rddat_memTOvga,
-							vga_byte_m => byte_m_memTOvga);
+							vga_byte_m => byte_m_memTOvga,
+							invalid_address => invalid_addressTOinvalid_address);
 							
 	controladosIO: controladores_IO port map(boot => SW(9),
 														  CLOCK_50 => CLOCK_50,
