@@ -5,34 +5,35 @@ USE ieee.std_logic_unsigned.all;
 
 
 ENTITY unidad_control IS
-    PORT (boot      		: IN  STD_LOGIC;
-          clk       		: IN  STD_LOGIC;
-          datard_m  		: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 Z			  		: IN  STD_LOGIC;
-			 jump_dir  		: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op        		: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-          wrd       		: OUT STD_LOGIC;
-          addr_a    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_b    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_d    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          immed     		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          pc        		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          ins_dad   		: OUT STD_LOGIC;
-          in_d      		: OUT STD_LOGIC_VECTOR(2 downto 0);
-          immed_x2  		: OUT STD_LOGIC;
-          wr_m      		: OUT STD_LOGIC;
-          word_byte 		: OUT STD_LOGIC;
-			 Rb_N		  		: OUT STD_LOGIC;
-			 addr_io	  		: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 rd_in	  		: OUT STD_LOGIC;
-			 wr_out	  		: OUT STD_LOGIC;
-			 sys_a	  		: OUT STD_LOGIC; -- señal que viene des de control_l y controla si sale el registo de sistema por el a del regfile
-			 wr_sys	  		: OUT STD_LOGIC;  -- señal que viene des de control_l y controla si se puede escribir en el registro ed sistema
-			 reg_op	  		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0); --señal que indica las operaciones que tiene que hacer la alu
-			 to_system		: IN 	STD_LOGIC;
-			 inta		  		: OUT STD_LOGIC;
-			 fetch 			: OUT	STD_LOGIC;
-			 illegal_inst	: OUT STD_LOGIC);
+    PORT (boot      			: IN  STD_LOGIC;
+          clk       			: IN  STD_LOGIC;
+          datard_m  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 Z			  			: IN  STD_LOGIC;
+			 jump_dir  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          op        			: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+          wrd       			: OUT STD_LOGIC; --FILTRAR
+          addr_a    			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_b    			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_d    			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          immed     			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          pc        			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          ins_dad   			: OUT STD_LOGIC;
+          in_d      			: OUT STD_LOGIC_VECTOR(2 downto 0);
+          immed_x2  			: OUT STD_LOGIC;
+          wr_m      			: OUT STD_LOGIC; --FILTRAR
+          word_byte 			: OUT STD_LOGIC;
+			 Rb_N		  			: OUT STD_LOGIC;
+			 addr_io	  			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 rd_in	  			: OUT STD_LOGIC;
+			 wr_out	  			: OUT STD_LOGIC;
+			 sys_a	  			: OUT STD_LOGIC; -- señal que viene des de control_l y controla si sale el registo de sistema por el a del regfile
+			 wr_sys	  			: OUT STD_LOGIC;  -- señal que viene des de control_l y controla si se puede escribir en el registro ed sistema
+			 reg_op	  			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0); --señal que indica las operaciones que tiene que hacer la alu
+			 to_system			: IN 	STD_LOGIC;
+			 inta		  			: OUT STD_LOGIC;
+			 fetch 				: OUT	STD_LOGIC;
+			 illegal_inst		: OUT STD_LOGIC;
+			 stop_execution	: IN	STD_LOGIC);
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
@@ -99,6 +100,8 @@ ARCHITECTURE Structure OF unidad_control IS
 	 
 	 SIGNAL system_actTOsystem_act : STD_LOGIC;
 	 
+	 SIGNAL wrdFilter, wr_mFilter : STD_LOGIC; --señales para filtrar los permisos de escritura en caso de que se produzca una excepcion
+	 
 BEGIN
 	 -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
     -- En los esquemas de la documentacion a la instancia de la logica de control le hemos llamado c0
@@ -138,8 +141,8 @@ BEGIN
 		wr_m_l => wr_m_lTOmulti,
 		w_b => w_bTOmulti,
 		ldpc => mux_ldpc,
-		wrd => wrd,
-		wr_m => wr_m,
+		wrd => wrdFilter,
+		wr_m => wr_mFilter,
 		ldir => ldir_aux,
 		ins_dad => ins_dad,
 		word_byte => word_byte,
@@ -154,6 +157,9 @@ BEGIN
 	inm_pc <= (15 downto 9 => ir_actual(7)) & ir_actual(7 downto 0) & '0'; -- multiplicamos por 2 u
 	-- se usa la señal tknb que viene de control_l para determinar el siguiente pc, se hace asi para tener toda la logica de control en un mismo fichero
 	
+	--se filtran las señales de escritura con la señal de para la ejecuciion
+	wrd <= wrdFilter and not stop_execution;
+	wr_m <= wr_mFilter and not stop_execution;
 
 	
 	with tknbrS select

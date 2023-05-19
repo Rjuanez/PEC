@@ -55,34 +55,35 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 	 END COMPONENT;
 	 
 	 COMPONENT unidad_control IS
-    PORT (boot      		: IN  STD_LOGIC;
-          clk       		: IN  STD_LOGIC;
-          datard_m  		: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 Z			  		: IN  STD_LOGIC;
-			 jump_dir  		: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op        		: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-          wrd       		: OUT STD_LOGIC;
-          addr_a    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_b    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_d    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          immed     		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          pc        		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          ins_dad   		: OUT STD_LOGIC;
-          in_d      		: OUT STD_LOGIC_VECTOR(2 downto 0);
-          immed_x2  		: OUT STD_LOGIC;
-          wr_m      		: OUT STD_LOGIC;
-          word_byte 		: OUT STD_LOGIC;
-			 Rb_N		  		: OUT STD_LOGIC;
-			 addr_io	  		: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 rd_in	  		: OUT STD_LOGIC;
-			 wr_out	  		: OUT STD_LOGIC;
-			 sys_a	  		: OUT STD_LOGIC;
-			 wr_sys	  		: OUT STD_LOGIC;
-			 reg_op	  		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-			 to_system		: IN STD_LOGIC;
-			 inta		  		: OUT STD_LOGIC;
-			 fetch			: OUT	STD_LOGIC;
-			 illegal_inst	: OUT STD_LOGIC);
+    PORT (boot      			: IN  STD_LOGIC;
+          clk       			: IN  STD_LOGIC;
+          datard_m  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 Z			  			: IN  STD_LOGIC;
+			 jump_dir  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          op        			: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+          wrd       			: OUT STD_LOGIC;
+          addr_a    			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_b    			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_d    			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          immed     			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          pc        			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          ins_dad   			: OUT STD_LOGIC;
+          in_d      			: OUT STD_LOGIC_VECTOR(2 downto 0);
+          immed_x2  			: OUT STD_LOGIC;
+          wr_m      			: OUT STD_LOGIC;
+          word_byte 			: OUT STD_LOGIC;
+			 Rb_N		  			: OUT STD_LOGIC;
+			 addr_io	  			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 rd_in	  			: OUT STD_LOGIC;
+			 wr_out	  			: OUT STD_LOGIC;
+			 sys_a	  			: OUT STD_LOGIC;
+			 wr_sys	  			: OUT STD_LOGIC;
+			 reg_op	  			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+			 to_system			: IN STD_LOGIC;
+			 inta		  			: OUT STD_LOGIC;
+			 fetch				: OUT	STD_LOGIC;
+			 illegal_inst		: OUT STD_LOGIC;
+			 stop_execution	: IN	STD_LOGIC);
 	 END COMPONENT;
 	 
 	 
@@ -98,7 +99,9 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 			 invalid_address	: IN 	STD_LOGIC; -- señal que viene del memory controller para saber si le ha llegado alguna direccion invalida
 			 isLDorST			: IN	STD_LOGIC; -- señal que viene del control_l para saber si se esta ejecutando un load o un store
 			 fetch				: IN	STD_LOGIC; -- señal que viene de unidad de control (multi) que indiica si se est cargando un nuevo pc
-			 illegal_inst		: IN STD_LOGIC); -- señal que viene de control_l para saber si hay una instruccion ilegal
+			 illegal_inst		: IN STD_LOGIC;  -- señal que viene de control_l para saber si hay una instruccion ilegal
+			 stop_execution	: OUT STD_LOGIC --señal para filtrar si se pueden hacer cambios en el estado del procesador: escritura a memoria, escritura a banco de registros
+			 );
 	END COMPONENT;
 	 
 	 SIGNAL opTOop : STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -120,6 +123,7 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 	 SIGNAL exception_idTOexception_id : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	 SIGNAL excep_UPTOto_system : STD_LOGIC;
 	 SIGNAL div_zeroTOdiv_zero, fetchTOfetch, il_instTOil_inst : STD_LOGIC;
+	 SIGNAL stop_executionTOstop_execution : STD_LOGIC;
 BEGIN
 
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
@@ -152,7 +156,8 @@ BEGIN
 		to_system => excep_UPTOto_system,
 		inta => inta,
 		fetch => fetchTOfetch,
-		illegal_inst => il_instTOil_inst);
+		illegal_inst => il_instTOil_inst,
+		stop_execution => stop_executionTOstop_execution);
 		
 	d0: datapath port map (
 		clk => clk, 
@@ -192,6 +197,7 @@ BEGIN
 		invalid_address => invalid_address,
 		isLDorST => immed_x2TO, --se usa esta señal que en princio era para generar los imediatos multiplicados por 2 para aceder a memoria para saber si se hace un load o store 
 		fetch => fetchTOfetch,
-		illegal_inst => il_instTOil_inst);
+		illegal_inst => il_instTOil_inst,
+		stop_execution => stop_executionTOstop_execution);
 		
 END Structure;
