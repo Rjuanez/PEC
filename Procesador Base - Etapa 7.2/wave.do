@@ -12,12 +12,14 @@ add wave -noupdate /test_sisa/SoC/proc0/d0/alu0/y
 add wave -noupdate /test_sisa/SoC/proc0/d0/alu0/div_zero
 add wave -noupdate /test_sisa/SoC/controladosIO/prio_int_controller/intr
 add wave -noupdate /test_sisa/SoC/proc0/e0/excep_UP
+add wave -noupdate /test_sisa/SoC/proc0/e0/exception_idS
 add wave -noupdate /test_sisa/SoC/proc0/e0/exception_id
 add wave -noupdate /test_sisa/SoC/proc0/d0/reg0/registro_sistema(2)
 add wave -noupdate /test_sisa/SoC/proc0/cu0/ge/to_system
+add wave -noupdate -expand -group Memory /test_sisa/SoC/memory0/we
 add wave -noupdate -expand -group Memory /test_sisa/SoC/memory0/wr_data
 add wave -noupdate -expand -group Memory -radix hexadecimal /test_sisa/SoC/memory0/rd_data
-add wave -noupdate -expand -group Memory /test_sisa/SoC/memory0/addr
+add wave -noupdate -expand -group Memory -radix hexadecimal /test_sisa/SoC/memory0/addr
 add wave -noupdate -expand -group Datapath /test_sisa/SoC/proc0/d0/wrd
 add wave -noupdate -expand -group Datapath /test_sisa/SoC/proc0/d0/addr_d
 add wave -noupdate -expand -group Datapath /test_sisa/SoC/proc0/d0/addr_a
@@ -25,9 +27,10 @@ add wave -noupdate -expand -group Datapath /test_sisa/SoC/proc0/d0/addr_b
 add wave -noupdate -expand -group Datapath /test_sisa/SoC/proc0/d0/addr_d
 add wave -noupdate -expand -group Datapath /test_sisa/SoC/proc0/d0/TOd
 add wave -noupdate /test_sisa/SoC/proc0/d0/reg0/registro(2)
+add wave -noupdate /test_sisa/SoC/proc0/e0/stop_execution
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {7588993 ps} 0} {{Cursor 2} {2695744 ps} 0}
-quietly wave cursor active 2
+WaveRestoreCursors {{Ins desalineada} {8783653 ps} 0} {{Div ins error} {2695744 ps} 0} {{St desalineado} {4828828 ps} 0} {{Cursor 4} {5190201 ps} 0} {AQUII {2949110 ps} 0}
+quietly wave cursor active 5
 configure wave -namecolwidth 315
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
@@ -42,4 +45,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {1243830 ps} {3868830 ps}
+WaveRestoreZoom {2458045 ps} {3770545 ps}

@@ -27,6 +27,7 @@ ARCHITECTURE Structure OF exception_controller IS
 
 	signal exception_idS : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
+
 BEGIN
 
 	excep_UP <= '0' when exception_idS = "1000" else
@@ -51,6 +52,7 @@ BEGIN
 		if rising_edge(clk) then
 			--if system_act = '1' then
 				exception_id <= exception_idS;
+				
 			--end if;
 		end if;
 	end process;
