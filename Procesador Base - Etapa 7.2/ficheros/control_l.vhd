@@ -86,8 +86,8 @@ BEGIN
 							 '1' when ir(15 DOWNTO 12) = "1000" and (ir(5 DOWNTO 3) = "011" or ir(5 DOWNTO 3) = "110" or ir(5 DOWNTO 3) = "111") else 			-- Extension aritmetica
 							 '1' when ir(15 DOWNTO 12) = "1001" and ir(5 DOWNTO 3) = "110" else																		  			-- Op/Cmp Float
 							 '1' when ir(15 DOWNTO 12) = "1010" and (ir(2 DOWNTO 0) = "010" or ir(2 DOWNTO 0) = "101" or ir(2 DOWNTO 0) = "110") else 			-- Ruptura de secuencia (no implementadas)
-							 '1' when ir(15 DOWNTO 12) = "1010" and ir(2 DOWNTO 0) = "011" and ir(11 DOWNTO 0) /= "000" else 								  			-- Ruptura de secuencia (JMP incorrecto)
-							 '1' when ir(15 DOWNTO 12) = "1010" and ir(2 DOWNTO 0) = "111" and ir(11 DOWNTO 0) /= "000" else 								  			-- Ruptura de secuencia (CALLS incorrectas)
+							 '1' when ir(15 DOWNTO 12) = "1010" and ir(2 DOWNTO 0) = "011" and ir(11 DOWNTO 9) /= "000" else 								  			-- Ruptura de secuencia (JMP incorrecto)
+							 '1' when ir(15 DOWNTO 12) = "1010" and ir(2 DOWNTO 0) = "111" and ir(11 DOWNTO 9) /= "000" else 								  			-- Ruptura de secuencia (CALLS incorrectas)
 							 '1' when ir(15 DOWNTO 12) = "1010" and ir(5 DOWNTO 3) /= "000" else 								  									  			-- Reservadas futura ampliación
 							 '1' when ir(15 DOWNTO 12) = "1111" and ir(5) = '0' else 								  									  				  			-- Reservadas futura ampliación
 							 '1' when ir(15 DOWNTO 12) = "1111" and (ir(4 DOWNTO 0) = "00010" or ir(4 DOWNTO 0) = "00011") else							  			-- Inst Especiales 1

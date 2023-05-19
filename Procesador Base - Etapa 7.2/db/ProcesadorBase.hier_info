@@ -346,7 +346,7 @@ op[1] <= control_l:clogic0.op[1]
 op[2] <= control_l:clogic0.op[2]
 op[3] <= control_l:clogic0.op[3]
 op[4] <= control_l:clogic0.op[4]
-wrd <= multi:ge.wrd
+wrd <= wrd.DB_MAX_OUTPUT_PORT_TYPE
 addr_a[0] <= control_l:clogic0.addr_a[0]
 addr_a[1] <= control_l:clogic0.addr_a[1]
 addr_a[2] <= control_l:clogic0.addr_a[2]
@@ -393,7 +393,7 @@ in_d[0] <= control_l:clogic0.in_d[0]
 in_d[1] <= control_l:clogic0.in_d[1]
 in_d[2] <= control_l:clogic0.in_d[2]
 immed_x2 <= control_l:clogic0.immed_x2
-wr_m <= multi:ge.wr_m
+wr_m <= wr_m.DB_MAX_OUTPUT_PORT_TYPE
 word_byte <= multi:ge.word_byte
 Rb_N <= control_l:clogic0.Rb_N
 addr_io[0] <= control_l:clogic0.addr_io[0]
@@ -415,6 +415,8 @@ to_system => multi:ge.to_system
 inta <= control_l:clogic0.inta
 fetch <= multi:ge.ldpc
 illegal_inst <= control_l:clogic0.illegal_inst
+stop_execution => wrd.IN1
+stop_execution => wr_m.IN1
 
 
 |sisa|ProcesadorBase:proc0|unidad_control:cu0|control_l:clogic0
@@ -2815,6 +2817,7 @@ invalid_address => exception_idS.IN0
 isLDorST => exception_idS.IN1
 fetch => exception_idS.IN1
 illegal_inst => exception_idS.IN1
+stop_execution <= stop_execution.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |sisa|MemoryController:memory0
