@@ -8,17 +8,17 @@ ENTITY exception_controller IS
     PORT (boot					: IN	STD_LOGIC;
 			 clk					: IN	STD_LOGIC;
 			 exception_id		: OUT	STD_LOGIC_VECTOR(3 DOWNTO 0); --bus que se usa para enviarle el numero de excecion a el regflie
-          --system_act			: IN	STD_LOGIC; -- señal que se usa para saber si estamos en el ciclo de sistema
-			 -- SEÑALES DE ENTRADA DE EXCecion
+          --system_act			: IN	STD_LOGIC; -- seÃ±al que se usa para saber si estamos en el ciclo de sistema
+			 -- SEÃ‘ALES DE ENTRADA DE EXCecion
 			 intr					: IN	STD_LOGIC;
 			 div_zero			: IN  STD_LOGIC;
-			 excep_UP			: OUT	STD_LOGIC; -- señal que se usa para indicar si hay alguna excepcion
-			 excep_enabled		: IN 	STD_LOGIC; -- señal que viene del banco de registros para saber si estan activadas las excepeciones
-			 invalid_address	: IN	STD_LOGIC; -- señal que viene del memory controller para saber si le ha llegado alguna direccion invalida
-			 isLDorST			: IN	STD_LOGIC; -- señal que viene del control_l para saber si se esta ejecutando un load o un store
-			 fetch				: IN	STD_LOGIC; -- señal que viene de unidad de control (multi) que indiica si se est cargando un nuevo pc
- 			 illegal_inst		: IN 	STD_LOGIC; -- señal que viene de control_l para saber si hay una instruccion ilegal
-			 stop_execution	: OUT STD_LOGIC --señal para filtrar si se pueden hacer cambios en el estado del procesador: escritura a memoria, escritura a banco de registros
+			 excep_UP			: OUT	STD_LOGIC; -- seÃ±al que se usa para indicar si hay alguna excepcion
+			 excep_enabled		: IN 	STD_LOGIC; -- seÃ±al que viene del banco de registros para saber si estan activadas las excepeciones
+			 invalid_address	: IN	STD_LOGIC; -- seÃ±al que viene del memory controller para saber si le ha llegado alguna direccion invalida
+			 isLDorST			: IN	STD_LOGIC; -- seÃ±al que viene del control_l para saber si se esta ejecutando un load o un store
+			 fetch				: IN	STD_LOGIC; -- seÃ±al que viene de unidad de control (multi) que indiica si se est cargando un nuevo pc
+ 			 illegal_inst		: IN 	STD_LOGIC; -- seÃ±al que viene de control_l para saber si hay una instruccion ilegal
+			 stop_execution	: OUT STD_LOGIC --seÃ±al para filtrar si se pueden hacer cambios en el estado del procesador: escritura a memoria, escritura a banco de registros
 			 ); 
 END exception_controller;
 

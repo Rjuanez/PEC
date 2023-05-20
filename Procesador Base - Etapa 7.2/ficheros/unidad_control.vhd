@@ -78,7 +78,8 @@ ARCHITECTURE Structure OF unidad_control IS
          ins_dad   : OUT STD_LOGIC;
          word_byte : OUT STD_LOGIC;
 			to_system : IN  STD_LOGIC;
-			system_act: OUT STD_LOGIC);
+			system_act: OUT STD_LOGIC;
+			exception : IN STD_LOGIC);
 	end component;
 
     -- Tambien crearemos los cables/buses (signals) necesarios para unir las entidades
@@ -101,6 +102,8 @@ ARCHITECTURE Structure OF unidad_control IS
 	 SIGNAL system_actTOsystem_act : STD_LOGIC;
 	 
 	 SIGNAL wrdFilter, wr_mFilter : STD_LOGIC; --señales para filtrar los permisos de escritura en caso de que se produzca una excepcion
+	 
+	 
 	 
 BEGIN
 	 -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
@@ -147,7 +150,8 @@ BEGIN
 		ins_dad => ins_dad,
 		word_byte => word_byte,
 		to_system => to_system,
-		system_act => system_actTOsystem_act);
+		system_act => system_actTOsystem_act,
+		exception => stop_execution);
 	
 	pc <= new_pc;
 	
