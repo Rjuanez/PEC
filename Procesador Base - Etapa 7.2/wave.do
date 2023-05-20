@@ -28,9 +28,11 @@ add wave -noupdate -expand -group Datapath /test_sisa/SoC/proc0/d0/addr_d
 add wave -noupdate -expand -group Datapath /test_sisa/SoC/proc0/d0/TOd
 add wave -noupdate /test_sisa/SoC/proc0/d0/reg0/registro(2)
 add wave -noupdate /test_sisa/SoC/proc0/e0/stop_execution
+add wave -noupdate /test_sisa/SoC/proc0/cu0/ldpcTOmulti
+add wave -noupdate /test_sisa/SoC/proc0/cu0/temp_pc
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Ins desalineada} {8783653 ps} 0} {{Div ins error} {2695744 ps} 0} {{St desalineado} {4828828 ps} 0} {{Cursor 4} {5190201 ps} 0} {AQUII {2949110 ps} 0}
-quietly wave cursor active 5
+WaveRestoreCursors {{Ins desalineada} {7270000 ps} 0} {{Div ins error} {2790000 ps} 0} {{St desalineado} {4828828 ps} 0} {{Cursor 4} {5190201 ps} 0} {AQUII {2949110 ps} 0}
+quietly wave cursor active 1
 configure wave -namecolwidth 315
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
@@ -45,4 +47,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {2458045 ps} {3770545 ps}
+WaveRestoreZoom {6890424 ps} {8202924 ps}

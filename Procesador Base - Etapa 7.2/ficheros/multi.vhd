@@ -48,7 +48,9 @@ begin
 		if boot = '1' then
 				estat <= F;
 		elsif rising_edge(clk) then
-			if estat = F then
+			if estat = F and to_system = '1' then
+				estat <= SYSTEM;
+			elsif estat = F then
 				estat <= DEMW;
 			elsif estat = DEMW and to_system = '1' then
 				estat <= SYSTEM;

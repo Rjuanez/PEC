@@ -19,6 +19,17 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity controladores_IO
 -- Compiling architecture Structure of controladores_IO
 
+} {} {}} {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/unidad_control.vhd} {1 {vcom -work work -2002 -explicit {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/unidad_control.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity unidad_control
+-- Compiling architecture Structure of unidad_control
+
 } {} {}} {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/test_sisa.vhd} {2 {vcom -work work -2002 -explicit {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/test_sisa.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -116,23 +127,7 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity alu
 -- Compiling architecture Structure of alu
 
-} {} {}} {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/multi.vhd} {1 {vcom -work work -2002 -explicit {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/multi.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity multi
--- Compiling architecture Structure of multi
-
-} {} {}} {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/proc.vhd} {1 {vcom -work work -2002 -explicit {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/proc.vhd}
-Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity ProcesadorBase
--- Compiling architecture Structure of ProcesadorBase
-
-} {} {}} {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/control_l.vhd} {2 {vcom -work work -2002 -explicit {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/control_l.vhd}
+} {} {}} {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/control_l.vhd} {1 {vcom -work work -2002 -explicit {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/control_l.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -142,10 +137,14 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package func_ayuda_control_pkg
 -- Compiling entity control_l
 -- Compiling architecture Structure of control_l
-** Warning: //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/control_l.vhd(89): (vcom-1083) Implicit array operator "/=" always returns TRUE (left length 12 is not equal to right length 3).
 
-** Warning: //Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/control_l.vhd(90): (vcom-1083) Implicit array operator "/=" always returns TRUE (left length 12 is not equal to right length 3).
-
+} {} {}} {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/proc.vhd} {1 {vcom -work work -2002 -explicit {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/proc.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ProcesadorBase
+-- Compiling architecture Structure of ProcesadorBase
 
 } {} {}} {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/MemoryController.vhd} {1 {vcom -work work -2002 -explicit {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.2/ficheros/MemoryController.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
