@@ -1,9 +1,11 @@
 movi r0, 0	; registro con direccion de memoria donde escribimos
 movi r1, 171	; valor para que salga AB por el display
-movi r5, 18	; direccion LOW de la funcion de RSG 
+movi r5, 22	; direccion LOW de la funcion de RSG 
 movhi r5, 192	; direccion HIGH de la funcion de RSG
 movi r4, 255	; no se usa para nada
 wrs s5, r5
+movi r5, 0
+wrs s7, r5
 ei
 calls r1	; llamamos la call con el valor de los visores
 halt

@@ -37,14 +37,18 @@ BEGIN
 
 	excep_UP <= '0' when exception_idS = "1000" else
 					'1';
-					
+	-- esto puede dar problemas, dado que permite pasar directamente al ciclo de sistem des de fetch
 	stop_execution <= '1' when exception_idS = "0100"  else
 							'1' when exception_idS = "0000"  else
 							'1' when exception_idS = "0001"  else
+							'1' when exception_idS = "1101"  else
+							'1' when exception_idS = "1011"  else
 							'0';
 						
-	
-	exception_idS <= 	"1110" when sys_call = '1' and excep_enabled = '1' else
+	--esto tiene que serguir un determinado orden, NO REORDENAR sin pensar
+	exception_idS <= 	"1011" when system_address = '1' and system_mode = '0' and excep_enabled = '1' else
+							"1101" when system_ins = '1' and system_mode = '0' and excep_enabled = '1' else
+							"1110" when sys_call = '1' and excep_enabled = '1' else
 							"0100" when div_zero = '1' and excep_enabled = '1' else
 							"0000" when illegal_inst = '1' and excep_enabled = '1' else
 							"0001" when invalid_address = '1' and fetch = '1' and excep_enabled = '1' else

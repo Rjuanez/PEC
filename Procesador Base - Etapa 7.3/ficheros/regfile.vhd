@@ -48,7 +48,7 @@ BEGIN
 				registro_sistema(0) <= registro_sistema(7);
 				registro_sistema(1) <= d;
 				registro_sistema(2) <= (15 downto 4 => '0') & exception_id;
-				registro_sistema(7)(1) <= '0';
+				registro_sistema(7)(1 downto 0) <= "01"; --desactivamos las interrupciones y activamos el modo sistema (1): int, (0):sys_mode
 			end if;
 		end if;
 	end process escritura;
