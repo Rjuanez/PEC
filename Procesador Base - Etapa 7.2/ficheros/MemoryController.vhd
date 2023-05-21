@@ -12,6 +12,7 @@ entity MemoryController is
           byte_m    			: in  std_logic;
 			 --SEÑALES PARA EXCEPCIONEs
 			 invalid_address	: out std_logic;
+			 system_address	: out	std_logic;
           -- señales para la placa de desarrollo
           SRAM_ADDR 			: out   std_logic_vector(17 downto 0);
           SRAM_DQ   			: inout std_logic_vector(15 downto 0);
@@ -53,7 +54,10 @@ begin
 		--deteccion de direcciones invalidas cuando la direcion es impar y se estan direcionando words
 --	process (CLOCK_50) begin
 --		if rising_edge(CLOCK_50) then
-			invalid_address <= '1' when byte_m = '0' and addr(0) = '1' else '0';
+			invalid_address <='1' when byte_m = '0' and addr(0) = '1' else '0';
+			system_address <= '1' when addr(15 downto 14) = "11" else
+									'1' when addr(15) = '1' and addr(13) = '0' else
+									'0';
 --		end if;
 --	end process;
 	--Control que no accedan a las posiciones superiores de la memoria

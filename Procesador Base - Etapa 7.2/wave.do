@@ -15,6 +15,10 @@ add wave -noupdate /test_sisa/SoC/proc0/e0/excep_UP
 add wave -noupdate /test_sisa/SoC/proc0/e0/exception_idS
 add wave -noupdate /test_sisa/SoC/proc0/e0/exception_id
 add wave -noupdate /test_sisa/SoC/proc0/d0/reg0/registro_sistema(2)
+add wave -noupdate /test_sisa/SoC/proc0/d0/reg0/registro_sistema(3)
+add wave -noupdate /test_sisa/SoC/proc0/d0/reg0/registro(1)
+add wave -noupdate /test_sisa/SoC/controladosIO/registro_io(10)
+add wave -noupdate /test_sisa/SoC/controladosIO/registro_io(9)
 add wave -noupdate /test_sisa/SoC/proc0/cu0/ge/to_system
 add wave -noupdate -expand -group Memory /test_sisa/SoC/memory0/we
 add wave -noupdate -expand -group Memory /test_sisa/SoC/memory0/wr_data
@@ -31,7 +35,7 @@ add wave -noupdate /test_sisa/SoC/proc0/e0/stop_execution
 add wave -noupdate /test_sisa/SoC/proc0/cu0/ldpcTOmulti
 add wave -noupdate /test_sisa/SoC/proc0/cu0/temp_pc
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Ins desalineada} {7270000 ps} 0} {{Div ins error} {2790000 ps} 0} {{St desalineado} {4828828 ps} 0} {{Cursor 4} {5190201 ps} 0} {AQUII {2949110 ps} 0}
+WaveRestoreCursors {{Ins desalineada} {1978997036 ps} 0} {{Div ins error} {2790000 ps} 0} {{St desalineado} {4828828 ps} 0} {{Cursor 4} {5190201 ps} 0} {AQUII {2949110 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 315
 configure wave -valuecolwidth 100
@@ -47,4 +51,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {6890424 ps} {8202924 ps}
+WaveRestoreZoom {1978963125 ps} {1980275625 ps}

@@ -18,7 +18,12 @@ ENTITY exception_controller IS
 			 isLDorST			: IN	STD_LOGIC; -- seÃ±al que viene del control_l para saber si se esta ejecutando un load o un store
 			 fetch				: IN	STD_LOGIC; -- seÃ±al que viene de unidad de control (multi) que indiica si se est cargando un nuevo pc
  			 illegal_inst		: IN 	STD_LOGIC; -- seÃ±al que viene de control_l para saber si hay una instruccion ilegal
-			 stop_execution	: OUT STD_LOGIC --seÃ±al para filtrar si se pueden hacer cambios en el estado del procesador: escritura a memoria, escritura a banco de registros
+			 stop_execution	: OUT STD_LOGIC; --seÃ±al para filtrar si se pueden hacer cambios en el estado del procesador: escritura a memoria, escritura a banco de registros
+			 
+			 system_address	: IN	STD_LOGIC; -- señal para saber si la direccion de memoria a la que se esta accediendo es de sistema
+			 system_mode		: IN	STD_LOGIC; -- señal para saber si estamos en modo sistema a modo usuario 
+			 system_ins			: IN	STD_LOGIC; -- señal que indica si se esta ejecutando alguna instruccion que requiera de modo de sistema
+			 sys_call			: IN	STD_LOGIC --señal que indica si se esta ejecutando una instruccion de tipo calls
 			 ); 
 END exception_controller;
 
@@ -39,12 +44,13 @@ BEGIN
 							'0';
 						
 	
-	exception_idS <= "0100" when div_zero = '1' and excep_enabled = '1' else
-						  "0000" when illegal_inst = '1' and excep_enabled = '1' else
-						  "0001" when invalid_address = '1' and fetch = '1' and excep_enabled = '1' else
-						  "0001" when invalid_address = '1' and isLDorST = '1' and excep_enabled = '1' else
-						  "1111" when intr = '1' and excep_enabled = '1' else --interrupciones
-						  "1000"; -- valor arbitrario
+	exception_idS <= 	"1110" when sys_call = '1' and excep_enabled = '1' else
+							"0100" when div_zero = '1' and excep_enabled = '1' else
+							"0000" when illegal_inst = '1' and excep_enabled = '1' else
+							"0001" when invalid_address = '1' and fetch = '1' and excep_enabled = '1' else
+							"0001" when invalid_address = '1' and isLDorST = '1' and excep_enabled = '1' else
+							"1111" when intr = '1' and excep_enabled = '1' else --interrupciones
+							"1000"; -- valor arbitrario
 		
 				
 	-- realmente no se si hace falta el proceso, pero dado que cuando se entra en el ciclo de systema siempre tiene que haber un rising edge tampoco pasa nada si esta
