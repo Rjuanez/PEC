@@ -54,42 +54,68 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 			 system_mode			: OUT	STD_LOGIC;
 			 reg_op	 				: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 			 exception_id 			: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-			 div_zero 				: OUT STD_LOGIC);
+			 div_zero 				: OUT STD_LOGIC;
+			 --TLB ESCEPTIONS
+			 miss_tlb_D				: OUT	STD_LOGIC; -- señal que indica si ha habido un miss
+			 invalid_page_D		: OUT	STD_LOGIC; -- señal que indica si la pagina que se ha taducido tiene le bit de invalido	
+			 read_only_page_D		: OUT	STD_LOGIC; -- señal que indica si la pagina que se ha pedido traducir es solo de lectura
+			 
+			 write_dir_s3			: IN STD_LOGIC; -- señal para indicar que se guarde en s3 el valor de la direccion que ha fallado en la tlb
+			 
+			 --TLB EXCEPTIONS INS
+			 miss_tlb_I				: OUT	STD_LOGIC; -- señal que indica si ha habido un miss
+			 invalid_page_I		: OUT	STD_LOGIC; -- señal que indica si la pagina que se ha taducido tiene le bit de invalido	
+			 read_only_page_I		: OUT	STD_LOGIC; -- señal que indica si la pagina que se ha pedido traducir es solo de lectura
+			 
+			  --CONTROL TLB DATOS
+			 tlb_op_D				: IN	STD_LOGIC_VECTOR(1 DOWNTO 0); -- bus que indica que operacion se ha de realizar
+			 
+			  --CONTROL TLB INS
+			 tlb_op_I				: IN	STD_LOGIC_VECTOR(1 DOWNTO 0) -- bus que indica que operacion se ha de realizar
+			 );
 	 END COMPONENT;
 	 
 	 COMPONENT unidad_control IS
-    PORT (boot      			: IN  STD_LOGIC;
-          clk       			: IN  STD_LOGIC;
-          datard_m  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 Z			  			: IN  STD_LOGIC;
-			 jump_dir  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op        			: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-          wrd       			: OUT STD_LOGIC;
-          addr_a    			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_b    			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_d    			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          immed     			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          pc        			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          ins_dad   			: OUT STD_LOGIC;
-          in_d      			: OUT STD_LOGIC_VECTOR(2 downto 0);
-          immed_x2  			: OUT STD_LOGIC;
-          wr_m      			: OUT STD_LOGIC;
-          word_byte 			: OUT STD_LOGIC;
-			 Rb_N		  			: OUT STD_LOGIC;
-			 addr_io	  			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 rd_in	  			: OUT STD_LOGIC;
-			 wr_out	  			: OUT STD_LOGIC;
-			 sys_a	  			: OUT STD_LOGIC;
-			 wr_sys	  			: OUT STD_LOGIC;
-			 reg_op	  			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-			 to_system			: IN STD_LOGIC;
-			 inta		  			: OUT STD_LOGIC;
-			 fetch				: OUT	STD_LOGIC;
-			 illegal_inst		: OUT STD_LOGIC;
-			 stop_execution	: IN	STD_LOGIC;
-			 system_ins			: OUT	STD_LOGIC;
-			 sys_call			: OUT	STD_LOGIC;
-			 excep_UP_F			: IN	STD_LOGIC
+    PORT (boot      				: IN  STD_LOGIC;
+          clk       				: IN  STD_LOGIC;
+          datard_m  				: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 Z			  				: IN  STD_LOGIC;
+			 jump_dir  				: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          op        				: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+          wrd       				: OUT STD_LOGIC;
+          addr_a    				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_b    				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_d    				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          immed     				: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          pc        				: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          ins_dad   				: OUT STD_LOGIC;
+          in_d      				: OUT STD_LOGIC_VECTOR(2 downto 0);
+          immed_x2  				: OUT STD_LOGIC;
+          wr_m      				: OUT STD_LOGIC;
+          word_byte 				: OUT STD_LOGIC;
+			 Rb_N		  				: OUT STD_LOGIC;
+			 addr_io	  				: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 rd_in	  				: OUT STD_LOGIC;
+			 wr_out	  				: OUT STD_LOGIC;
+			 sys_a	  				: OUT STD_LOGIC;
+			 wr_sys	  				: OUT STD_LOGIC;
+			 reg_op	  				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+			 to_system				: IN STD_LOGIC;
+			 inta		  				: OUT STD_LOGIC;
+			 fetch					: OUT	STD_LOGIC;
+			 illegal_inst			: OUT STD_LOGIC;
+			 stop_execution		: IN	STD_LOGIC;
+			 system_ins				: OUT	STD_LOGIC;
+			 sys_call				: OUT	STD_LOGIC;
+			 excep_UP_F				: IN	STD_LOGIC;
+			 data_memory_acces	: OUT STD_LOGIC;
+			 isST						: OUT	STD_LOGIC;
+			 
+			  --CONTROL TLB DATOS
+			 tlb_op_D				: OUT	STD_LOGIC_VECTOR(1 DOWNTO 0); -- bus que indica que operacion se ha de realizar
+			 
+			  --CONTROL TLB INS
+			 tlb_op_I				: OUT	STD_LOGIC_VECTOR(1 DOWNTO 0) -- bus que indica que operacion se ha de realizar
 			 
 			 );
 	 END COMPONENT;
@@ -113,7 +139,21 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 			 system_mode			: IN	STD_LOGIC; -- señal para saber si estamos en modo sistema a modo usuario 
 			 system_ins				: IN	STD_LOGIC; -- señal que indica si se esta ejecutando alguna instruccion que requiera de modo de sistema
 			 sys_call				: IN	STD_LOGIC; --señal que indica si se esta ejecutando una instruccion de tipo calls
-			 excep_UP_F				: OUT	STD_LOGIC -- señal para pasar al cilco de sistem des de FETCH
+			 excep_UP_F				: OUT	STD_LOGIC; -- señal para pasar al cilco de sistem des de FETCH
+			 --TLB ESCEPTIONS DATA
+			 miss_tlb_D				: IN	STD_LOGIC; -- señal que indica si ha habido un miss
+			 invalid_page_D		: IN	STD_LOGIC; -- señal que indica si la pagina que se ha taducido tiene le bit de invalido	
+			 read_only_page_D		: IN	STD_LOGIC; -- señal que indica si la pagina que se ha pedido traducir es solo de lectura
+			 
+			 --TLB EXCEPTIONS INS
+			 miss_tlb_I				: IN	STD_LOGIC; -- señal que indica si ha habido un miss
+			 invalid_page_I		: IN	STD_LOGIC; -- señal que indica si la pagina que se ha taducido tiene le bit de invalido	
+			 read_only_page_I		: IN	STD_LOGIC; -- señal que indica si la pagina que se ha pedido traducir es solo de lectura
+			 
+			 data_memory_acces	: IN 	STD_LOGIC; -- señal que indica si se esta ejecutando algun ld/ldb o st/stb
+			 isST						: IN	STD_LOGIC;
+			 
+			 write_dir_s3			: OUT STD_LOGIC -- señal para indicar que se guarde en s3 el valor de la direccion que ha fallado en la tlb
 			 );
 	END COMPONENT;
 	 SIGNAL opTOop : STD_LOGIC_VECTOR(4 DOWNTO 0);
@@ -131,11 +171,16 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 	 SIGNAL jumpTOjump: STD_LOGIC_VECTOR(15 DOWNTO 0);
 	 SIGNAL sys_aTOsys_a, wr_sysTOwr_sys : STD_LOGIC;
 	 SIGNAL reg_opTOreg_op : STD_LOGIC_VECTOR(2 DOWNTO 0);
-	 SIGNAL int_enabledTOint_enabled, system_modeTOsystem_mode : STD_LOGIC;
+	 SIGNAL int_enabledTOint_enabled, system_modeTOsystem_mode, data_memory_accesTOdata_memory_acces, isSTTOisST : STD_LOGIC;
 	 SIGNAL exception_idTOexception_id : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	 SIGNAL excep_UPTOto_system : STD_LOGIC;
 	 SIGNAL div_zeroTOdiv_zero, fetchTOfetch, il_instTOil_inst, system_insTOsystem_ins, sys_callTOsys_call : STD_LOGIC;
 	 SIGNAL stop_executionTOstop_execution, excep_UP_FTOexcep_UP_F : STD_LOGIC;
+	 -- EXCEPCIONES DE TLB DE DATOS A EXCEPTION CONTROLLEr
+	 SIGNAL miss_tlb_DTOexception_controller, invalid_page_DTOexception_controller, read_only_page_DTOexception_controller : STD_LOGIC; --Exceptions de TLB de datos
+	 SIGNAL miss_tlb_ITOexception_controller, invalid_page_ITOexception_controller, read_only_page_ITOexception_controller : STD_LOGIC; --Exceptions de TLB de ins
+	 SIGNAL write_dir_s3TOwrite_dir_s3 : STD_LOGIC; -- señales de control de regfile des de exception_controller
+	 SIGNAL tlb_op_DTOtlb_op_D, tlb_op_ITOtlb_op_I : STD_LOGIC_VECTOR(1 DOWNTO 0);
 BEGIN
 
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
@@ -172,7 +217,11 @@ BEGIN
 		stop_execution => stop_executionTOstop_execution,
 		system_ins => system_insTOsystem_ins,
 		sys_call => sys_callTOsys_call,
-		excep_UP_F => excep_UP_FTOexcep_UP_F);
+		excep_UP_F => excep_UP_FTOexcep_UP_F,
+		data_memory_acces => data_memory_accesTOdata_memory_acces,
+		isST => isSTTOisST,
+		tlb_op_D => tlb_op_DTOtlb_op_D,
+		tlb_op_I => tlb_op_ITOtlb_op_I);
 		
 	d0: datapath port map (
 		clk => clk, 
@@ -201,7 +250,16 @@ BEGIN
 		int_enabled => int_enabledTOint_enabled,
 		exception_id => exception_idTOexception_id,
 		div_zero => div_zeroTOdiv_zero,
-		system_mode => system_modeTOsystem_mode);
+		system_mode => system_modeTOsystem_mode,
+		miss_tlb_D => miss_tlb_DTOexception_controller,
+		invalid_page_D => invalid_page_DTOexception_controller,
+		read_only_page_D => read_only_page_DTOexception_controller,
+		write_dir_s3 => write_dir_s3TOwrite_dir_s3,
+		tlb_op_D => tlb_op_DTOtlb_op_D,
+		tlb_op_I => tlb_op_ITOtlb_op_I,
+		miss_tlb_I => miss_tlb_ITOexception_controller,
+		invalid_page_I => invalid_page_ITOexception_controller,
+		read_only_page_I => read_only_page_ITOexception_controller);
 		
 	e0: exception_controller port map(
 		boot => boot,
@@ -212,7 +270,7 @@ BEGIN
 		excep_UP => excep_UPTOto_system,
 		div_zero => div_zeroTOdiv_zero,
 		invalid_address => invalid_address,
-		isLDorST => immed_x2TO, --se usa esta señal que en princio era para generar los imediatos multiplicados por 2 para aceder a memoria para saber si se hace un load o store 
+		isLDorST => immed_x2TO, --se usa esta señal que en princio era para generar los imediatos multiplicados por 2 para aceder a memoria, cosa que se hace cuando hay un ld/st para saber si se hace un load o store 
 		fetch => fetchTOfetch,
 		illegal_inst => il_instTOil_inst,
 		stop_execution => stop_executionTOstop_execution,
@@ -220,7 +278,17 @@ BEGIN
 		system_mode => system_modeTOsystem_mode,
 		system_ins => system_insTOsystem_ins,
 		sys_call => sys_callTOsys_call,
-		excep_UP_F => excep_UP_FTOexcep_UP_F);
+		excep_UP_F => excep_UP_FTOexcep_UP_F,
+		miss_tlb_D => miss_tlb_DTOexception_controller,
+		invalid_page_D => invalid_page_DTOexception_controller,
+		read_only_page_D => read_only_page_DTOexception_controller,
+		data_memory_acces => data_memory_accesTOdata_memory_acces,
+		write_dir_s3 => write_dir_s3TOwrite_dir_s3,
+		isST => isSTTOisST,
+		miss_tlb_I => miss_tlb_ITOexception_controller,
+		invalid_page_I => invalid_page_ITOexception_controller,
+		read_only_page_I => read_only_page_ITOexception_controller
+		);
 		
 
 		

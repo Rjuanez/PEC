@@ -11,12 +11,17 @@ ENTITY regfile IS
           addr_d 					: IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
           a      					: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			 b      					: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 sys_a  					: IN STD_LOGIC;
-			 wr_sys 					: IN STD_LOGIC;
+			 sys_a  					: IN 	STD_LOGIC;
+			 wr_sys 					: IN 	STD_LOGIC;
 			 int_enabled 			: OUT STD_LOGIC; 
 			 system_mode			: OUT	STD_LOGIC;
-			 reg_op 					: IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-			 exception_id 			: IN STD_LOGIC_VECTOR(3 DOWNTO 0));
+			 reg_op 					: IN 	STD_LOGIC_VECTOR(2 DOWNTO 0);
+			 exception_id 			: IN 	STD_LOGIC_VECTOR(3 DOWNTO 0);
+			 --fallo de tlb
+			 write_dir_s3			: IN 	STD_LOGIC; -- señal para indicar que se guarde en s3 el valor de la direccion que ha fallado en la tlb
+			 dir_fallo				: IN	STD_LOGIC_VECTOR(15 DOWNTO 0)
+			 
+			 );
 END regfile;
 
 
@@ -45,6 +50,9 @@ BEGIN
 			elsif reg_op = "100" then -- RETI
 				registro_sistema(7) <= registro_sistema(0);
 			elsif reg_op = "101" then -- SISTEMA
+				if write_dir_s3 = '1' then 
+					registro_sistema(3) <= dir_fallo;
+				end if;
 				registro_sistema(0) <= registro_sistema(7);
 				registro_sistema(1) <= d;
 				registro_sistema(2) <= (15 downto 4 => '0') & exception_id;
