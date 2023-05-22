@@ -87,7 +87,8 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 			 illegal_inst		: OUT STD_LOGIC;
 			 stop_execution	: IN	STD_LOGIC;
 			 system_ins			: OUT	STD_LOGIC;
-			 sys_call			: OUT	STD_LOGIC
+			 sys_call			: OUT	STD_LOGIC;
+			 excep_UP_F			: IN	STD_LOGIC
 			 
 			 );
 	 END COMPONENT;
@@ -110,7 +111,8 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 			 system_address		: IN	STD_LOGIC; -- señal para saber si la direccion de memoria a la que se esta accediendo es de sistema
 			 system_mode			: IN	STD_LOGIC; -- señal para saber si estamos en modo sistema a modo usuario 
 			 system_ins				: IN	STD_LOGIC; -- señal que indica si se esta ejecutando alguna instruccion que requiera de modo de sistema
-			 sys_call				: IN	STD_LOGIC --señal que indica si se esta ejecutando una instruccion de tipo calls
+			 sys_call				: IN	STD_LOGIC; --señal que indica si se esta ejecutando una instruccion de tipo calls
+			 excep_UP_F				: OUT	STD_LOGIC -- señal para pasar al cilco de sistem des de FETCH
 			 );
 	END COMPONENT;
 	 
@@ -133,7 +135,7 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 	 SIGNAL exception_idTOexception_id : STD_LOGIC_VECTOR(3 DOWNTO 0);
 	 SIGNAL excep_UPTOto_system : STD_LOGIC;
 	 SIGNAL div_zeroTOdiv_zero, fetchTOfetch, il_instTOil_inst, system_insTOsystem_ins, sys_callTOsys_call : STD_LOGIC;
-	 SIGNAL stop_executionTOstop_execution : STD_LOGIC;
+	 SIGNAL stop_executionTOstop_execution, excep_UP_FTOexcep_UP_F : STD_LOGIC;
 BEGIN
 
     -- Aqui iria la declaracion del "mapeo" (PORT MAP) de los nombres de las entradas/salidas de los componentes
@@ -169,7 +171,8 @@ BEGIN
 		illegal_inst => il_instTOil_inst,
 		stop_execution => stop_executionTOstop_execution,
 		system_ins => system_insTOsystem_ins,
-		sys_call => sys_callTOsys_call);
+		sys_call => sys_callTOsys_call,
+		excep_UP_F => excep_UP_FTOexcep_UP_F);
 		
 	d0: datapath port map (
 		clk => clk, 
@@ -215,6 +218,7 @@ BEGIN
 		system_address => system_address,
 		system_mode => system_modeTOsystem_mode,
 		system_ins => system_insTOsystem_ins,
-		sys_call => sys_callTOsys_call);
+		sys_call => sys_callTOsys_call,
+		excep_UP_F => excep_UP_FTOexcep_UP_F);
 		
 END Structure;

@@ -23,7 +23,8 @@ ENTITY exception_controller IS
 			 system_address	: IN	STD_LOGIC; -- señal para saber si la direccion de memoria a la que se esta accediendo es de sistema
 			 system_mode		: IN	STD_LOGIC; -- señal para saber si estamos en modo sistema a modo usuario 
 			 system_ins			: IN	STD_LOGIC; -- señal que indica si se esta ejecutando alguna instruccion que requiera de modo de sistema
-			 sys_call			: IN	STD_LOGIC --señal que indica si se esta ejecutando una instruccion de tipo calls
+			 sys_call			: IN	STD_LOGIC; --señal que indica si se esta ejecutando una instruccion de tipo calls
+			 excep_UP_F			: OUT	STD_LOGIC -- señal para pasar al cilco de sistem des de FETCH
 			 ); 
 END exception_controller;
 
@@ -34,6 +35,12 @@ ARCHITECTURE Structure OF exception_controller IS
 
 
 BEGIN
+	
+	-- señal que levanta las excepciones par pasar a system des del ciclo de FETCH
+	excep_UP_F <=	'1' when exception_idS = "1011" else
+						'1' when exception_idS = "0001" else
+						'0';
+	
 
 	excep_UP <= '0' when exception_idS = "1000" else
 					'1';

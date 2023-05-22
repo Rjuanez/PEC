@@ -18,7 +18,8 @@ entity multi is
 			system_act	: OUT STD_LOGIC;
 			exception 	: IN	STD_LOGIC;
 			wr_sys_l		: IN 	STD_LOGIC;
-			wr_sys		: OUT	STD_LOGIC);
+			wr_sys		: OUT	STD_LOGIC;
+			excep_UP_F	: IN	STD_LOGIC);
 end entity;
 
 architecture Structure of multi is
@@ -51,10 +52,9 @@ begin
 		if boot = '1' then
 				estat <= F;
 		elsif rising_edge(clk) then
---			if estat = F and exception = '1' then
---				estat <= SYSTEM;
---			els
-			if estat = F then
+			if estat = F and excep_UP_F = '1' then
+				estat <= SYSTEM;
+			elsif estat = F then
 				estat <= DEMW;
 			elsif estat = DEMW and to_system = '1' then
 				estat <= SYSTEM;

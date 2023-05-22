@@ -19,7 +19,7 @@ L8
 V<GN9dD:1L`2n<;91l?aC^0
 Z10 OV;C;10.1d;51
 32
-Z11 !s108 1684698065.862000
+Z11 !s108 1684749746.952000
 Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/alu.vhd|
 Z13 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/alu.vhd|
 Z14 o-work work -2002 -explicit -O0
@@ -63,7 +63,7 @@ L22
 Vz7=:g106kSL^?zZa1_k1i2
 R10
 32
-Z22 !s108 1684698064.604000
+Z22 !s108 1684749745.973000
 Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/async_64Kx16.vhd|
 Z24 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/async_64Kx16.vhd|
 R14
@@ -107,7 +107,7 @@ R14
 R15
 !s100 _RYL_jUMn?Jc^G2H1MbfO1
 !i10b 1
-!s108 1684698066.037000
+!s108 1684749747.069000
 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/const_alu.vhd|
 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/const_alu.vhd|
 Econtrol_l
@@ -125,7 +125,7 @@ L7
 V]eohoUlI]OKH?`92O9o>V1
 R10
 32
-Z28 !s108 1684698066.174000
+Z28 !s108 1684749747.158000
 Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/control_l.vhd|
 Z30 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/control_l.vhd|
 R14
@@ -166,7 +166,7 @@ L6
 VfdB:703PmEQ@=N^J0kC1:0
 R10
 32
-Z33 !s108 1684698066.340000
+Z33 !s108 1684749747.267000
 Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/controlador_interrupciones.vhd|
 Z35 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/controlador_interrupciones.vhd|
 R14
@@ -207,7 +207,7 @@ L6
 VSJiU4IODbfadmBez^;86V0
 R10
 32
-Z38 !s108 1684698064.774000
+Z38 !s108 1684749746.094000
 Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/controladores_IO.vhd|
 Z40 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/controladores_IO.vhd|
 R14
@@ -246,7 +246,7 @@ L5
 VMdKCE^1>iof0<=;dE0RYZ1
 R10
 32
-Z43 !s108 1684698066.517000
+Z43 !s108 1684749747.376000
 Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/datapath.vhd|
 Z45 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/datapath.vhd|
 R14
@@ -282,7 +282,7 @@ L4
 V_=8S4L7Q^<D_^`g[VjbRP2
 R10
 32
-Z48 !s108 1684698064.952000
+Z48 !s108 1684749746.212000
 Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/driver7Segmentos.vhd|
 Z50 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/driver7Segmentos.vhd|
 R14
@@ -317,7 +317,7 @@ L4
 VMeJCJ2YJ<eKb?LhjMTAHZ0
 R10
 32
-Z53 !s108 1684698065.049000
+Z53 !s108 1684749746.307000
 Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/driverSegmentos.vhd|
 Z55 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/driverSegmentos.vhd|
 R14
@@ -341,7 +341,7 @@ R15
 !s100 6K9BB0lz5O6JM02eM1oM[2
 !i10b 1
 Eexception_controller
-Z56 w1684698019
+Z56 w1684749718
 R4
 R5
 R6
@@ -350,24 +350,24 @@ Z57 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/e
 Z58 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/exception_controller.vhd
 l0
 L7
-VhlBEDGVLXnOdB]:e^ePi92
+VQz7V6YEIBdj39j4AiUlPU1
 R10
 32
-Z59 !s108 1684698066.636000
+Z59 !s108 1684749747.480000
 Z60 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/exception_controller.vhd|
 Z61 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/exception_controller.vhd|
 R14
 R15
-!s100 kH@a>2iWmP[M<EmP>2JPW3
+!s100 ARh^Db7heDczmg@fYiQiD1
 !i10b 1
 Astructure
 R4
 R5
 R6
-DEx4 work 20 exception_controller 0 22 hlBEDGVLXnOdB]:e^ePi92
-l36
-L31
-VBdU6[2]3mGg_AI[9lA0Se2
+DEx4 work 20 exception_controller 0 22 Qz7V6YEIBdj39j4AiUlPU1
+l37
+L32
+VOnXKfZ?C5ng;nNe@I<cBW3
 R10
 32
 R59
@@ -375,7 +375,7 @@ R60
 R61
 R14
 R15
-!s100 RFNR5E=1@KbH4Y0;JaSF60
+!s100 Oc5nf?]<o^U@zScSOFJEN3
 !i10b 1
 Pfunc_ayuda_control_pkg
 R4
@@ -391,7 +391,7 @@ VhFeoDDQkCUB9=;8YcYZN^1
 R10
 32
 b1
-Z64 !s108 1684698066.746000
+Z64 !s108 1684749747.583000
 Z65 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/func_ayuda_control_pkg.vhd|
 Z66 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/func_ayuda_control_pkg.vhd|
 R14
@@ -431,7 +431,7 @@ L6
 Vfg8z:Dh6XRnS3P=V61WJ?2
 R10
 32
-Z69 !s108 1684698066.856000
+Z69 !s108 1684749747.691000
 Z70 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/int_controller.vhd|
 Z71 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/int_controller.vhd|
 R14
@@ -472,7 +472,7 @@ L7
 Va0R3dgb8knE;1W7mi^XPP0
 R10
 32
-Z74 !s108 1684698065.154000
+Z74 !s108 1684749746.401000
 Z75 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/keyboard_controller.vhd|
 Z76 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/keyboard_controller.vhd|
 R14
@@ -512,7 +512,7 @@ L6
 V;;m[lFSe_`125GjFNkK>C0
 R10
 32
-Z79 !s108 1684698066.965000
+Z79 !s108 1684749747.799000
 Z80 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/MemoryController.vhd|
 Z81 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/MemoryController.vhd|
 R14
@@ -538,7 +538,7 @@ R15
 !s100 08D[4m`7I1WY;7d6ijaSS2
 !i10b 1
 Emulti
-Z82 w1684698045
+Z82 w1684749716
 R5
 R6
 R7
@@ -546,23 +546,23 @@ Z83 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/m
 Z84 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/multi.vhd
 l0
 L4
-V?hPGYc_1fHV4nYfPh>MYX0
+V]@AVaCa2>7P<J2KQ<[X3Q3
 R10
 32
-Z85 !s108 1684698067.101000
+Z85 !s108 1684749747.902000
 Z86 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/multi.vhd|
 Z87 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/multi.vhd|
 R14
 R15
-!s100 AeEhJGdN<?dX[o2`eGVa>1
+!s100 IXG3GCjSCdV@olZz@HFl40
 !i10b 1
 Astructure
 R5
 R6
-DEx4 work 5 multi 0 22 ?hPGYc_1fHV4nYfPh>MYX0
-l33
-L24
-VcHYbb41RYG;`X7f;HQoDQ1
+DEx4 work 5 multi 0 22 ]@AVaCa2>7P<J2KQ<[X3Q3
+l34
+L25
+V<5Ca;Z5MHm:KE8g4LMZGz1
 R10
 32
 R85
@@ -570,7 +570,7 @@ R86
 R87
 R14
 R15
-!s100 612aZ:[k><AkX6H9UFi^`3
+!s100 efI80HiXg`m<fJJRXc`@o3
 !i10b 1
 Ppackage_timing
 R19
@@ -587,7 +587,7 @@ L17
 V]QljGNTG0EJQ?X:f3a>TX1
 R10
 32
-Z90 !s108 1684698065.263000
+Z90 !s108 1684749746.519000
 Z91 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/package_timing.vhd|
 Z92 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/package_timing.vhd|
 R14
@@ -629,7 +629,7 @@ VabW^FY0na:iFW@RR:Fofg0
 R10
 32
 b1
-Z95 !s108 1684698065.365000
+Z95 !s108 1684749746.627000
 Z96 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/package_utility.vhd|
 Z97 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/package_utility.vhd|
 R14
@@ -656,20 +656,20 @@ nbody
 !s100 =i4<XdWXU:J]Ih;Vo<NgP3
 !i10b 1
 Eprocesadorbase
-R16
+Z98 w1684749646
 R5
 R6
 R7
-Z98 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/proc.vhd
-Z99 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/proc.vhd
+Z99 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/proc.vhd
+Z100 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/proc.vhd
 l0
 L4
 VXgh<3k@cag2f5aaKEek8L2
 R10
 32
-Z100 !s108 1684698067.285000
-Z101 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/proc.vhd|
-Z102 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/proc.vhd|
+Z101 !s108 1684749747.997000
+Z102 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/proc.vhd|
+Z103 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/proc.vhd|
 R14
 R15
 !s100 >L9O3:6[m<h4f]@aPU=403
@@ -678,17 +678,17 @@ Astructure
 R5
 R6
 DEx4 work 14 procesadorbase 0 22 Xgh<3k@cag2f5aaKEek8L2
-l137
+l139
 L24
-VBCi>5VO9<RfzaB^6V?d:z3
+V_6mR06Lb>8MiBz12BTN4Z1
 R10
 32
-R100
 R101
 R102
+R103
 R14
 R15
-!s100 @GBH3=fV[8WUhg;F6X1;C1
+!s100 <bKN>gK@hYOO:G?c@PT?T1
 !i10b 1
 Eps2_keyboard_interface
 R16
@@ -697,16 +697,16 @@ R3
 R5
 R6
 R7
-Z103 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ps2_keyboard.vhd
-Z104 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ps2_keyboard.vhd
+Z104 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ps2_keyboard.vhd
+Z105 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ps2_keyboard.vhd
 l0
 L122
 V5^^o1WM<I<13TLR9OGm6X3
 R10
 32
-Z105 !s108 1684698065.522000
-Z106 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ps2_keyboard.vhd|
-Z107 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ps2_keyboard.vhd|
+Z106 !s108 1684749746.736000
+Z107 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ps2_keyboard.vhd|
+Z108 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ps2_keyboard.vhd|
 R14
 R15
 !s100 VS?01B]caEG3LaE0f;Ylo0
@@ -722,30 +722,30 @@ L154
 V0@lM>0X3`2K2;_A`g_8gZ3
 R10
 32
-R105
 R106
 R107
+R108
 R14
 R15
 !s100 j<zV5hkF?44S1l^eK2JI41
 !i10b 1
 Eregfile
-Z108 w1684693075
+Z109 w1684693075
 R2
 R3
 R5
 R6
 R7
-Z109 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/regfile.vhd
-Z110 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/regfile.vhd
+Z110 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/regfile.vhd
+Z111 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/regfile.vhd
 l0
 L5
 VTk_3BzEE4`@z6A88?721L1
 R10
 32
-Z111 !s108 1684698067.457000
-Z112 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/regfile.vhd|
-Z113 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/regfile.vhd|
+Z112 !s108 1684749748.098000
+Z113 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/regfile.vhd|
+Z114 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/regfile.vhd|
 R14
 R15
 !s100 :<<HN<<D]5::Z08zKJ;n70
@@ -761,9 +761,9 @@ L23
 V[ZAjPL_Z3E@ENT_FBKf7l3
 R10
 32
-R111
 R112
 R113
+R114
 R14
 R15
 !s100 >lFBdfYiE[1_P82z`n>Zi2
@@ -775,16 +775,16 @@ R2
 R5
 R6
 R7
-Z114 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/sisa.vhd
-Z115 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/sisa.vhd
+Z115 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/sisa.vhd
+Z116 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/sisa.vhd
 l0
 L6
 V6[AgfoA]<EIBGDAd3ZAAe0
 R10
 32
-Z116 !s108 1684698067.601000
-Z117 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/sisa.vhd|
-Z118 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/sisa.vhd|
+Z117 !s108 1684749748.202000
+Z118 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/sisa.vhd|
+Z119 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/sisa.vhd|
 R14
 R15
 !s100 @N<[02lV2^Kg;m6PK2`7L1
@@ -800,9 +800,9 @@ L33
 VCX1JI9YB4ldUQ@AfP]Yh;2
 R10
 32
-R116
 R117
 R118
+R119
 R14
 R15
 !s100 5SF7]JSPbQN<=nFmlFPW81
@@ -814,16 +814,16 @@ R2
 R5
 R6
 R7
-Z119 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/SRAMController.vhd
-Z120 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/SRAMController.vhd
+Z120 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/SRAMController.vhd
+Z121 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/SRAMController.vhd
 l0
 L6
 VC2AV?EESPOZGcn4dfcYOD3
 R10
 32
-Z121 !s108 1684698067.775000
-Z122 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/SRAMController.vhd|
-Z123 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/SRAMController.vhd|
+Z122 !s108 1684749748.305000
+Z123 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/SRAMController.vhd|
+Z124 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/SRAMController.vhd|
 R14
 R15
 !s100 0Ba`Q7W`UoWaZOmiCMTh70
@@ -839,9 +839,9 @@ L24
 VMSG3435@XC_Zab]UhMGNe1
 R10
 32
-R121
 R122
 R123
+R124
 R14
 R15
 !s100 6fgC>oZGoG`]IQHWXFhkB2
@@ -851,16 +851,16 @@ R16
 R5
 R6
 R7
-Z124 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/test_sisa.vhd
-Z125 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/test_sisa.vhd
+Z125 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/test_sisa.vhd
+Z126 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/test_sisa.vhd
 l0
 L5
 VkAdhfn89W5`mY_=KPlfV]3
 R10
 32
-Z126 !s108 1684698065.708000
-Z127 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/test_sisa.vhd|
-Z128 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/test_sisa.vhd|
+Z127 !s108 1684749746.844000
+Z128 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/test_sisa.vhd|
+Z129 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/test_sisa.vhd|
 R14
 R15
 !s100 688X_8OZ0BkG::B3fT5kf3
@@ -874,9 +874,9 @@ L8
 VVMXM^<9WF<zNFn<7dJ_jX0
 R10
 32
-R126
 R127
 R128
+R129
 R14
 R15
 !s100 Vm>g<Md54n48aj5?6J=]40
@@ -888,16 +888,16 @@ R2
 R5
 R6
 R7
-Z129 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/timmer.vhd
-Z130 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/timmer.vhd
+Z130 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/timmer.vhd
+Z131 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/timmer.vhd
 l0
 L6
 VO2TMA[SN^F8ho<=GQ2m[O3
 R10
 32
-Z131 !s108 1684698067.930000
-Z132 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/timmer.vhd|
-Z133 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/timmer.vhd|
+Z132 !s108 1684749748.414000
+Z133 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/timmer.vhd|
+Z134 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/timmer.vhd|
 R14
 R15
 !s100 _6^^gHDVBkD??QU_>Q6YD3
@@ -914,32 +914,32 @@ VYj5NJbEMFlabWAeQPdhE<2
 !s100 7LBVfBT5=^2R8PoFP4o^L3
 R10
 32
-R131
 R132
 R133
+R134
 R14
 R15
 !i10b 1
 Eunidad_control
-R16
+Z135 w1684749688
 R2
 R3
 R4
 R5
 R6
 R7
-Z134 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/unidad_control.vhd
-Z135 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/unidad_control.vhd
+Z136 8Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/unidad_control.vhd
+Z137 FZ:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/unidad_control.vhd
 l0
 L7
-VjW6B1<7IZHFeNb::ehAA63
-!s100 JJc]:6Ge_7JL@^4J5D;zn2
+V5Yn]40RD]ZSE>MY<O6oPo2
+!s100 ]ed1JBmZ[m1:EJzP:@h0h2
 R10
 32
 !i10b 1
-Z136 !s108 1684698068.114000
-Z137 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/unidad_control.vhd|
-Z138 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/unidad_control.vhd|
+Z138 !s108 1684749748.520000
+Z139 !s90 -reportprogress|300|-work|work|-2002|-explicit|Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/unidad_control.vhd|
+Z140 !s107 Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/unidad_control.vhd|
 R14
 R15
 Astructure
@@ -948,16 +948,16 @@ R3
 R4
 R5
 R6
-Z139 DEx4 work 14 unidad_control 0 22 jW6B1<7IZHFeNb::ehAA63
-l118
-L43
-Z140 Vz[d[_C[4ML?07oEhaje@62
-Z141 !s100 CiGSlHj=<ea42:0lYHMQX0
+DEx4 work 14 unidad_control 0 22 5Yn]40RD]ZSE>MY<O6oPo2
+l120
+L44
+Vl1kPUOi1CTR9ajO34W?AG0
+!s100 `RWgebC1?^84o?Ld2WbHT2
 R10
 32
 !i10b 1
-R136
-R137
 R138
+R139
+R140
 R14
 R15

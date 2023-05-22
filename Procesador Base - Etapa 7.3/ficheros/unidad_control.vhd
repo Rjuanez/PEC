@@ -35,7 +35,8 @@ ENTITY unidad_control IS
 			 illegal_inst		: OUT STD_LOGIC;
 			 stop_execution	: IN	STD_LOGIC;
 			 system_ins			: OUT	STD_LOGIC;
-			 sys_call			: OUT	STD_LOGIC
+			 sys_call			: OUT	STD_LOGIC;
+			 excep_UP_F			: IN	STD_LOGIC
 			 
 			 );
 END unidad_control;
@@ -88,7 +89,8 @@ ARCHITECTURE Structure OF unidad_control IS
 			system_act	: OUT STD_LOGIC;
 			exception 	: IN 	STD_LOGIC;
 			wr_sys_l		: IN 	STD_LOGIC;
-			wr_sys		: OUT	STD_LOGIC);
+			wr_sys		: OUT	STD_LOGIC;
+			excep_UP_F	: IN	STD_LOGIC);
 	end component;
 
     -- Tambien crearemos los cables/buses (signals) necesarios para unir las entidades
@@ -165,7 +167,8 @@ BEGIN
 		system_act => system_actTOsystem_act,
 		exception => stop_execution,
 		wr_sys_l => wr_sysTOwr_sys_l,
-		wr_sys => wr_sys);
+		wr_sys => wr_sys,
+		excep_UP_F => excep_UP_F);
 	
 	pc <= new_pc;
 	
