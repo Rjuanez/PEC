@@ -1,4 +1,15 @@
-{Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/test_sisa.vhd} {2 {vcom -work work -2002 -explicit {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/test_sisa.vhd}
+{Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/unidad_control.vhd} {1 {vcom -work work -2002 -explicit {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/unidad_control.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity unidad_control
+-- Compiling architecture Structure of unidad_control
+
+} {} {}} {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/test_sisa.vhd} {2 {vcom -work work -2002 -explicit {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/test_sisa.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -74,6 +85,15 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling package body package_timing
 -- Loading package package_timing
 
+} {} {}} {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/exception_controller.vhd} {1 {vcom -work work -2002 -explicit {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/exception_controller.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity exception_controller
+-- Compiling architecture Structure of exception_controller
+
 } {} {}} {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/alu.vhd} {1 {vcom -work work -2002 -explicit {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/alu.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -85,6 +105,22 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package const_alu
 -- Compiling entity alu
 -- Compiling architecture Structure of alu
+
+} {} {}} {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/multi.vhd} {1 {vcom -work work -2002 -explicit {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/multi.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity multi
+-- Compiling architecture Structure of multi
+
+} {} {}} {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/proc.vhd} {1 {vcom -work work -2002 -explicit {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/proc.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ProcesadorBase
+-- Compiling architecture Structure of ProcesadorBase
 
 } {} {}} {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/control_l.vhd} {1 {vcom -work work -2002 -explicit {Z:/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 7.3/ficheros/control_l.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
