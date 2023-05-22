@@ -28,10 +28,7 @@ ENTITY control_l IS
 			 system_act		: IN  STD_LOGIC;
 			 inta		  		: OUT STD_LOGIC;
 			 reg_op	  		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-			 illegal_inst	: OUT STD_LOGIC;
-			 system_ins		: OUT	STD_LOGIC;
-			 sys_call		: OUT	STD_LOGIC 
-			 );
+			 illegal_inst	: OUT STD_LOGIC);
 END control_l;
 
 
@@ -39,26 +36,11 @@ ARCHITECTURE Structure OF control_l IS
 	SIGNAL arit    : STD_LOGIC_VECTOR(4 DOWNTO 0);
 	SIGNAL cmp     : STD_LOGIC_VECTOR(4 DOWNTO 0);
 	SIGNAL special : STD_LOGIC_VECTOR(4 DOWNTO 0);
-	SIGNAL jumps : STD_LOGIC_VECTOR(4 DOWNTO 0);
 	SIGNAL ext_arit: STD_LOGIC_VECTOR(4 DOWNTO 0);
 	SIGNAL mov		: STD_LOGIC_VECTOR(4 DOWNTO 0);
 	SIGNAL in_out	: STD_LOGIC_VECTOR(4 DOWNTO 0);
 BEGIN
-		--CALLS: debe salir por a el registro ra, llegar a la alu y que esta deje pasar el valor para que después entre por la d asigandno como direccion el registro  y darle permisos para que lo escriba
-		--señal que indica si llega una instruccion de sys_call
-		sys_call <= '1' when ir(15 DOWNTO 12) = "1010" and ir(5 DOWNTO 0) = "000111" else
-						'0';
 		
-		
-		-- señal para saber si se esta ejecutando algo instruccion que requiere modo sistema, para que asi excepicon controller pueda tirar una excepcion 
-		
-		system_ins <=	'1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "101000" else -- GETIID
-							'1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100000" else -- EI
-							'1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100001" else -- DI
-							'1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100100" else -- RETI
-							'1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "110000" else -- WRS
-							'1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "101100" else -- RDS
-							'0';
 		
 		-- GETIID: inta = '1' y in_d se pone para que entre rd_io
 		inta <= '1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "101000" else '0';
@@ -84,14 +66,12 @@ BEGIN
 		-- para que la salida de la w llegue a la d, tiene que estar en in_d "00", por tanto no hay que cambiar nada mas, dado que es el valor por defecto.
 		
 		-- sys_a es la señal que permite que por puerto a del regfile, salga el valor pertinente del registro de sistema
-		sys_a	 <=	'1' when system_act = '1' else
-						'1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "101100" else -- RDS
-						'1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100100" else --RETI
-						'0';
-						
-		wr_sys <=	'1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "110000" else -- WRS
-						'1' when ir(15 DOWNTO 12) = "1010" and ir(5 DOWNTO 0) = "000111" else -- CALLS
-						'0';
+		sys_a	 <= '1' when system_act = '1' else
+					 '1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "101100" else -- RDS
+					 '1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "100100" else --RETI
+					 '0';
+		wr_sys <= '1' when ir(15 DOWNTO 12) = "1111" and ir(5 DOWNTO 0) = "110000" else -- WRS
+					 '0';
 		
 		--señal de control del sguiente pc a cargar. "00": pc+2 || "01" pc + 2 + inmediato || "10" pc = jumpdir
 		tknbr <= "10" when system_act = '1' else -- cargamos jumpdir cuando estamos en modo sistema
@@ -158,7 +138,7 @@ BEGIN
 				 "001" when ir(15 DOWNTO 12) = "1101" else --Load Byte
 				 "010" when ir(15 DOWNTO 12) = "1010" and ir(2 DOWNTO 0) = "100" else -- JAL
 				 "011" when ir(15 DOWNTO 12) = "0111" else -- IN
-				 "000" ; 
+				 "000" ;
 				 
 	with ir(15 DOWNTO 12) select -- Hay que desplazar el immediato o no a una posición par
 		immed_x2 <= '1' when "0011", --Load
@@ -171,7 +151,7 @@ BEGIN
 						 '0' when others;
 	with ir(15 DOWNTO 12) select
 		addr_a <= ir(11 DOWNTO 9) when "0101", -- MOVI, MOVHI
-					 ir(8 DOWNTO 6) when others; --Loads, Stores, arit, cmp, ext_arit, Jxx, calls
+					 ir(8 DOWNTO 6) when others; --Loads, Stores, arit, cmp, ext_arit and Jxx
 				 
 	with ir(15 DOWNTO 12) select
 		addr_b <= ir(11 DOWNTO 9) when "0100", -- Store
@@ -181,8 +161,7 @@ BEGIN
 					 ir(11 DOWNTO 9) when "0111", -- IN
 					 ir(2 DOWNTO 0) when others; -- Arit, cmp and ext_arit
 				 
-	addr_d <= 	"011" when ir(15 DOWNTO 12) = "1010" and ir(5 DOWNTO 0) = "000111" else -- en caso de que hagamos una calls, utilizamos el ciclo de DEMW para guardar en s3 el valor de ra, por tanto le decmios la direccion de S3
-					ir(11 DOWNTO 9); -- Ever
+	addr_d <= ir(11 DOWNTO 9); -- Ever
 	
 	with ir(15 DOWNTO 0) select
 		ldpc <= '0' when "1111111111111111", --HALT
@@ -197,10 +176,6 @@ BEGIN
 		special <= OUT_X when "101100", -- RDS : deja pasar el valor que le viene por x hacia w 
 					  OUT_X when "110000", -- WRS
 					  NO_OP when others;
-					  
-	with ir(5 DOWNTO 0) select
-		jumps <= OUT_X when "000111", -- CALLS
-					NO_OP when others;
 				  
 
 	with ir(5 DOWNTO 3) select 
@@ -256,7 +231,6 @@ BEGIN
 				cmp when "0001",
 				ext_arit when "1000",
 				in_out when "0111",
-				jumps when "1010",
 				ADDI when "0010",
 				LD when "0011",
 				ST when "0100",

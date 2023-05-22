@@ -1,0 +1,1452 @@
+
+temp_Test1.o:     file format elf32-sisa
+temp_Test1.o
+architecture: sisa:3, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00000000
+
+Program Header:
+    LOAD off    0x00000000 vaddr 0x0000bfac paddr 0x0000bfac align 2**0
+         filesz 0x000007fc memsz 0x000007fc flags r-x
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn  Flags
+  0 .sistema      000007a8  0000c000  0000c000  00000054  2**1  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stab         00000eac  00008000  00008000  000007fc  2**2  CONTENTS, READONLY, DEBUGGING
+  2 .stabstr      0000055b  00008eac  00008eac  000016a8  2**0  CONTENTS, READONLY, DEBUGGING
+SYMBOL TABLE:
+0000c000 l    d  .sistema	00000000 .sistema
+0000c00e l       .sistema	00000000 __exit
+0000c148 l       .sistema	00000000 __fin
+0000c15c l       .sistema	00000000 __pol
+0000c210 l       .sistema	00000000 __repe
+0000c000 g       .sistema	00000000 __entry_point
+0000c5f0 g     F .sistema	000000b2 CMP
+0000c138 g     F .sistema	0000001c read_one_No_bloq
+0000c428 g     F .sistema	000000f0 LOGICAL
+0000c226 g     F .sistema	0000005e reverse
+0000c1a4 g     F .sistema	00000016 write_red_leds
+0000c284 g     F .sistema	000000e4 itoa
+0000c010 g     F .sistema	00000044 write_one
+0000c368 g     F .sistema	000000c0 ADD_SUB_ADDI
+0000c090 g     F .sistema	000000a8 write
+0000c1f2 g     F .sistema	00000034 clear
+0000c054 g     F .sistema	0000003c write_one_char
+0000c170 g     F .sistema	0000001e write_7segments
+0000c6a2 g     F .sistema	00000106 main
+0000c1ba g     F .sistema	00000038 strlen_s
+0000c518 g     F .sistema	000000d8 SHIFTS
+0000c18e g     F .sistema	00000016 write_green_leds
+0000c154 g     F .sistema	0000001c read_one_bloq
+
+
+Disassembly of section .sistema:
+
+0000c000 <__entry_point>:
+    c000:	5e00 	movi	r7, 0
+    c002:	5f82 	movhi	r7, -126
+    c004:	5a0e 	movi	r5, 14
+    c006:	5bc0 	movhi	r5, -64
+    c008:	5ca2 	movi	r6, -94
+    c00a:	5dc6 	movhi	r6, -58
+    c00c:	a183 	jmp	r6
+
+0000c00e <__exit>:
+    c00e:	ffff 	halt	
+
+0000c010 <write_one>:
+#include "lib_sisa.h"
+
+
+int write_one(int fila, int col, int c)
+{
+    c010:	2ff4 	addi	r7, r7, -12
+    c012:	4bc5 	st	10(r7), r5
+    c014:	4dc4 	st	8(r7), r6
+    c016:	2dc8 	addi	r6, r7, 8
+    c018:	41c1 	st	2(r7), r0
+    c01a:	45c0 	st	0(r7), r2
+  int res;
+  int pos;
+
+  /* para DEBUG:muestra por el visor 7segmentos la fila i la columna de la pantalla
+  int aux;
+  aux=(fila<<8)+col;
+  write_7segments(aux, 0x0F);
+  */
+
+  pos=(80*fila+col)*2;   // cada caracter ocupa 2 bytes de memoria de video
+    c01c:	3382 	ld	r1, 4(r6)
+    c01e:	2440 	addi	r2, r1, 0
+    c020:	5204 	movi	r1, 4
+    c022:	04b1 	sha	r2, r2, r1
+    c024:	5202 	movi	r1, 2
+    c026:	02b1 	sha	r1, r2, r1
+    c028:	04a1 	add	r2, r2, r1
+    c02a:	3383 	ld	r1, 6(r6)
+    c02c:	02a1 	add	r1, r2, r1
+    c02e:	0261 	add	r1, r1, r1
+    c030:	43bf 	st	-2(r6), r1
+  pos = pos + 0xA000;	// la memoria de video empieza en la direccion 0xA000 (40960)
+    c032:	33bf 	ld	r1, -2(r6)
+    c034:	5400 	movi	r2, 0
+    c036:	55a0 	movhi	r2, -96
+    c038:	0262 	add	r1, r1, r2
+    c03a:	43bf 	st	-2(r6), r1
+
+  // para DEBUG: muestra por el visor 7segmentos la direccion de memoria de video en la que se va a escribir el caracter
+  //write_7segments(pos, 0x0F);
+
+  __asm__ (
+    c03c:	31bf 	ld	r0, -2(r6)
+    c03e:	3384 	ld	r1, 8(r6)
+    c040:	4200 	st	0(r0), r1
+      "st 0(%0), %1"      // %0 corresponde a la variable "pos" que habra sido cargada en un registro
+                          // %1 corresponde a la variable "c" que habra sido cargada en otro registro
+      : /* sin salidas */
+      : "a" (pos), "b" (c));  
+
+  res=1;
+    c042:	5201 	movi	r1, 1
+    c044:	43be 	st	-4(r6), r1
+  return res;
+    c046:	33be 	ld	r1, -4(r6)
+}
+    c048:	31c1 	ld	r0, 2(r7)
+    c04a:	35c0 	ld	r2, 0(r7)
+    c04c:	3dc4 	ld	r6, 8(r7)
+    c04e:	3bc5 	ld	r5, 10(r7)
+    c050:	2fcc 	addi	r7, r7, 12
+    c052:	a143 	jmp	r5
+
+0000c054 <write_one_char>:
+                        
+int write_one_char(int fila, int col, char c, char color)
+{
+    c054:	2ff6 	addi	r7, r7, -10
+    c056:	4bc4 	st	8(r7), r5
+    c058:	4dc3 	st	6(r7), r6
+    c05a:	2dc6 	addi	r6, r7, 6
+    c05c:	45c0 	st	0(r7), r2
+  int res;
+  int caracter_compuesto;
+
+  caracter_compuesto=color*256+c;
+    c05e:	d589 	ldb	r2, 9(r6)
+    c060:	5208 	movi	r1, 8
+    c062:	04b1 	sha	r2, r2, r1
+    c064:	d388 	ldb	r1, 8(r6)
+    c066:	02a1 	add	r1, r2, r1
+    c068:	43bf 	st	-2(r6), r1
+  res=write_one(fila, col, caracter_compuesto);
+    c06a:	2ffa 	addi	r7, r7, -6
+    c06c:	25c0 	addi	r2, r7, 0
+    c06e:	3382 	ld	r1, 4(r6)
+    c070:	4280 	st	0(r2), r1
+    c072:	3383 	ld	r1, 6(r6)
+    c074:	4281 	st	2(r2), r1
+    c076:	33bf 	ld	r1, -2(r6)
+    c078:	4282 	st	4(r2), r1
+    c07a:	5210 	movi	r1, 16
+    c07c:	53c0 	movhi	r1, -64
+    c07e:	aa44 	jal	r5, r1
+    c080:	2fc6 	addi	r7, r7, 6
+    c082:	43be 	st	-4(r6), r1
+
+  return res;
+    c084:	33be 	ld	r1, -4(r6)
+}
+    c086:	35c0 	ld	r2, 0(r7)
+    c088:	3dc3 	ld	r6, 6(r7)
+    c08a:	3bc4 	ld	r5, 8(r7)
+    c08c:	2fca 	addi	r7, r7, 10
+    c08e:	a143 	jmp	r5
+
+0000c090 <write>:
+                        
+
+int write(int fila, int col, char *buf, int size, char color)
+{
+    c090:	2fec 	addi	r7, r7, -20
+    c092:	4bc9 	st	18(r7), r5
+    c094:	4dc8 	st	16(r7), r6
+    c096:	2dd0 	addi	r6, r7, 16
+    c098:	45c1 	st	2(r7), r2
+    c09a:	47c0 	st	0(r7), r3
+  int i, r, t;
+  int f, c, car;
+  t = 0; f = fila; c = col;
+    c09c:	5200 	movi	r1, 0
+    c09e:	43bc 	st	-8(r6), r1
+    c0a0:	3382 	ld	r1, 4(r6)
+    c0a2:	43bd 	st	-6(r6), r1
+    c0a4:	3383 	ld	r1, 6(r6)
+    c0a6:	43be 	st	-4(r6), r1
+  for (i=0; i<size; i++)   
+    c0a8:	5200 	movi	r1, 0
+    c0aa:	43ba 	st	-12(r6), r1
+    c0ac:	5a1e 	movi	r5, 30
+    c0ae:	5bc1 	movhi	r5, -63
+    c0b0:	a143 	jmp	r5
+    {
+      car = buf[i];
+    c0b2:	35ba 	ld	r2, -12(r6)
+    c0b4:	3384 	ld	r1, 8(r6)
+    c0b6:	02a1 	add	r1, r2, r1
+    c0b8:	d240 	ldb	r1, 0(r1)
+    c0ba:	43bf 	st	-2(r6), r1
+      do
+        {
+          r=write_one_char(f, c, car, color);
+    c0bc:	33bf 	ld	r1, -2(r6)
+    c0be:	2640 	addi	r3, r1, 0
+    c0c0:	2ffa 	addi	r7, r7, -6
+    c0c2:	25c0 	addi	r2, r7, 0
+    c0c4:	33bd 	ld	r1, -6(r6)
+    c0c6:	4280 	st	0(r2), r1
+    c0c8:	33be 	ld	r1, -4(r6)
+    c0ca:	4281 	st	2(r2), r1
+    c0cc:	e684 	stb	4(r2), r3
+    c0ce:	d38c 	ldb	r1, 12(r6)
+    c0d0:	e285 	stb	5(r2), r1
+    c0d2:	5254 	movi	r1, 84
+    c0d4:	53c0 	movhi	r1, -64
+    c0d6:	aa44 	jal	r5, r1
+    c0d8:	2fc6 	addi	r7, r7, 6
+    c0da:	43bb 	st	-10(r6), r1
+        }
+      /* Un altre procés està enviant */
+      while (r!=1); t+=r;
+    c0dc:	35bb 	ld	r2, -10(r6)
+    c0de:	5201 	movi	r1, 1
+    c0e0:	1299 	cmpeq	r1, r2, r1
+    c0e2:	62ec 	bz	r1, -38
+    c0e4:	35bc 	ld	r2, -8(r6)
+    c0e6:	33bb 	ld	r1, -10(r6)
+    c0e8:	02a1 	add	r1, r2, r1
+    c0ea:	43bc 	st	-8(r6), r1
+      if (car=='\n') f++;
+    c0ec:	35bf 	ld	r2, -2(r6)
+    c0ee:	520a 	movi	r1, 10
+    c0f0:	1299 	cmpeq	r1, r2, r1
+    c0f2:	6205 	bz	r1, 12
+    c0f4:	33bd 	ld	r1, -6(r6)
+    c0f6:	2241 	addi	r1, r1, 1
+    c0f8:	43bd 	st	-6(r6), r1
+    c0fa:	5a00 	movi	r5, 0
+    c0fc:	6a0d 	bz	r5, 28
+      else if (car=='\r') c=1;
+    c0fe:	33bf 	ld	r1, -2(r6)
+    c100:	540d 	movi	r2, 13
+    c102:	125a 	cmpeq	r1, r1, r2
+    c104:	6204 	bz	r1, 10
+    c106:	5201 	movi	r1, 1
+    c108:	43be 	st	-4(r6), r1
+    c10a:	5a00 	movi	r5, 0
+    c10c:	6a05 	bz	r5, 12
+      else if (car!=0) c++;   
+    c10e:	33bf 	ld	r1, -2(r6)
+    c110:	6203 	bz	r1, 8
+    c112:	33be 	ld	r1, -4(r6)
+    c114:	2241 	addi	r1, r1, 1
+    c116:	43be 	st	-4(r6), r1
+    c118:	33ba 	ld	r1, -12(r6)
+    c11a:	2241 	addi	r1, r1, 1
+    c11c:	43ba 	st	-12(r6), r1
+    c11e:	33ba 	ld	r1, -12(r6)
+    c120:	3585 	ld	r2, 10(r6)
+    c122:	1242 	cmplt	r1, r1, r2
+    c124:	5ab2 	movi	r5, -78
+    c126:	5bc0 	movhi	r5, -64
+    c128:	a341 	jnz	r1, r5
+    }
+
+  return t;
+    c12a:	33bc 	ld	r1, -8(r6)
+}
+    c12c:	35c1 	ld	r2, 2(r7)
+    c12e:	37c0 	ld	r3, 0(r7)
+    c130:	3dc8 	ld	r6, 16(r7)
+    c132:	3bc9 	ld	r5, 18(r7)
+    c134:	2fd4 	addi	r7, r7, 20
+    c136:	a143 	jmp	r5
+
+0000c138 <read_one_No_bloq>:
+
+int read_one_No_bloq (void)
+{
+    c138:	2ffa 	addi	r7, r7, -6
+    c13a:	4bc2 	st	4(r7), r5
+    c13c:	4dc1 	st	2(r7), r6
+    c13e:	2dc2 	addi	r6, r7, 2
+  int res;
+
+	/*
+		in r1,16         ; leemos el estado del teclado
+		bz r1,fin	 ; si no se ha pulsado ninguna tecla salimos de la espera
+	        in r1,15         ; leemos el valor correspondiente al caracter ASCII de la tecla pulsada
+        	out 16,r1        ; hacemos un clear del teclado. Cualquier registro vale ya que el valor del registro no importa
+	   fin:
+	*/
+
+  __asm__ (
+    c140:	7210 	in	r1, 16
+    c142:	6202 	bz	r1, 6
+    c144:	720f 	in	r1, 15
+    c146:	7310 	out	16, r1
+
+0000c148 <__fin>:
+    c148:	43bf 	st	-2(r6), r1
+	"in %0, %1\n\t"
+	"bz %0, __fin\n\t"    // avanzamos 2 instrucciones
+	"in %0, %2\n\t"
+	"out %1, %0\n\t"
+	"__fin:"
+ 	: "=r" (res)
+ 	: "i" (16),           // Puerto 16=Status teclado
+          "i" (15));          // Puerto 15=ASCII tecla
+  return res;
+    c14a:	33bf 	ld	r1, -2(r6)
+}
+    c14c:	3dc1 	ld	r6, 2(r7)
+    c14e:	3bc2 	ld	r5, 4(r7)
+    c150:	2fc6 	addi	r7, r7, 6
+    c152:	a143 	jmp	r5
+
+0000c154 <read_one_bloq>:
+
+
+int read_one_bloq (void)
+{
+    c154:	2ffa 	addi	r7, r7, -6
+    c156:	4bc2 	st	4(r7), r5
+    c158:	4dc1 	st	2(r7), r6
+    c15a:	2dc2 	addi	r6, r7, 2
+
+0000c15c <__pol>:
+  int res;
+
+	/*
+	polling:    in r1,16         ; leemos el estado del teclado
+        	    bz r1,polling    ; esperamos ha que se haya pulsado una tecla
+	            in r1,15         ; leemos el valor correspondiente al caracter ASCII de la tecla pulsada
+        	    out 16,r1        ; hacemos un clear del teclado. Cualquier registro vale ya que el valor del registro no importa
+	*/
+
+  __asm__ (
+    c15c:	7210 	in	r1, 16
+    c15e:	62fe 	bz	r1, -2
+    c160:	720f 	in	r1, 15
+    c162:	7310 	out	16, r1
+    c164:	43bf 	st	-2(r6), r1
+	"__pol: in %0, %1\n\t"
+	"bz %0, __pol\n\t"    // retorcedemos 2 instrucciones
+	"in %0, %2\n\t"
+	"out %1, %0\n\t"
+ 	: "=r" (res)
+ 	: "i" (16),           // Puerto 16=Status teclado
+          "i" (15));          // Puerto 15=ASCII tecla
+
+  return res;
+    c166:	33bf 	ld	r1, -2(r6)
+}
+    c168:	3dc1 	ld	r6, 2(r7)
+    c16a:	3bc2 	ld	r5, 4(r7)
+    c16c:	2fc6 	addi	r7, r7, 6
+    c16e:	a143 	jmp	r5
+
+0000c170 <write_7segments>:
+
+
+
+int write_7segments(int valor, char control)
+{
+    c170:	2ff8 	addi	r7, r7, -8
+    c172:	4bc3 	st	6(r7), r5
+    c174:	4dc2 	st	4(r7), r6
+    c176:	2dc4 	addi	r6, r7, 4
+    c178:	45c0 	st	0(r7), r2
+  int res;
+
+  __asm__ (
+    c17a:	d586 	ldb	r2, 6(r6)
+    c17c:	3382 	ld	r1, 4(r6)
+    c17e:	7509 	out	9, r2
+    c180:	730a 	out	10, r1
+	"out %0, %1\n\t"      // apagamos/endendemos los visores
+	"out %2, %3\n\t"      // mostramos el valor
+	: /* sin salidas*/
+ 	: "i" (9),            // Puerto 9=Control visores
+	  "r" (control),
+          "i" (10),  	      // Puerto 10=Valor visores
+	  "r" (valor));
+
+  return res;
+    c182:	33bf 	ld	r1, -2(r6)
+}
+    c184:	35c0 	ld	r2, 0(r7)
+    c186:	3dc2 	ld	r6, 4(r7)
+    c188:	3bc3 	ld	r5, 6(r7)
+    c18a:	2fc8 	addi	r7, r7, 8
+    c18c:	a143 	jmp	r5
+
+0000c18e <write_green_leds>:
+
+
+int write_green_leds(char c)
+{
+    c18e:	2ffa 	addi	r7, r7, -6
+    c190:	4bc2 	st	4(r7), r5
+    c192:	4dc1 	st	2(r7), r6
+    c194:	2dc2 	addi	r6, r7, 2
+  int res;
+
+  __asm__ ( "out %0, %1" 
+    c196:	d384 	ldb	r1, 4(r6)
+    c198:	7305 	out	5, r1
+            : /* sin salidas*/
+            : "i" (5), "r" (c));    // %0 corresponde al puerto 5 (leds verdes),  %1 corresponde a la variable "c" que habra sido cargada en otro registro
+
+  return res;
+    c19a:	33bf 	ld	r1, -2(r6)
+}
+    c19c:	3dc1 	ld	r6, 2(r7)
+    c19e:	3bc2 	ld	r5, 4(r7)
+    c1a0:	2fc6 	addi	r7, r7, 6
+    c1a2:	a143 	jmp	r5
+
+0000c1a4 <write_red_leds>:
+                   
+                   
+int write_red_leds(char c)
+{
+    c1a4:	2ffa 	addi	r7, r7, -6
+    c1a6:	4bc2 	st	4(r7), r5
+    c1a8:	4dc1 	st	2(r7), r6
+    c1aa:	2dc2 	addi	r6, r7, 2
+  int res;
+
+  __asm__ ( "out %0, %1" 
+    c1ac:	d384 	ldb	r1, 4(r6)
+    c1ae:	7306 	out	6, r1
+            : /* sin salidas*/
+            : "i" (6), "r" (c));     // %0 corresponde al puerto 6 (leds rojos),  %1 corresponde a la variable "c" que habra sido cargada en otro registro
+
+  return res;
+    c1b0:	33bf 	ld	r1, -2(r6)
+}
+    c1b2:	3dc1 	ld	r6, 2(r7)
+    c1b4:	3bc2 	ld	r5, 4(r7)
+    c1b6:	2fc6 	addi	r7, r7, 6
+    c1b8:	a143 	jmp	r5
+
+0000c1ba <strlen_s>:
+
+
+
+
+int strlen_s(char *str)
+{
+    c1ba:	2ff8 	addi	r7, r7, -8
+    c1bc:	4bc3 	st	6(r7), r5
+    c1be:	4dc2 	st	4(r7), r6
+    c1c0:	2dc4 	addi	r6, r7, 4
+    c1c2:	45c0 	st	0(r7), r2
+  int len;
+  for (len = 0; *str++; len++);
+    c1c4:	5200 	movi	r1, 0
+    c1c6:	43bf 	st	-2(r6), r1
+    c1c8:	5a00 	movi	r5, 0
+    c1ca:	6a03 	bz	r5, 8
+    c1cc:	33bf 	ld	r1, -2(r6)
+    c1ce:	2241 	addi	r1, r1, 1
+    c1d0:	43bf 	st	-2(r6), r1
+    c1d2:	3382 	ld	r1, 4(r6)
+    c1d4:	d440 	ldb	r2, 0(r1)
+    c1d6:	5200 	movi	r1, 0
+    c1d8:	1299 	cmpeq	r1, r2, r1
+    c1da:	0258 	not	r1, r1
+    c1dc:	2242 	addi	r1, r1, 2
+    c1de:	3382 	ld	r1, 4(r6)
+    c1e0:	2241 	addi	r1, r1, 1
+    c1e2:	4382 	st	4(r6), r1
+    c1e4:	65f3 	bnz	r2, -24
+  return len;
+    c1e6:	33bf 	ld	r1, -2(r6)
+}
+    c1e8:	35c0 	ld	r2, 0(r7)
+    c1ea:	3dc2 	ld	r6, 4(r7)
+    c1ec:	3bc3 	ld	r5, 6(r7)
+    c1ee:	2fc8 	addi	r7, r7, 8
+    c1f0:	a143 	jmp	r5
+
+0000c1f2 <clear>:
+
+
+
+int clear(void)
+{
+    c1f2:	2ff2 	addi	r7, r7, -14
+    c1f4:	4bc6 	st	12(r7), r5
+    c1f6:	4dc5 	st	10(r7), r6
+    c1f8:	2dca 	addi	r6, r7, 10
+    c1fa:	45c1 	st	2(r7), r2
+    c1fc:	47c0 	st	0(r7), r3
+ // En c es muy lento
+
+/*  int fila, col;
+  char car;
+  char color;
+  
+  car=' ';		//espacio en blanco
+  color=COLOR_BLACK;	//color negro
+  car='.';
+  color=COLOR_GRIS_OSCURO; //util para debugar
+  
+  for (fila=0; fila<FIXED_HEIGHT; fila++) {
+    for (col=0; col<FIXED_WIDTH; col++) {
+          write_one_char(fila, col, car, color);
+    }  
+  }   
+*/
+
+
+  //mejor hacerlo en ensamblador por rapidez
+
+  int aux1, aux2, aux3;
+
+__asm__ (  
+    c1fe:	37bd 	ld	r3, -6(r6)
+    c200:	35be 	ld	r2, -4(r6)
+    c202:	33bf 	ld	r1, -2(r6)
+    c204:	5600 	movi	r3, 0
+    c206:	57a0 	movhi	r3, -96
+    c208:	5460 	movi	r2, 96
+    c20a:	5509 	movhi	r2, 9
+    c20c:	5220 	movi	r1, 32
+    c20e:	5300 	movhi	r1, 0
+
+0000c210 <__repe>:
+    c210:	42c0 	st	0(r3), r1
+    c212:	26c2 	addi	r3, r3, 2
+    c214:	24bf 	addi	r2, r2, -1
+    c216:	65fc 	bnz	r2, -6
+        "movi  %0, lo(0xA000)\n\t"   //0xA000 direccion de inicio de la memoria de video
+        "movhi %0, hi(0xA000)\n\t"
+        "movi  %1, lo(2400)\n\t"     //(80*30=2400=0x0960) numero caracteres de la pantalla
+        "movhi %1, hi(2400)\n\t"
+        //"movi  %2, lo(0x152E)\n\t"
+        //"movhi %2, hi(0x152E)\n\t"   //un punto gris oscuro util para debugar
+        "movi  %2, lo(0x0020)\n\t"
+        "movhi %2, hi(0x0020)\n\t"   //un espacio en color negro
+        "__repe: st 0(%0), %2\n\t"
+        "addi  %0, %0,2\n\t"
+        "addi  %1, %1,-1\n\t"
+        "bnz   %1, __repe\n\t"
+        : /* sin salidas*/
+        : "r" (aux1),
+          "r" (aux2),
+          "r" (aux3));  
+
+  return OK;
+    c218:	5200 	movi	r1, 0
+}
+    c21a:	35c1 	ld	r2, 2(r7)
+    c21c:	37c0 	ld	r3, 0(r7)
+    c21e:	3dc5 	ld	r6, 10(r7)
+    c220:	3bc6 	ld	r5, 12(r7)
+    c222:	2fce 	addi	r7, r7, 14
+    c224:	a143 	jmp	r5
+
+0000c226 <reverse>:
+
+void reverse(char str[], int length)
+{
+    c226:	2ff2 	addi	r7, r7, -14
+    c228:	4bc6 	st	12(r7), r5
+    c22a:	4dc5 	st	10(r7), r6
+    c22c:	2dca 	addi	r6, r7, 10
+    c22e:	45c1 	st	2(r7), r2
+    c230:	47c0 	st	0(r7), r3
+    int start;
+    int end = length -1;
+    c232:	3383 	ld	r1, 6(r6)
+    c234:	227f 	addi	r1, r1, -1
+    c236:	43be 	st	-4(r6), r1
+    for(start = 0; start < end; ++start, --end)
+    c238:	5200 	movi	r1, 0
+    c23a:	43bd 	st	-6(r6), r1
+    c23c:	5a00 	movi	r5, 0
+    c23e:	6a18 	bz	r5, 50
+    {
+        const char ch = str[start];
+    c240:	35bd 	ld	r2, -6(r6)
+    c242:	3382 	ld	r1, 4(r6)
+    c244:	02a1 	add	r1, r2, r1
+    c246:	d240 	ldb	r1, 0(r1)
+    c248:	e3bf 	stb	-1(r6), r1
+        str[start] = str[end];
+    c24a:	35bd 	ld	r2, -6(r6)
+    c24c:	3382 	ld	r1, 4(r6)
+    c24e:	06a1 	add	r3, r2, r1
+    c250:	35be 	ld	r2, -4(r6)
+    c252:	3382 	ld	r1, 4(r6)
+    c254:	02a1 	add	r1, r2, r1
+    c256:	d240 	ldb	r1, 0(r1)
+    c258:	e2c0 	stb	0(r3), r1
+        str[end] = ch;
+    c25a:	35be 	ld	r2, -4(r6)
+    c25c:	3382 	ld	r1, 4(r6)
+    c25e:	04a1 	add	r2, r2, r1
+    c260:	d3bf 	ldb	r1, -1(r6)
+    c262:	e280 	stb	0(r2), r1
+    c264:	33bd 	ld	r1, -6(r6)
+    c266:	2241 	addi	r1, r1, 1
+    c268:	43bd 	st	-6(r6), r1
+    c26a:	33be 	ld	r1, -4(r6)
+    c26c:	227f 	addi	r1, r1, -1
+    c26e:	43be 	st	-4(r6), r1
+    c270:	33bd 	ld	r1, -6(r6)
+    c272:	35be 	ld	r2, -4(r6)
+    c274:	1242 	cmplt	r1, r1, r2
+    c276:	63e4 	bnz	r1, -54
+    }
+}
+    c278:	35c1 	ld	r2, 2(r7)
+    c27a:	37c0 	ld	r3, 0(r7)
+    c27c:	3dc5 	ld	r6, 10(r7)
+    c27e:	3bc6 	ld	r5, 12(r7)
+    c280:	2fce 	addi	r7, r7, 14
+    c282:	a143 	jmp	r5
+
+0000c284 <itoa>:
+//Implemented own itoa function
+char* itoa(int num, char* str, int base)
+{
+    c284:	2fee 	addi	r7, r7, -18
+    c286:	4bc8 	st	16(r7), r5
+    c288:	4dc7 	st	14(r7), r6
+    c28a:	2dce 	addi	r6, r7, 14
+    c28c:	45c1 	st	2(r7), r2
+    c28e:	47c0 	st	0(r7), r3
+    int i = 0;
+    c290:	5200 	movi	r1, 0
+    c292:	43bd 	st	-6(r6), r1
+    char isNegNum = 0;
+    c294:	5200 	movi	r1, 0
+    c296:	e3bd 	stb	-3(r6), r1
+    /*Handle 0 explicitly, 
+      otherwise empty string is printed for 0 */
+    if (num == 0)
+    c298:	3382 	ld	r1, 4(r6)
+    c29a:	6310 	bnz	r1, 34
+    {
+        str[i++] = '0';
+    c29c:	35bd 	ld	r2, -6(r6)
+    c29e:	3383 	ld	r1, 6(r6)
+    c2a0:	04a1 	add	r2, r2, r1
+    c2a2:	5230 	movi	r1, 48
+    c2a4:	e280 	stb	0(r2), r1
+    c2a6:	33bd 	ld	r1, -6(r6)
+    c2a8:	2241 	addi	r1, r1, 1
+    c2aa:	43bd 	st	-6(r6), r1
+        str[i] = '\0';
+    c2ac:	35bd 	ld	r2, -6(r6)
+    c2ae:	3383 	ld	r1, 6(r6)
+    c2b0:	04a1 	add	r2, r2, r1
+    c2b2:	5200 	movi	r1, 0
+    c2b4:	e280 	stb	0(r2), r1
+    c2b6:	5a5a 	movi	r5, 90
+    c2b8:	5bc3 	movhi	r5, -61
+    c2ba:	a143 	jmp	r5
+    }
+    else
+    {
+        // In library itoa function -ve numbers handled only with
+        // base 10. SO here we are also following same concept
+        if ((num < 0) && (base == 10))
+    c2bc:	3382 	ld	r1, 4(r6)
+    c2be:	5400 	movi	r2, 0
+    c2c0:	1242 	cmplt	r1, r1, r2
+    c2c2:	620a 	bz	r1, 22
+    c2c4:	3384 	ld	r1, 8(r6)
+    c2c6:	540a 	movi	r2, 10
+    c2c8:	125a 	cmpeq	r1, r1, r2
+    c2ca:	6206 	bz	r1, 14
+        {
+            isNegNum = 1;
+    c2cc:	5201 	movi	r1, 1
+    c2ce:	e3bd 	stb	-3(r6), r1
+            num = -num; // make num positive
+    c2d0:	3382 	ld	r1, 4(r6)
+    c2d2:	0258 	not	r1, r1
+    c2d4:	2241 	addi	r1, r1, 1
+    c2d6:	4382 	st	4(r6), r1
+        }
+        // Process individual digits
+        do
+        {
+            const int rem = (num % base);
+    c2d8:	3782 	ld	r3, 4(r6)
+    c2da:	3384 	ld	r1, 8(r6)
+    c2dc:	84e1 	div	r2, r3, r1
+    c2de:	3384 	ld	r1, 8(r6)
+    c2e0:	8281 	mul	r1, r2, r1
+    c2e2:	24c0 	addi	r2, r3, 0
+    c2e4:	02a9 	sub	r1, r2, r1
+    c2e6:	43bf 	st	-2(r6), r1
+            str[i++] = (rem > 9)? ((rem-10) + 'a') : (rem + '0');
+    c2e8:	35bd 	ld	r2, -6(r6)
+    c2ea:	3383 	ld	r1, 6(r6)
+    c2ec:	04a1 	add	r2, r2, r1
+    c2ee:	45bb 	st	-10(r6), r2
+    c2f0:	35bf 	ld	r2, -2(r6)
+    c2f2:	5209 	movi	r1, 9
+    c2f4:	1289 	cmple	r1, r2, r1
+    c2f6:	6306 	bnz	r1, 14
+    c2f8:	33bf 	ld	r1, -2(r6)
+    c2fa:	5457 	movi	r2, 87
+    c2fc:	0262 	add	r1, r1, r2
+    c2fe:	43bc 	st	-8(r6), r1
+    c300:	5a00 	movi	r5, 0
+    c302:	6a04 	bz	r5, 10
+    c304:	33bf 	ld	r1, -2(r6)
+    c306:	5430 	movi	r2, 48
+    c308:	0262 	add	r1, r1, r2
+    c30a:	43bc 	st	-8(r6), r1
+    c30c:	35bc 	ld	r2, -8(r6)
+    c30e:	33bb 	ld	r1, -10(r6)
+    c310:	e440 	stb	0(r1), r2
+    c312:	33bd 	ld	r1, -6(r6)
+    c314:	2241 	addi	r1, r1, 1
+    c316:	43bd 	st	-6(r6), r1
+            num = num/base;
+    c318:	3582 	ld	r2, 4(r6)
+    c31a:	3384 	ld	r1, 8(r6)
+    c31c:	82a1 	div	r1, r2, r1
+    c31e:	4382 	st	4(r6), r1
+        }
+        while (num != 0);
+    c320:	3382 	ld	r1, 4(r6)
+    c322:	5ad8 	movi	r5, -40
+    c324:	5bc2 	movhi	r5, -62
+    c326:	a341 	jnz	r1, r5
+        // If number is negative, append '-'
+        if (isNegNum)
+    c328:	d3bd 	ldb	r1, -3(r6)
+    c32a:	6208 	bz	r1, 18
+        {
+            str[i++] = '-';
+    c32c:	35bd 	ld	r2, -6(r6)
+    c32e:	3383 	ld	r1, 6(r6)
+    c330:	04a1 	add	r2, r2, r1
+    c332:	522d 	movi	r1, 45
+    c334:	e280 	stb	0(r2), r1
+    c336:	33bd 	ld	r1, -6(r6)
+    c338:	2241 	addi	r1, r1, 1
+    c33a:	43bd 	st	-6(r6), r1
+        }
+        // Append string terminator
+        str[i] = '\0';
+    c33c:	35bd 	ld	r2, -6(r6)
+    c33e:	3383 	ld	r1, 6(r6)
+    c340:	04a1 	add	r2, r2, r1
+    c342:	5200 	movi	r1, 0
+    c344:	e280 	stb	0(r2), r1
+        // Reverse the string
+        reverse(str, i);
+    c346:	2ffc 	addi	r7, r7, -4
+    c348:	25c0 	addi	r2, r7, 0
+    c34a:	3383 	ld	r1, 6(r6)
+    c34c:	4280 	st	0(r2), r1
+    c34e:	33bd 	ld	r1, -6(r6)
+    c350:	4281 	st	2(r2), r1
+    c352:	5226 	movi	r1, 38
+    c354:	53c2 	movhi	r1, -62
+    c356:	aa44 	jal	r5, r1
+    c358:	2fc4 	addi	r7, r7, 4
+    }
+    return str;
+    c35a:	3383 	ld	r1, 6(r6)
+}
+    c35c:	35c1 	ld	r2, 2(r7)
+    c35e:	37c0 	ld	r3, 0(r7)
+    c360:	3dc7 	ld	r6, 14(r7)
+    c362:	3bc8 	ld	r5, 16(r7)
+    c364:	2fd2 	addi	r7, r7, 18
+    c366:	a143 	jmp	r5
+
+0000c368 <ADD_SUB_ADDI>:
+
+#include "lib_sisa.h"
+
+int ADD_SUB_ADDI() {
+    c368:	2ff4 	addi	r7, r7, -12
+    c36a:	4bc5 	st	10(r7), r5
+    c36c:	4dc4 	st	8(r7), r6
+    c36e:	2dc8 	addi	r6, r7, 8
+    c370:	45c1 	st	2(r7), r2
+    c372:	47c0 	st	0(r7), r3
+	short error = 0;
+    c374:	5200 	movi	r1, 0
+    c376:	e3bc 	stb	-4(r6), r1
+	if ( (short)(0x7FFF+1) != (short)0x8000) error = 1;
+	if ( (short)(0xFFFF+1) != (short)0) error = 2;
+	if ( (short)(0x7FFF-1) != (short)0x7FFE) error = 3;
+	if ( (short)(0xFFFF-1) != (short)0xFFFE) error = 4;
+	short a = 1, b = 2, c = -3;
+    c378:	5201 	movi	r1, 1
+    c37a:	e3bd 	stb	-3(r6), r1
+    c37c:	5202 	movi	r1, 2
+    c37e:	e3be 	stb	-2(r6), r1
+    c380:	52fd 	movi	r1, -3
+    c382:	e3bf 	stb	-1(r6), r1
+	if ( (short)(a+b) != (short)0x3) error = 5;
+    c384:	d3bd 	ldb	r1, -3(r6)
+    c386:	d5be 	ldb	r2, -2(r6)
+    c388:	2640 	addi	r3, r1, 0
+    c38a:	2280 	addi	r1, r2, 0
+    c38c:	02e1 	add	r1, r3, r1
+    c38e:	2440 	addi	r2, r1, 0
+    c390:	5500 	movhi	r2, 0
+    c392:	5203 	movi	r1, 3
+    c394:	1299 	cmpeq	r1, r2, r1
+    c396:	6302 	bnz	r1, 6
+    c398:	5205 	movi	r1, 5
+    c39a:	e3bc 	stb	-4(r6), r1
+	if ( (short)(a+c) != (short)0xFFFE) error = 6;
+    c39c:	d3bd 	ldb	r1, -3(r6)
+    c39e:	d5bf 	ldb	r2, -1(r6)
+    c3a0:	2640 	addi	r3, r1, 0
+    c3a2:	2280 	addi	r1, r2, 0
+    c3a4:	02e1 	add	r1, r3, r1
+    c3a6:	2440 	addi	r2, r1, 0
+    c3a8:	5500 	movhi	r2, 0
+    c3aa:	52fe 	movi	r1, -2
+    c3ac:	5300 	movhi	r1, 0
+    c3ae:	1299 	cmpeq	r1, r2, r1
+    c3b0:	6302 	bnz	r1, 6
+    c3b2:	5206 	movi	r1, 6
+    c3b4:	e3bc 	stb	-4(r6), r1
+	if ( (short)(a-c) != (short)0x4) error = 7;
+    c3b6:	d3bd 	ldb	r1, -3(r6)
+    c3b8:	d5bf 	ldb	r2, -1(r6)
+    c3ba:	2640 	addi	r3, r1, 0
+    c3bc:	2280 	addi	r1, r2, 0
+    c3be:	02e9 	sub	r1, r3, r1
+    c3c0:	2440 	addi	r2, r1, 0
+    c3c2:	5500 	movhi	r2, 0
+    c3c4:	5204 	movi	r1, 4
+    c3c6:	1299 	cmpeq	r1, r2, r1
+    c3c8:	6302 	bnz	r1, 6
+    c3ca:	5207 	movi	r1, 7
+    c3cc:	e3bc 	stb	-4(r6), r1
+	if ( (short)(c-a) != (short)0xFFFC) error = 8;
+    c3ce:	d3bf 	ldb	r1, -1(r6)
+    c3d0:	d5bd 	ldb	r2, -3(r6)
+    c3d2:	2640 	addi	r3, r1, 0
+    c3d4:	2280 	addi	r1, r2, 0
+    c3d6:	02e9 	sub	r1, r3, r1
+    c3d8:	2440 	addi	r2, r1, 0
+    c3da:	5500 	movhi	r2, 0
+    c3dc:	52fc 	movi	r1, -4
+    c3de:	5300 	movhi	r1, 0
+    c3e0:	1299 	cmpeq	r1, r2, r1
+    c3e2:	6302 	bnz	r1, 6
+    c3e4:	5208 	movi	r1, 8
+    c3e6:	e3bc 	stb	-4(r6), r1
+	if ( (short)(b-a) != (short)0x1) error = 9;
+    c3e8:	d3be 	ldb	r1, -2(r6)
+    c3ea:	d5bd 	ldb	r2, -3(r6)
+    c3ec:	2640 	addi	r3, r1, 0
+    c3ee:	2280 	addi	r1, r2, 0
+    c3f0:	02e9 	sub	r1, r3, r1
+    c3f2:	2440 	addi	r2, r1, 0
+    c3f4:	5500 	movhi	r2, 0
+    c3f6:	5201 	movi	r1, 1
+    c3f8:	1299 	cmpeq	r1, r2, r1
+    c3fa:	6302 	bnz	r1, 6
+    c3fc:	5209 	movi	r1, 9
+    c3fe:	e3bc 	stb	-4(r6), r1
+	if ( (short)(a-b) != (short)0xFFFF) error = 10;
+    c400:	d3bd 	ldb	r1, -3(r6)
+    c402:	d5be 	ldb	r2, -2(r6)
+    c404:	2640 	addi	r3, r1, 0
+    c406:	2280 	addi	r1, r2, 0
+    c408:	02e9 	sub	r1, r3, r1
+    c40a:	2440 	addi	r2, r1, 0
+    c40c:	5500 	movhi	r2, 0
+    c40e:	52ff 	movi	r1, -1
+    c410:	5300 	movhi	r1, 0
+    c412:	1299 	cmpeq	r1, r2, r1
+    c414:	6302 	bnz	r1, 6
+    c416:	520a 	movi	r1, 10
+    c418:	e3bc 	stb	-4(r6), r1
+	return error;
+    c41a:	d3bc 	ldb	r1, -4(r6)
+}
+    c41c:	35c1 	ld	r2, 2(r7)
+    c41e:	37c0 	ld	r3, 0(r7)
+    c420:	3dc4 	ld	r6, 8(r7)
+    c422:	3bc5 	ld	r5, 10(r7)
+    c424:	2fcc 	addi	r7, r7, 12
+    c426:	a143 	jmp	r5
+
+0000c428 <LOGICAL>:
+
+int LOGICAL() {
+    c428:	2ff4 	addi	r7, r7, -12
+    c42a:	4bc5 	st	10(r7), r5
+    c42c:	4dc4 	st	8(r7), r6
+    c42e:	2dc8 	addi	r6, r7, 8
+    c430:	45c0 	st	0(r7), r2
+	short error = 0;
+    c432:	5200 	movi	r1, 0
+    c434:	e3bb 	stb	-5(r6), r1
+	short a = 0, b = 1, c = 2, d = -1;
+    c436:	5200 	movi	r1, 0
+    c438:	e3bc 	stb	-4(r6), r1
+    c43a:	5201 	movi	r1, 1
+    c43c:	e3bd 	stb	-3(r6), r1
+    c43e:	5202 	movi	r1, 2
+    c440:	e3be 	stb	-2(r6), r1
+    c442:	52ff 	movi	r1, -1
+    c444:	e3bf 	stb	-1(r6), r1
+	if ( (short)(d&a) != (short)0x0) error = 1;
+    c446:	d5bf 	ldb	r2, -1(r6)
+    c448:	d3bc 	ldb	r1, -4(r6)
+    c44a:	0281 	and	r1, r2, r1
+    c44c:	6202 	bz	r1, 6
+    c44e:	5201 	movi	r1, 1
+    c450:	e3bb 	stb	-5(r6), r1
+	if ( (short)(a&a) != (short)0x0) error = 2;
+    c452:	d3bc 	ldb	r1, -4(r6)
+    c454:	6202 	bz	r1, 6
+    c456:	5202 	movi	r1, 2
+    c458:	e3bb 	stb	-5(r6), r1
+	if ( (short)(d&d) != (short)0xFFFF) error = 3;
+    c45a:	d3bf 	ldb	r1, -1(r6)
+    c45c:	54ff 	movi	r2, -1
+    c45e:	125a 	cmpeq	r1, r1, r2
+    c460:	6302 	bnz	r1, 6
+    c462:	5203 	movi	r1, 3
+    c464:	e3bb 	stb	-5(r6), r1
+	if ( (short)(b&b) != (short)0x1) error = 4;
+    c466:	d3bd 	ldb	r1, -3(r6)
+    c468:	5401 	movi	r2, 1
+    c46a:	125a 	cmpeq	r1, r1, r2
+    c46c:	6302 	bnz	r1, 6
+    c46e:	5204 	movi	r1, 4
+    c470:	e3bb 	stb	-5(r6), r1
+	
+	if ( (short)(~d) != (short)0x0) error = 5;
+    c472:	d3bf 	ldb	r1, -1(r6)
+    c474:	54ff 	movi	r2, -1
+    c476:	125a 	cmpeq	r1, r1, r2
+    c478:	6302 	bnz	r1, 6
+    c47a:	5205 	movi	r1, 5
+    c47c:	e3bb 	stb	-5(r6), r1
+	if ( (short)(~a) != (short)0xFFFF) error = 6;
+    c47e:	d3bc 	ldb	r1, -4(r6)
+    c480:	6202 	bz	r1, 6
+    c482:	5206 	movi	r1, 6
+    c484:	e3bb 	stb	-5(r6), r1
+	if ( (short)(~b) != (short)0xFFFE) error = 7;
+    c486:	d3bd 	ldb	r1, -3(r6)
+    c488:	5401 	movi	r2, 1
+    c48a:	125a 	cmpeq	r1, r1, r2
+    c48c:	6302 	bnz	r1, 6
+    c48e:	5207 	movi	r1, 7
+    c490:	e3bb 	stb	-5(r6), r1
+	if ( (short)(~c) != (short)0xFFFD) error = 8;
+    c492:	d3be 	ldb	r1, -2(r6)
+    c494:	5402 	movi	r2, 2
+    c496:	125a 	cmpeq	r1, r1, r2
+    c498:	6302 	bnz	r1, 6
+    c49a:	5208 	movi	r1, 8
+    c49c:	e3bb 	stb	-5(r6), r1
+	
+	if ( (short)(a|a) != (short)0x0) error = 9;
+    c49e:	d3bc 	ldb	r1, -4(r6)
+    c4a0:	6202 	bz	r1, 6
+    c4a2:	5209 	movi	r1, 9
+    c4a4:	e3bb 	stb	-5(r6), r1
+	if ( (short)(d|d) != (short)0xFFFF) error = 10;
+    c4a6:	d3bf 	ldb	r1, -1(r6)
+    c4a8:	54ff 	movi	r2, -1
+    c4aa:	125a 	cmpeq	r1, r1, r2
+    c4ac:	6302 	bnz	r1, 6
+    c4ae:	520a 	movi	r1, 10
+    c4b0:	e3bb 	stb	-5(r6), r1
+	if ( (short)(b|c) != (short)0x3) error = 11;
+    c4b2:	d5bd 	ldb	r2, -3(r6)
+    c4b4:	d3be 	ldb	r1, -2(r6)
+    c4b6:	0289 	or	r1, r2, r1
+    c4b8:	2440 	addi	r2, r1, 0
+    c4ba:	5203 	movi	r1, 3
+    c4bc:	1299 	cmpeq	r1, r2, r1
+    c4be:	6302 	bnz	r1, 6
+    c4c0:	520b 	movi	r1, 11
+    c4c2:	e3bb 	stb	-5(r6), r1
+	if ( (short)(b|a) != (short)0x1) error = 12;
+    c4c4:	d5bd 	ldb	r2, -3(r6)
+    c4c6:	d3bc 	ldb	r1, -4(r6)
+    c4c8:	0289 	or	r1, r2, r1
+    c4ca:	2440 	addi	r2, r1, 0
+    c4cc:	5201 	movi	r1, 1
+    c4ce:	1299 	cmpeq	r1, r2, r1
+    c4d0:	6302 	bnz	r1, 6
+    c4d2:	520c 	movi	r1, 12
+    c4d4:	e3bb 	stb	-5(r6), r1
+	if ( (short)(c|a) != (short)0x2) error = 13;
+    c4d6:	d5be 	ldb	r2, -2(r6)
+    c4d8:	d3bc 	ldb	r1, -4(r6)
+    c4da:	0289 	or	r1, r2, r1
+    c4dc:	2440 	addi	r2, r1, 0
+    c4de:	5202 	movi	r1, 2
+    c4e0:	1299 	cmpeq	r1, r2, r1
+    c4e2:	6302 	bnz	r1, 6
+    c4e4:	520d 	movi	r1, 13
+    c4e6:	e3bb 	stb	-5(r6), r1
+
+	if ( (short)(a^a) != (short)0x0) error = 14;
+	if ( (short)(d^d) != (short)0x0) error = 15;
+	if ( (short)(b^c) != (short)0x3) error = 16;
+    c4e8:	d5bd 	ldb	r2, -3(r6)
+    c4ea:	d3be 	ldb	r1, -2(r6)
+    c4ec:	0291 	xor	r1, r2, r1
+    c4ee:	2440 	addi	r2, r1, 0
+    c4f0:	5203 	movi	r1, 3
+    c4f2:	1299 	cmpeq	r1, r2, r1
+    c4f4:	6302 	bnz	r1, 6
+    c4f6:	5210 	movi	r1, 16
+    c4f8:	e3bb 	stb	-5(r6), r1
+	if ( (short)(d^a) != (short)0xFFFF) error = 17;
+    c4fa:	d5bf 	ldb	r2, -1(r6)
+    c4fc:	d3bc 	ldb	r1, -4(r6)
+    c4fe:	0291 	xor	r1, r2, r1
+    c500:	2440 	addi	r2, r1, 0
+    c502:	52ff 	movi	r1, -1
+    c504:	1299 	cmpeq	r1, r2, r1
+    c506:	6302 	bnz	r1, 6
+    c508:	5211 	movi	r1, 17
+    c50a:	e3bb 	stb	-5(r6), r1
+	return error;
+    c50c:	d3bb 	ldb	r1, -5(r6)
+}
+    c50e:	35c0 	ld	r2, 0(r7)
+    c510:	3dc4 	ld	r6, 8(r7)
+    c512:	3bc5 	ld	r5, 10(r7)
+    c514:	2fcc 	addi	r7, r7, 12
+    c516:	a143 	jmp	r5
+
+0000c518 <SHIFTS>:
+
+int SHIFTS() {
+    c518:	2ff4 	addi	r7, r7, -12
+    c51a:	4bc5 	st	10(r7), r5
+    c51c:	4dc4 	st	8(r7), r6
+    c51e:	2dc8 	addi	r6, r7, 8
+    c520:	45c0 	st	0(r7), r2
+	short error = 0;
+    c522:	5200 	movi	r1, 0
+    c524:	e3ba 	stb	-6(r6), r1
+	short a = 0, b = 1, c = 2, d = -1, e = -2;
+    c526:	5200 	movi	r1, 0
+    c528:	e3bb 	stb	-5(r6), r1
+    c52a:	5201 	movi	r1, 1
+    c52c:	e3bc 	stb	-4(r6), r1
+    c52e:	5202 	movi	r1, 2
+    c530:	e3bd 	stb	-3(r6), r1
+    c532:	52ff 	movi	r1, -1
+    c534:	e3be 	stb	-2(r6), r1
+    c536:	52fe 	movi	r1, -2
+    c538:	e3bf 	stb	-1(r6), r1
+	if ( (short)(a<<c) != (short)0x0) error = 1;
+    c53a:	d5bb 	ldb	r2, -5(r6)
+    c53c:	d3bd 	ldb	r1, -3(r6)
+    c53e:	02b1 	sha	r1, r2, r1
+    c540:	6202 	bz	r1, 6
+    c542:	5201 	movi	r1, 1
+    c544:	e3ba 	stb	-6(r6), r1
+	if ( (short)(d<<c) != (short)0xfffc) error = 2;
+    c546:	d5be 	ldb	r2, -2(r6)
+    c548:	d3bd 	ldb	r1, -3(r6)
+    c54a:	02b1 	sha	r1, r2, r1
+    c54c:	2440 	addi	r2, r1, 0
+    c54e:	52fc 	movi	r1, -4
+    c550:	1299 	cmpeq	r1, r2, r1
+    c552:	6302 	bnz	r1, 6
+    c554:	5202 	movi	r1, 2
+    c556:	e3ba 	stb	-6(r6), r1
+	if ( (short)(d<<c) != (short)0xfffc) error = 3;
+    c558:	d5be 	ldb	r2, -2(r6)
+    c55a:	d3bd 	ldb	r1, -3(r6)
+    c55c:	02b1 	sha	r1, r2, r1
+    c55e:	2440 	addi	r2, r1, 0
+    c560:	52fc 	movi	r1, -4
+    c562:	1299 	cmpeq	r1, r2, r1
+    c564:	6302 	bnz	r1, 6
+    c566:	5203 	movi	r1, 3
+    c568:	e3ba 	stb	-6(r6), r1
+	if ( (short)(a<<e) != (short)0x0) error = 4;
+    c56a:	d5bb 	ldb	r2, -5(r6)
+    c56c:	d3bf 	ldb	r1, -1(r6)
+    c56e:	02b1 	sha	r1, r2, r1
+    c570:	6202 	bz	r1, 6
+    c572:	5204 	movi	r1, 4
+    c574:	e3ba 	stb	-6(r6), r1
+	if ( (short)(d<<c) != (short)0xfffc) error = 5;
+    c576:	d5be 	ldb	r2, -2(r6)
+    c578:	d3bd 	ldb	r1, -3(r6)
+    c57a:	02b1 	sha	r1, r2, r1
+    c57c:	2440 	addi	r2, r1, 0
+    c57e:	52fc 	movi	r1, -4
+    c580:	1299 	cmpeq	r1, r2, r1
+    c582:	6302 	bnz	r1, 6
+    c584:	5205 	movi	r1, 5
+    c586:	e3ba 	stb	-6(r6), r1
+	if ( (short)(d>>2) != (short)0xffff) error = 6;
+    c588:	d5be 	ldb	r2, -2(r6)
+    c58a:	5202 	movi	r1, 2
+    c58c:	0258 	not	r1, r1
+    c58e:	2241 	addi	r1, r1, 1
+    c590:	02b1 	sha	r1, r2, r1
+    c592:	2440 	addi	r2, r1, 0
+    c594:	52ff 	movi	r1, -1
+    c596:	1299 	cmpeq	r1, r2, r1
+    c598:	6302 	bnz	r1, 6
+    c59a:	5206 	movi	r1, 6
+    c59c:	e3ba 	stb	-6(r6), r1
+	if ( (short)(b<<c) != (short)0x4) error = 7;
+    c59e:	d5bc 	ldb	r2, -4(r6)
+    c5a0:	d3bd 	ldb	r1, -3(r6)
+    c5a2:	02b1 	sha	r1, r2, r1
+    c5a4:	2440 	addi	r2, r1, 0
+    c5a6:	5204 	movi	r1, 4
+    c5a8:	1299 	cmpeq	r1, r2, r1
+    c5aa:	6302 	bnz	r1, 6
+    c5ac:	5207 	movi	r1, 7
+    c5ae:	e3ba 	stb	-6(r6), r1
+	if ( (short)(b<<e) != (short)0x0) error = 8;
+    c5b0:	d5bc 	ldb	r2, -4(r6)
+    c5b2:	d3bf 	ldb	r1, -1(r6)
+    c5b4:	02b1 	sha	r1, r2, r1
+    c5b6:	6202 	bz	r1, 6
+    c5b8:	5208 	movi	r1, 8
+    c5ba:	e3ba 	stb	-6(r6), r1
+	if ( (short)(d<<c) != (short)0xfffc) error = 9;
+    c5bc:	d5be 	ldb	r2, -2(r6)
+    c5be:	d3bd 	ldb	r1, -3(r6)
+    c5c0:	02b1 	sha	r1, r2, r1
+    c5c2:	2440 	addi	r2, r1, 0
+    c5c4:	52fc 	movi	r1, -4
+    c5c6:	1299 	cmpeq	r1, r2, r1
+    c5c8:	6302 	bnz	r1, 6
+    c5ca:	5209 	movi	r1, 9
+    c5cc:	e3ba 	stb	-6(r6), r1
+	if ( (unsigned short)(0xFFFF>>0x2) != (unsigned short)0x3fff) error = 10;
+	if ( (unsigned short)(d<<b) != (unsigned short)0xfffe) error = 11;
+    c5ce:	d5be 	ldb	r2, -2(r6)
+    c5d0:	d3bc 	ldb	r1, -4(r6)
+    c5d2:	02b1 	sha	r1, r2, r1
+    c5d4:	2440 	addi	r2, r1, 0
+    c5d6:	5500 	movhi	r2, 0
+    c5d8:	52fe 	movi	r1, -2
+    c5da:	5300 	movhi	r1, 0
+    c5dc:	1299 	cmpeq	r1, r2, r1
+    c5de:	6302 	bnz	r1, 6
+    c5e0:	520b 	movi	r1, 11
+    c5e2:	e3ba 	stb	-6(r6), r1
+	return error;
+    c5e4:	d3ba 	ldb	r1, -6(r6)
+}
+    c5e6:	35c0 	ld	r2, 0(r7)
+    c5e8:	3dc4 	ld	r6, 8(r7)
+    c5ea:	3bc5 	ld	r5, 10(r7)
+    c5ec:	2fcc 	addi	r7, r7, 12
+    c5ee:	a143 	jmp	r5
+
+0000c5f0 <CMP>:
+
+int CMP() {
+    c5f0:	2ff4 	addi	r7, r7, -12
+    c5f2:	4bc5 	st	10(r7), r5
+    c5f4:	4dc4 	st	8(r7), r6
+    c5f6:	2dc8 	addi	r6, r7, 8
+    c5f8:	45c0 	st	0(r7), r2
+	short error = 0;
+    c5fa:	5200 	movi	r1, 0
+    c5fc:	e3ba 	stb	-6(r6), r1
+	short r0 = 0, r1 = 1, r2 = 2, r3 = -1, r5 = -1;
+    c5fe:	5200 	movi	r1, 0
+    c600:	e3bb 	stb	-5(r6), r1
+    c602:	5201 	movi	r1, 1
+    c604:	e3bc 	stb	-4(r6), r1
+    c606:	5202 	movi	r1, 2
+    c608:	e3bd 	stb	-3(r6), r1
+    c60a:	52ff 	movi	r1, -1
+    c60c:	e3be 	stb	-2(r6), r1
+    c60e:	52ff 	movi	r1, -1
+    c610:	e3bf 	stb	-1(r6), r1
+
+	if (!(r0 < r1)) error = 1;
+    c612:	d5bb 	ldb	r2, -5(r6)
+    c614:	d3bc 	ldb	r1, -4(r6)
+    c616:	1281 	cmplt	r1, r2, r1
+    c618:	6302 	bnz	r1, 6
+    c61a:	5201 	movi	r1, 1
+    c61c:	e3ba 	stb	-6(r6), r1
+	if ((r0 < r3)) error = 2;
+    c61e:	d3bb 	ldb	r1, -5(r6)
+    c620:	d5be 	ldb	r2, -2(r6)
+    c622:	1242 	cmplt	r1, r1, r2
+    c624:	6202 	bz	r1, 6
+    c626:	5202 	movi	r1, 2
+    c628:	e3ba 	stb	-6(r6), r1
+	if (!(r1 < r2)) error = 3;
+    c62a:	d3bc 	ldb	r1, -4(r6)
+    c62c:	d5bd 	ldb	r2, -3(r6)
+    c62e:	1242 	cmplt	r1, r1, r2
+    c630:	6302 	bnz	r1, 6
+    c632:	5203 	movi	r1, 3
+    c634:	e3ba 	stb	-6(r6), r1
+	if ((r2 < r1)) error = 4;
+    c636:	d3bd 	ldb	r1, -3(r6)
+    c638:	d5bc 	ldb	r2, -4(r6)
+    c63a:	1242 	cmplt	r1, r1, r2
+    c63c:	6202 	bz	r1, 6
+    c63e:	5204 	movi	r1, 4
+    c640:	e3ba 	stb	-6(r6), r1
+	if ((r1 < r1)) error = 5;
+	
+	if (!(r0 <= r0)) error = 6;
+	if (!(r3 <= r3)) error = 7;
+	if (!(r3 <= r1)) error = 8;
+    c642:	d3be 	ldb	r1, -2(r6)
+    c644:	d5bc 	ldb	r2, -4(r6)
+    c646:	124a 	cmple	r1, r1, r2
+    c648:	6302 	bnz	r1, 6
+    c64a:	5208 	movi	r1, 8
+    c64c:	e3ba 	stb	-6(r6), r1
+	if ((r1 <= r3)) error = 9;
+    c64e:	d3bc 	ldb	r1, -4(r6)
+    c650:	d5be 	ldb	r2, -2(r6)
+    c652:	124a 	cmple	r1, r1, r2
+    c654:	6202 	bz	r1, 6
+    c656:	5209 	movi	r1, 9
+    c658:	e3ba 	stb	-6(r6), r1
+	if (!(r1 <= r2)) error = 10;
+    c65a:	d3bc 	ldb	r1, -4(r6)
+    c65c:	d5bd 	ldb	r2, -3(r6)
+    c65e:	124a 	cmple	r1, r1, r2
+    c660:	6302 	bnz	r1, 6
+    c662:	520a 	movi	r1, 10
+    c664:	e3ba 	stb	-6(r6), r1
+	if ((r2 <= r1)) error = 11;
+    c666:	d3bd 	ldb	r1, -3(r6)
+    c668:	d5bc 	ldb	r2, -4(r6)
+    c66a:	124a 	cmple	r1, r1, r2
+    c66c:	6202 	bz	r1, 6
+    c66e:	520b 	movi	r1, 11
+    c670:	e3ba 	stb	-6(r6), r1
+	
+	if ((r2 == r3)) error = 12;
+    c672:	d3bd 	ldb	r1, -3(r6)
+    c674:	d5be 	ldb	r2, -2(r6)
+    c676:	125a 	cmpeq	r1, r1, r2
+    c678:	6202 	bz	r1, 6
+    c67a:	520c 	movi	r1, 12
+    c67c:	e3ba 	stb	-6(r6), r1
+	if (!(r3 == r3)) error = 13;
+	if (!(r1 == r1)) error = 14;
+	if (!(r3 == r5)) error = 15;
+    c67e:	d3be 	ldb	r1, -2(r6)
+    c680:	d5bf 	ldb	r2, -1(r6)
+    c682:	125a 	cmpeq	r1, r1, r2
+    c684:	6302 	bnz	r1, 6
+    c686:	520f 	movi	r1, 15
+    c688:	e3ba 	stb	-6(r6), r1
+	if ((r3 == r2)) error = 16;
+    c68a:	d3be 	ldb	r1, -2(r6)
+    c68c:	d5bd 	ldb	r2, -3(r6)
+    c68e:	125a 	cmpeq	r1, r1, r2
+    c690:	6202 	bz	r1, 6
+    c692:	5210 	movi	r1, 16
+    c694:	e3ba 	stb	-6(r6), r1
+	
+	return error;
+    c696:	d3ba 	ldb	r1, -6(r6)
+}
+    c698:	35c0 	ld	r2, 0(r7)
+    c69a:	3dc4 	ld	r6, 8(r7)
+    c69c:	3bc5 	ld	r5, 10(r7)
+    c69e:	2fcc 	addi	r7, r7, 12
+    c6a0:	a143 	jmp	r5
+
+0000c6a2 <main>:
+int main() {
+    c6a2:	2ff2 	addi	r7, r7, -14
+    c6a4:	4bc6 	st	12(r7), r5
+    c6a6:	4dc5 	st	10(r7), r6
+    c6a8:	2dca 	addi	r6, r7, 10
+    c6aa:	45c0 	st	0(r7), r2
+	char str[8];
+	itoa(ADD_SUB_ADDI(), str,10);
+    c6ac:	5268 	movi	r1, 104
+    c6ae:	53c3 	movhi	r1, -61
+    c6b0:	aa44 	jal	r5, r1
+    c6b2:	2ffa 	addi	r7, r7, -6
+    c6b4:	25c0 	addi	r2, r7, 0
+    c6b6:	4280 	st	0(r2), r1
+    c6b8:	23b8 	addi	r1, r6, -8
+    c6ba:	4281 	st	2(r2), r1
+    c6bc:	520a 	movi	r1, 10
+    c6be:	4282 	st	4(r2), r1
+    c6c0:	5284 	movi	r1, -124
+    c6c2:	53c2 	movhi	r1, -62
+    c6c4:	aa44 	jal	r5, r1
+    c6c6:	2fc6 	addi	r7, r7, 6
+	write(0, 0, str, 8, 0);
+    c6c8:	2ff6 	addi	r7, r7, -10
+    c6ca:	25c0 	addi	r2, r7, 0
+    c6cc:	5200 	movi	r1, 0
+    c6ce:	4280 	st	0(r2), r1
+    c6d0:	5200 	movi	r1, 0
+    c6d2:	4281 	st	2(r2), r1
+    c6d4:	23b8 	addi	r1, r6, -8
+    c6d6:	4282 	st	4(r2), r1
+    c6d8:	5208 	movi	r1, 8
+    c6da:	4283 	st	6(r2), r1
+    c6dc:	5200 	movi	r1, 0
+    c6de:	e288 	stb	8(r2), r1
+    c6e0:	5290 	movi	r1, -112
+    c6e2:	53c0 	movhi	r1, -64
+    c6e4:	aa44 	jal	r5, r1
+    c6e6:	2fca 	addi	r7, r7, 10
+	
+	itoa(LOGICAL(), str,10);
+    c6e8:	5228 	movi	r1, 40
+    c6ea:	53c4 	movhi	r1, -60
+    c6ec:	aa44 	jal	r5, r1
+    c6ee:	2ffa 	addi	r7, r7, -6
+    c6f0:	25c0 	addi	r2, r7, 0
+    c6f2:	4280 	st	0(r2), r1
+    c6f4:	23b8 	addi	r1, r6, -8
+    c6f6:	4281 	st	2(r2), r1
+    c6f8:	520a 	movi	r1, 10
+    c6fa:	4282 	st	4(r2), r1
+    c6fc:	5284 	movi	r1, -124
+    c6fe:	53c2 	movhi	r1, -62
+    c700:	aa44 	jal	r5, r1
+    c702:	2fc6 	addi	r7, r7, 6
+	write(1, 0, str, 8, 0);
+    c704:	2ff6 	addi	r7, r7, -10
+    c706:	25c0 	addi	r2, r7, 0
+    c708:	5201 	movi	r1, 1
+    c70a:	4280 	st	0(r2), r1
+    c70c:	5200 	movi	r1, 0
+    c70e:	4281 	st	2(r2), r1
+    c710:	23b8 	addi	r1, r6, -8
+    c712:	4282 	st	4(r2), r1
+    c714:	5208 	movi	r1, 8
+    c716:	4283 	st	6(r2), r1
+    c718:	5200 	movi	r1, 0
+    c71a:	e288 	stb	8(r2), r1
+    c71c:	5290 	movi	r1, -112
+    c71e:	53c0 	movhi	r1, -64
+    c720:	aa44 	jal	r5, r1
+    c722:	2fca 	addi	r7, r7, 10
+	
+	itoa(SHIFTS(), str,10);
+    c724:	5218 	movi	r1, 24
+    c726:	53c5 	movhi	r1, -59
+    c728:	aa44 	jal	r5, r1
+    c72a:	2ffa 	addi	r7, r7, -6
+    c72c:	25c0 	addi	r2, r7, 0
+    c72e:	4280 	st	0(r2), r1
+    c730:	23b8 	addi	r1, r6, -8
+    c732:	4281 	st	2(r2), r1
+    c734:	520a 	movi	r1, 10
+    c736:	4282 	st	4(r2), r1
+    c738:	5284 	movi	r1, -124
+    c73a:	53c2 	movhi	r1, -62
+    c73c:	aa44 	jal	r5, r1
+    c73e:	2fc6 	addi	r7, r7, 6
+	write(2, 0, str, 8, 0);
+    c740:	2ff6 	addi	r7, r7, -10
+    c742:	25c0 	addi	r2, r7, 0
+    c744:	5202 	movi	r1, 2
+    c746:	4280 	st	0(r2), r1
+    c748:	5200 	movi	r1, 0
+    c74a:	4281 	st	2(r2), r1
+    c74c:	23b8 	addi	r1, r6, -8
+    c74e:	4282 	st	4(r2), r1
+    c750:	5208 	movi	r1, 8
+    c752:	4283 	st	6(r2), r1
+    c754:	5200 	movi	r1, 0
+    c756:	e288 	stb	8(r2), r1
+    c758:	5290 	movi	r1, -112
+    c75a:	53c0 	movhi	r1, -64
+    c75c:	aa44 	jal	r5, r1
+    c75e:	2fca 	addi	r7, r7, 10
+	
+	itoa(CMP(), str,10);
+    c760:	52f0 	movi	r1, -16
+    c762:	53c5 	movhi	r1, -59
+    c764:	aa44 	jal	r5, r1
+    c766:	2ffa 	addi	r7, r7, -6
+    c768:	25c0 	addi	r2, r7, 0
+    c76a:	4280 	st	0(r2), r1
+    c76c:	23b8 	addi	r1, r6, -8
+    c76e:	4281 	st	2(r2), r1
+    c770:	520a 	movi	r1, 10
+    c772:	4282 	st	4(r2), r1
+    c774:	5284 	movi	r1, -124
+    c776:	53c2 	movhi	r1, -62
+    c778:	aa44 	jal	r5, r1
+    c77a:	2fc6 	addi	r7, r7, 6
+	write(3, 0, str, 8, 0);
+    c77c:	2ff6 	addi	r7, r7, -10
+    c77e:	25c0 	addi	r2, r7, 0
+    c780:	5203 	movi	r1, 3
+    c782:	4280 	st	0(r2), r1
+    c784:	5200 	movi	r1, 0
+    c786:	4281 	st	2(r2), r1
+    c788:	23b8 	addi	r1, r6, -8
+    c78a:	4282 	st	4(r2), r1
+    c78c:	5208 	movi	r1, 8
+    c78e:	4283 	st	6(r2), r1
+    c790:	5200 	movi	r1, 0
+    c792:	e288 	stb	8(r2), r1
+    c794:	5290 	movi	r1, -112
+    c796:	53c0 	movhi	r1, -64
+    c798:	aa44 	jal	r5, r1
+    c79a:	2fca 	addi	r7, r7, 10
+	return 0;
+    c79c:	5200 	movi	r1, 0
+}
+    c79e:	35c0 	ld	r2, 0(r7)
+    c7a0:	3dc5 	ld	r6, 10(r7)
+    c7a2:	3bc6 	ld	r5, 12(r7)
+    c7a4:	2fce 	addi	r7, r7, 14
+    c7a6:	a143 	jmp	r5
+
+temp_Test1.o:     file format elf32-sisa
+temp_Test1.o
+architecture: sisa:3, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00000000
+
+Program Header:
+    LOAD off    0x00000000 vaddr 0x0000bfac paddr 0x0000bfac align 2**0
+         filesz 0x000007fc memsz 0x000007fc flags r-x
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn  Flags
+  0 .sistema      000007a8  0000c000  0000c000  00000054  2**1  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stab         00000eac  00008000  00008000  000007fc  2**2  CONTENTS, READONLY, DEBUGGING
+  2 .stabstr      0000055b  00008eac  00008eac  000016a8  2**0  CONTENTS, READONLY, DEBUGGING
+SYMBOL TABLE:
+
+

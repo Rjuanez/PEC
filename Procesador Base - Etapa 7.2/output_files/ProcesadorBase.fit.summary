@@ -1,12 +1,12 @@
-Fitter Status : Successful - Fri May 19 20:59:26 2023
+Fitter Status : Successful - Sun May 21 00:10:46 2023
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : ProcesadorBase
 Top-level Entity Name : sisa
 Family : Cyclone II
 Device : EP2C20F484C7
 Timing Models : Final
-Total logic elements : 5,364 / 18,752 ( 29 % )
-    Total combinational functions : 3,640 / 18,752 ( 19 % )
+Total logic elements : 5,356 / 18,752 ( 29 % )
+    Total combinational functions : 3,635 / 18,752 ( 19 % )
     Dedicated logic registers : 3,157 / 18,752 ( 17 % )
 Total registers : 3157
 Total pins : 114 / 315 ( 36 % )

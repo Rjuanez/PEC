@@ -33,11 +33,7 @@ ENTITY unidad_control IS
 			 inta		  			: OUT STD_LOGIC;
 			 fetch 				: OUT	STD_LOGIC;
 			 illegal_inst		: OUT STD_LOGIC;
-			 stop_execution	: IN	STD_LOGIC;
-			 system_ins			: OUT	STD_LOGIC;
-			 sys_call			: OUT	STD_LOGIC
-			 
-			 );
+			 stop_execution	: IN	STD_LOGIC);
 END unidad_control;
 
 ARCHITECTURE Structure OF unidad_control IS
@@ -65,30 +61,25 @@ ARCHITECTURE Structure OF unidad_control IS
 			 system_act		: IN  STD_LOGIC;
 			 inta		  		: OUT STD_LOGIC;
 			 reg_op	  		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-			 illegal_inst	: OUT STD_LOGIC;
-			 system_ins		: OUT	STD_LOGIC;
-			 sys_call		: OUT	STD_LOGIC
-			 );
+			 illegal_inst	: OUT STD_LOGIC);
 	END component;
 	
 	COMPONENT multi is
-    port(clk       	: IN  STD_LOGIC;
-         boot      	: IN  STD_LOGIC;
-         ldpc_l    	: IN  STD_LOGIC;
-         wrd_l     	: IN  STD_LOGIC;
-         wr_m_l    	: IN  STD_LOGIC;
-         w_b       	: IN  STD_LOGIC;
-         ldpc      	: OUT STD_LOGIC;
-         wrd       	: OUT STD_LOGIC;
-         wr_m      	: OUT STD_LOGIC;
-         ldir      	: OUT STD_LOGIC;
-         ins_dad   	: OUT STD_LOGIC;
-         word_byte 	: OUT STD_LOGIC;
-			to_system 	: IN  STD_LOGIC;
-			system_act	: OUT STD_LOGIC;
-			exception 	: IN 	STD_LOGIC;
-			wr_sys_l		: IN 	STD_LOGIC;
-			wr_sys		: OUT	STD_LOGIC);
+    port(clk       : IN  STD_LOGIC;
+         boot      : IN  STD_LOGIC;
+         ldpc_l    : IN  STD_LOGIC;
+         wrd_l     : IN  STD_LOGIC;
+         wr_m_l    : IN  STD_LOGIC;
+         w_b       : IN  STD_LOGIC;
+         ldpc      : OUT STD_LOGIC;
+         wrd       : OUT STD_LOGIC;
+         wr_m      : OUT STD_LOGIC;
+         ldir      : OUT STD_LOGIC;
+         ins_dad   : OUT STD_LOGIC;
+         word_byte : OUT STD_LOGIC;
+			to_system : IN  STD_LOGIC;
+			system_act: OUT STD_LOGIC;
+			exception : IN STD_LOGIC);
 	end component;
 
     -- Tambien crearemos los cables/buses (signals) necesarios para unir las entidades
@@ -102,7 +93,6 @@ ARCHITECTURE Structure OF unidad_control IS
 	 SIGNAL w_bTOmulti : std_logic;
 	 SIGNAL wr_m_lTOmulti : std_logic;
 	 SIGNAL ldir_aux : std_logic; --para saber si cargamos nuevo ir
-	 SIGNAL wr_sysTOwr_sys_l : std_logic;
 	 
 	 SIGNAL tknbrS : STD_LOGIC_VECTOR(1 DOWNTO 0);
 	 
@@ -140,13 +130,11 @@ BEGIN
 		tknbr => tknbrS,
 		Z => Z,
 		sys_a => sys_a,
-		wr_sys => wr_sysTOwr_sys_l,
+		wr_sys => wr_sys,
 		reg_op => reg_op,
 		system_act => system_actTOsystem_act,
 		inta => inta,
-		illegal_inst => illegal_inst,
-		system_ins => system_ins,
-		sys_call => sys_call);
+		illegal_inst => illegal_inst);
 	
 	ge: multi port map (
 		clk => clk,
@@ -163,9 +151,7 @@ BEGIN
 		word_byte => word_byte,
 		to_system => to_system,
 		system_act => system_actTOsystem_act,
-		exception => stop_execution,
-		wr_sys_l => wr_sysTOwr_sys_l,
-		wr_sys => wr_sys);
+		exception => stop_execution);
 	
 	pc <= new_pc;
 	

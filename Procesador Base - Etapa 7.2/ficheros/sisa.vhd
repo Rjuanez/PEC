@@ -47,8 +47,7 @@ ARCHITECTURE Structure OF sisa IS
 				 wr_out	  			: OUT STD_LOGIC;
 				 inta		  			: OUT STD_LOGIC;
 				 intr		  			: IN 	STD_LOGIC;
-				 invalid_address	: IN 	STD_LOGIC;
-				 system_address	: IN	std_logic);
+				 invalid_address	: IN 	STD_LOGIC);
 	END component;
 
 	COMPONENT MemoryController is
@@ -60,7 +59,6 @@ ARCHITECTURE Structure OF sisa IS
 				 byte_m    			: in  std_logic;
 				 --SEÑALES PARA EXCEPCIONEs
 				 invalid_address	: out std_logic;
-				 system_address	: out	std_logic;
 				 -- señales para la placa de desarrollo
 				 SRAM_ADDR 			: out   std_logic_vector(17 downto 0);
 				 SRAM_DQ   			: inout std_logic_vector(15 downto 0);
@@ -154,7 +152,6 @@ ARCHITECTURE Structure OF sisa IS
 	
 	--señales de conexion Memory controller y procesador "excepciones"
 	SIGNAL invalid_addressTOinvalid_address	: STD_LOGIC;
-	SIGNAL system_addressTOsystem_address		: STD_LOGIC;
 	
 	
 	
@@ -184,8 +181,7 @@ BEGIN
 						 rd_in => rd_inTOrd_in,
 						 intr => intrTOintr,
 						 inta => intaTOinta,
-						 invalid_address => invalid_addressTOinvalid_address,
-						 system_address => system_addressTOsystem_address);
+						 invalid_address => invalid_addressTOinvalid_address);
 	
 	memory0: MemoryController port map(CLOCK_50 => CLOCK_50, 
 							addr => addr_mTOaddr,
@@ -205,8 +201,7 @@ BEGIN
 							vga_wr_data => wrdat_memTOvga,
 							vga_rd_data => rddat_memTOvga,
 							vga_byte_m => byte_m_memTOvga,
-							invalid_address => invalid_addressTOinvalid_address,
-							system_address => system_addressTOsystem_address);
+							invalid_address => invalid_addressTOinvalid_address);
 							
 	controladosIO: controladores_IO port map(boot => SW(9),
 														  CLOCK_50 => CLOCK_50,

@@ -1,0 +1,265 @@
+
+incep.exe:     file format elf32-sisa
+incep.exe
+architecture: sisa:3, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x0000c000
+
+Program Header:
+    LOAD off    0x00000000 vaddr 0x0000bf8c paddr 0x0000bf8c align 2**0
+         filesz 0x0000018e memsz 0x0000018e flags r-x
+    LOAD off    0x0000018e vaddr 0x00008000 paddr 0x0000c11a align 2**0
+         filesz 0x00000038 memsz 0x00000038 flags rw-
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn  Flags
+  0 .text         0000011a  0000c000  0000c000  00000074  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000038  00008000  0000c11a  0000018e  2**1  CONTENTS, ALLOC, LOAD, DATA
+  2 .stab         00000558  00000000  00000000  000001c8  2**2  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000098  00000000  00000000  00000720  2**0  CONTENTS, READONLY, DEBUGGING
+SYMBOL TABLE:
+0000c000 l    d  .text	00000000 .text
+00008000 l    d  .data	00000000 .data
+00000000 l    d  .stab	00000000 .stab
+00000000 l    d  .stabstr	00000000 .stabstr
+00000000 l    d  *ABS*	00000000 .shstrtab
+00000000 l    d  *ABS*	00000000 .symtab
+00000000 l    d  *ABS*	00000000 .strtab
+00004000 l       *ABS*	00000000 PILA
+00008000 l       .data	00000000 interrupts_vector
+0000c0ac l       .text	00000000 __interrup_timer
+0000c0ae l       .text	00000000 __interrup_key
+0000c0b0 l       .text	00000000 __interrup_switch
+0000c0b2 l       .text	00000000 __interrup_keyboard
+00008008 l       .data	00000000 exceptions_vector
+0000c0a6 l       .text	00000000 RSE_default_resume
+0000c102 l       .text	00000000 __no_align
+0000c0a8 l       .text	00000000 RSE_default_halt
+0000c112 l       .text	00000000 __calls
+00008028 l       .data	00000000 call_sys_vector
+0000c01a l       .text	00000000 RSG
+0000c0b4 l       .text	00000000 inici
+0000c05c l       .text	00000000 __call_sistema
+0000c078 l       .text	00000000 __interrupcion
+0000c046 l       .text	00000000 __excepcion
+0000c086 l       .text	00000000 __finRSG
+0000c0aa l       .text	00000000 RSE_excepcion_TLB
+0000c118 l       .text	00000000 end_all
+0000c0da l       .text	00000000 end_jmp
+0000c0fe l       .text	00000000 __ilegal_ins
+0000c100 l       .text	00000000 __div_zero
+0000c10e l       .text	00000000 end_no_al
+0000c110 l       .text	00000000 __protect
+0000c110 l       .text	00000000 end_no_p
+0000c116 l       .text	00000000 __pp_tlb_dat
+0000c000 g       .text	00000000 __entry_point
+0000c11a g       .text	00000000 _etext
+0000c152 g       *ABS*	00000000 __data_load_end
+0000c11a g       *ABS*	00000000 __data_load_start
+0000c11a g       .text	00000000 __dtors_end
+0000c11a g       .text	00000000 __ctors_start
+0000c11a g       .text	00000000 __dtors_start
+0000c11a g       .text	00000000 __ctors_end
+00008038 g       .data	00000000 _edata
+00008038 g       *ABS*	00000000 _end
+
+
+
+incep.exe:     file format elf32-sisa
+
+Contents of section .data:
+ 8000 acc0aec0 b0c0b2c0 a6c002c1 a6c0a6c0  ................
+ 8010 a6c0a6c0 a8c0a8c0 a8c0a8c0 a8c0a6c0  ................
+ 8020 a6c0a6c0 12c1a6c0 a8c012c1 a8c0a8c0  ................
+ 8030 a8c0a8c0 a8c0a8c0                    ........        
+
+incep.exe:     file format elf32-sisa
+
+Disassembly of section .text:
+
+0000c000 <__entry_point>:
+    c000:	521a 	movi	r1, 26
+    c002:	53c0 	movhi	r1, -64
+    c004:	fa70 	wrs	s5, r1
+    c006:	5e00 	movi	r7, 0
+    c008:	5f40 	movhi	r7, 64
+    c00a:	5cb4 	movi	r6, -76
+    c00c:	5dc0 	movhi	r6, -64
+    c00e:	f3b0 	wrs	s1, r6
+    c010:	f020 	ei	
+    c012:	5c02 	movi	r6, 2
+    c014:	5d00 	movhi	r6, 0
+    c016:	f1b0 	wrs	s0, r6
+    c018:	f024 	reti	
+
+0000c01a <RSG>:
+    c01a:	2ff2 	addi	r7, r7, -14
+    c01c:	41c6 	st	12(r7), r0
+    c01e:	43c5 	st	10(r7), r1
+    c020:	45c4 	st	8(r7), r2
+    c022:	47c3 	st	6(r7), r3
+    c024:	49c2 	st	4(r7), r4
+    c026:	4bc1 	st	2(r7), r5
+    c028:	4dc0 	st	0(r7), r6
+    c02a:	f22c 	rds	r1, s0
+    c02c:	f46c 	rds	r2, s1
+    c02e:	f6ec 	rds	r3, s3
+    c030:	2ffa 	addi	r7, r7, -6
+    c032:	43c2 	st	4(r7), r1
+    c034:	45c1 	st	2(r7), r2
+    c036:	47c0 	st	0(r7), r3
+    c038:	f2ac 	rds	r1, s2
+    c03a:	540e 	movi	r2, 14
+    c03c:	165a 	cmpeq	r3, r1, r2
+    c03e:	670e 	bnz	r3, 30
+    c040:	540f 	movi	r2, 15
+    c042:	165a 	cmpeq	r3, r1, r2
+    c044:	6719 	bnz	r3, 52
+
+0000c046 <__excepcion>:
+    c046:	fd2c 	rds	r6, s4
+    c048:	2d81 	addi	r6, r6, 1
+    c04a:	7d0a 	out	10, r6
+    c04c:	f9b0 	wrs	s4, r6
+    c04e:	5408 	movi	r2, 8
+    c050:	5580 	movhi	r2, -128
+    c052:	0261 	add	r1, r1, r1
+    c054:	04a1 	add	r2, r2, r1
+    c056:	3480 	ld	r2, 0(r2)
+    c058:	ac84 	jal	r6, r2
+    c05a:	6615 	bz	r3, 44
+
+0000c05c <__call_sistema>:
+    c05c:	fd2c 	rds	r6, s4
+    c05e:	2d81 	addi	r6, r6, 1
+    c060:	7d0a 	out	10, r6
+    c062:	f9b0 	wrs	s4, r6
+    c064:	f2ec 	rds	r1, s3
+    c066:	5407 	movi	r2, 7
+    c068:	0242 	and	r1, r1, r2
+    c06a:	0261 	add	r1, r1, r1
+    c06c:	5428 	movi	r2, 40
+    c06e:	5580 	movhi	r2, -128
+    c070:	04a1 	add	r2, r2, r1
+    c072:	3480 	ld	r2, 0(r2)
+    c074:	ac84 	jal	r6, r2
+    c076:	6707 	bnz	r3, 16
+
+0000c078 <__interrupcion>:
+    c078:	f228 	getiid	r1
+    c07a:	0261 	add	r1, r1, r1
+    c07c:	5400 	movi	r2, 0
+    c07e:	5580 	movhi	r2, -128
+    c080:	04a1 	add	r2, r2, r1
+    c082:	3480 	ld	r2, 0(r2)
+    c084:	ac84 	jal	r6, r2
+
+0000c086 <__finRSG>:
+    c086:	37c0 	ld	r3, 0(r7)
+    c088:	35c1 	ld	r2, 2(r7)
+    c08a:	33c2 	ld	r1, 4(r7)
+    c08c:	2fc6 	addi	r7, r7, 6
+    c08e:	f6f0 	wrs	s3, r3
+    c090:	f2b0 	wrs	s1, r2
+    c092:	f070 	wrs	s0, r1
+    c094:	3dc0 	ld	r6, 0(r7)
+    c096:	3bc1 	ld	r5, 2(r7)
+    c098:	39c2 	ld	r4, 4(r7)
+    c09a:	37c3 	ld	r3, 6(r7)
+    c09c:	35c4 	ld	r2, 8(r7)
+    c09e:	33c5 	ld	r1, 10(r7)
+    c0a0:	31c6 	ld	r0, 12(r7)
+    c0a2:	2fce 	addi	r7, r7, 14
+    c0a4:	f024 	reti	
+
+0000c0a6 <RSE_default_resume>:
+    c0a6:	a183 	jmp	r6
+
+0000c0a8 <RSE_default_halt>:
+    c0a8:	ffff 	halt	
+
+0000c0aa <RSE_excepcion_TLB>:
+    c0aa:	a183 	jmp	r6
+
+0000c0ac <__interrup_timer>:
+    c0ac:	a183 	jmp	r6
+
+0000c0ae <__interrup_key>:
+    c0ae:	a183 	jmp	r6
+
+0000c0b0 <__interrup_switch>:
+    c0b0:	a183 	jmp	r6
+
+0000c0b2 <__interrup_keyboard>:
+    c0b2:	a183 	jmp	r6
+
+0000c0b4 <inici>:
+    c0b4:	520f 	movi	r1, 15
+    c0b6:	7309 	out	9, r1
+    c0b8:	ffff 	halt	
+    c0ba:	ffff 	halt	
+    c0bc:	ffff 	halt	
+    c0be:	5018 	movi	r0, 24
+    c0c0:	51c1 	movhi	r0, -63
+    c0c2:	ffff 	halt	
+    c0c4:	ffff 	halt	
+    c0c6:	ffff 	halt	
+    c0c8:	ffff 	halt	
+    c0ca:	5000 	movi	r0, 0
+    c0cc:	5100 	movhi	r0, 0
+    c0ce:	8020 	div	r0, r0, r0
+    c0d0:	50da 	movi	r0, -38
+    c0d2:	51c0 	movhi	r0, -64
+    c0d4:	2001 	addi	r0, r0, 1
+    c0d6:	a003 	jmp	r0
+    c0d8:	2001 	addi	r0, r0, 1
+
+0000c0da <end_jmp>:
+    c0da:	5001 	movi	r0, 1
+    c0dc:	5100 	movhi	r0, 0
+    c0de:	4000 	st	0(r0), r0
+    c0e0:	5000 	movi	r0, 0
+    c0e2:	5180 	movhi	r0, -128
+    c0e4:	4000 	st	0(r0), r0
+    c0e6:	2001 	addi	r0, r0, 1
+    c0e8:	3000 	ld	r0, 0(r0)
+    c0ea:	f030 	wrs	s0, r0
+    c0ec:	f02c 	rds	r0, s0
+    c0ee:	f024 	reti	
+    c0f0:	f028 	getiid	r0
+    c0f2:	f020 	ei	
+    c0f4:	f021 	di	
+    c0f6:	5401 	movi	r2, 1
+    c0f8:	5500 	movhi	r2, 0
+    c0fa:	a087 	calls	r2
+    c0fc:	ffff 	halt	
+
+0000c0fe <__ilegal_ins>:
+    c0fe:	a183 	jmp	r6
+
+0000c100 <__div_zero>:
+    c100:	a183 	jmp	r6
+
+0000c102 <__no_align>:
+    c102:	faec 	rds	r5, s3
+    c104:	f86c 	rds	r4, s1
+    c106:	175c 	cmpeq	r3, r5, r4
+    c108:	6602 	bz	r3, 6
+    c10a:	2b7f 	addi	r5, r5, -1
+    c10c:	4bc1 	st	2(r7), r5
+
+0000c10e <end_no_al>:
+    c10e:	a183 	jmp	r6
+
+0000c110 <__protect>:
+    c110:	a183 	jmp	r6
+
+0000c112 <__calls>:
+    c112:	a047 	calls	r1
+    c114:	a183 	jmp	r6
+
+0000c116 <__pp_tlb_dat>:
+    c116:	a183 	jmp	r6
+
+0000c118 <end_all>:
+    c118:	ffff 	halt	
