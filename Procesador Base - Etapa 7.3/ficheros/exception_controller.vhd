@@ -19,6 +19,7 @@ ENTITY exception_controller IS
 			 fetch				: IN	STD_LOGIC; -- seÃ±al que viene de unidad de control (multi) que indiica si se est cargando un nuevo pc
  			 illegal_inst		: IN 	STD_LOGIC; -- seÃ±al que viene de control_l para saber si hay una instruccion ilegal
 			 stop_execution	: OUT STD_LOGIC; --seÃ±al para filtrar si se pueden hacer cambios en el estado del procesador: escritura a memoria, escritura a banco de registros
+			 data_memory_acces: IN 	STD_LOGIC; -- señal que indica si se esta ejecutando algun ld/ldb o st/stb
 			 
 			 system_address	: IN	STD_LOGIC; -- señal para saber si la direccion de memoria a la que se esta accediendo es de sistema
 			 system_mode		: IN	STD_LOGIC; -- señal para saber si estamos en modo sistema a modo usuario 
@@ -31,45 +32,52 @@ END exception_controller;
 
 ARCHITECTURE Structure OF exception_controller IS
 
-	signal exception_idS : STD_LOGIC_VECTOR(3 DOWNTO 0);
+	signal exception_idS : STD_LOGIC_VECTOR(4 DOWNTO 0);
 
 
 BEGIN
 	
 	-- señal que levanta las excepciones par pasar a system des del ciclo de FETCH
-	excep_UP_F <=	'1' when exception_idS = "1011" else
-						'1' when exception_idS = "0001" else
+	excep_UP_F <=	'1' when exception_idS = "01011" else
+						'1' when exception_idS = "00001" else
 						'0';
 	
 
-	excep_UP <= '0' when exception_idS = "1000" else
-					'1';
+	excep_UP <=		'1' when exception_idS = "00001" else
+						'1' when exception_idS = "11011" else
+						'1' when exception_idS = "00000" else
+						'1' when exception_idS = "00100" else
+						'1' when exception_idS = "01110" else
+						'1' when exception_idS = "01101" else
+						'0';
 	-- esto puede dar problemas, dado que permite pasar directamente al ciclo de sistem des de fetch
-	stop_execution <= '1' when exception_idS = "0100"  else
-							'1' when exception_idS = "0000"  else
-							'1' when exception_idS = "0001"  else
-							'1' when exception_idS = "1101"  else
-							'1' when exception_idS = "1011"  else
+	stop_execution <= '1' when exception_idS = "00100"  else
+							'1' when exception_idS = "00000"  else
+							'1' when exception_idS = "00001"  else
+							'1' when exception_idS = "01101"  else
+							'1' when exception_idS = "01011"  else
+							'1' when exception_idS = "11011"  else
 							'0';
 						
 	--esto tiene que serguir un determinado orden, NO REORDENAR sin pensar
-	exception_idS <= 	"1011" when system_address = '1' and system_mode = '0' and excep_enabled = '1' else
-							"1101" when system_ins = '1' and system_mode = '0' and excep_enabled = '1' else
-							"0000" when sys_call = '1' and system_mode = '1' and excep_enabled = '1' else --intento de instruccion call dentro de modo sistema
-							"1110" when sys_call = '1' and excep_enabled = '1' else
-							"0100" when div_zero = '1' and excep_enabled = '1' else
-							"0000" when illegal_inst = '1' and excep_enabled = '1' else
-							"0001" when invalid_address = '1' and fetch = '1' and excep_enabled = '1' else
-							"0001" when invalid_address = '1' and isLDorST = '1' and excep_enabled = '1' else
-							"1111" when intr = '1' and excep_enabled = '1' else --interrupciones
-							"1000"; -- valor arbitrario
+	exception_idS <= 	"11011" when system_address = '1' and system_mode = '0' and data_memory_acces = '1' and excep_enabled = '1' else
+							"01011" when system_address = '1' and system_mode = '0' and excep_enabled = '1' else
+							"01101" when system_ins = '1' and system_mode = '0' and excep_enabled = '1' else
+							"00000" when sys_call = '1' and system_mode = '1' and excep_enabled = '1' else --intento de instruccion call dentro de modo sistema
+							"01110" when sys_call = '1' and excep_enabled = '1' else
+							"00100" when div_zero = '1' and excep_enabled = '1' else
+							"00000" when illegal_inst = '1' and excep_enabled = '1' else
+							"00001" when invalid_address = '1' and fetch = '1' and excep_enabled = '1' else
+							"00001" when invalid_address = '1' and isLDorST = '1' and excep_enabled = '1' else
+							"01111" when intr = '1' and excep_enabled = '1' else --interrupciones
+							"10000"; -- valor arbitrario
 		
 				
 	-- realmente no se si hace falta el proceso, pero dado que cuando se entra en el ciclo de systema siempre tiene que haber un rising edge tampoco pasa nada si esta
 	process (clk) begin
 		if rising_edge(clk) then
 			--if system_act = '1' then
-				exception_id <= exception_idS;
+				exception_id <= exception_idS(3 DOWNTO 0);
 				
 			--end if;
 		end if;

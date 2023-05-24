@@ -5,32 +5,33 @@ use work.const_alu.all;
 USE work.func_ayuda_control_pkg.all;
 
 ENTITY control_l IS
-    PORT (ir        		: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op        		: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-          ldpc      		: OUT STD_LOGIC;
-          wrd       		: OUT STD_LOGIC;
-          addr_a    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_b    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_d    		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          immed     		: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          wr_m      		: OUT STD_LOGIC; 
-          in_d      		: OUT STD_LOGIC_VECTOR(2 downto 0);
-          immed_x2  		: OUT STD_LOGIC;
-          word_byte 		: OUT STD_LOGIC;
-			 Rb_N		  		: OUT STD_LOGIC;
-			 addr_io	  		: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 rd_in	  		: OUT STD_LOGIC;
-			 wr_out	  		: OUT STD_LOGIC;
-			 tknbr	  		: OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-			 Z			  		: IN  STD_LOGIC;
-			 sys_a	  		: OUT STD_LOGIC;
-			 wr_sys	  		: OUT STD_LOGIC;
-			 system_act		: IN  STD_LOGIC;
-			 inta		  		: OUT STD_LOGIC;
-			 reg_op	  		: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-			 illegal_inst	: OUT STD_LOGIC;
-			 system_ins		: OUT	STD_LOGIC;
-			 sys_call		: OUT	STD_LOGIC 
+    PORT (ir        				: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          op        				: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+          ldpc      				: OUT STD_LOGIC;
+          wrd       				: OUT STD_LOGIC;
+          addr_a    				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_b    				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_d    				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          immed     				: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          wr_m      				: OUT STD_LOGIC; 
+          in_d      				: OUT STD_LOGIC_VECTOR(2 downto 0);
+          immed_x2  				: OUT STD_LOGIC;
+          word_byte 				: OUT STD_LOGIC;
+			 Rb_N		  				: OUT STD_LOGIC;
+			 addr_io	  				: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 rd_in	  				: OUT STD_LOGIC;
+			 wr_out	  				: OUT STD_LOGIC;
+			 tknbr	  				: OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+			 Z			  				: IN  STD_LOGIC;
+			 sys_a	  				: OUT STD_LOGIC;
+			 wr_sys	  				: OUT STD_LOGIC;
+			 system_act				: IN  STD_LOGIC;
+			 inta		  				: OUT STD_LOGIC;
+			 reg_op	  				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+			 illegal_inst			: OUT STD_LOGIC;
+			 system_ins				: OUT	STD_LOGIC;
+			 sys_call				: OUT	STD_LOGIC;
+			 data_memory_acces	: OUT STD_LOGIC
 			 );
 END control_l;
 
@@ -44,6 +45,16 @@ ARCHITECTURE Structure OF control_l IS
 	SIGNAL mov		: STD_LOGIC_VECTOR(4 DOWNTO 0);
 	SIGNAL in_out	: STD_LOGIC_VECTOR(4 DOWNTO 0);
 BEGIN
+
+
+
+		-- señal que se usa para indicarle al exception controller cuando se esta haciendo un ld/ldb o st/stb. Con esta señal discriminamos si hay un acceso a memoria de datos
+		data_memory_acces <= '1' when ir(15 DOWNTO 12)  = "0100" 	else -- Store
+									'1' when	ir(15 DOWNTO 12)  = "1110" 	else -- Store Byte
+									'1' when ir(15 DOWNTO 12) = "0011"  	else -- Load 
+									'1' when ir(15 DOWNTO 12) = "1101"  	else -- Load Byte
+									'0';
+									
 		--CALLS: debe salir por a el registro ra, llegar a la alu y que esta deje pasar el valor para que después entre por la d asigandno como direccion el registro  y darle permisos para que lo escriba
 		--señal que indica si llega una instruccion de sys_call
 		sys_call <= '1' when ir(15 DOWNTO 12) = "1010" and ir(5 DOWNTO 0) = "000111" else

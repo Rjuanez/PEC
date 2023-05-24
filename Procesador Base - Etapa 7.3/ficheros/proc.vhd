@@ -57,38 +57,39 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 	 END COMPONENT;
 	 
 	 COMPONENT unidad_control IS
-    PORT (boot      			: IN  STD_LOGIC;
-          clk       			: IN  STD_LOGIC;
-          datard_m  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-			 Z			  			: IN  STD_LOGIC;
-			 jump_dir  			: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
-          op        			: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-          wrd       			: OUT STD_LOGIC;
-          addr_a    			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_b    			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          addr_d    			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-          immed     			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          pc        			: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-          ins_dad   			: OUT STD_LOGIC;
-          in_d      			: OUT STD_LOGIC_VECTOR(2 downto 0);
-          immed_x2  			: OUT STD_LOGIC;
-          wr_m      			: OUT STD_LOGIC;
-          word_byte 			: OUT STD_LOGIC;
-			 Rb_N		  			: OUT STD_LOGIC;
-			 addr_io	  			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-			 rd_in	  			: OUT STD_LOGIC;
-			 wr_out	  			: OUT STD_LOGIC;
-			 sys_a	  			: OUT STD_LOGIC;
-			 wr_sys	  			: OUT STD_LOGIC;
-			 reg_op	  			: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-			 to_system			: IN STD_LOGIC;
-			 inta		  			: OUT STD_LOGIC;
-			 fetch				: OUT	STD_LOGIC;
-			 illegal_inst		: OUT STD_LOGIC;
-			 stop_execution	: IN	STD_LOGIC;
-			 system_ins			: OUT	STD_LOGIC;
-			 sys_call			: OUT	STD_LOGIC;
-			 excep_UP_F			: IN	STD_LOGIC
+    PORT (boot      				: IN  STD_LOGIC;
+          clk       				: IN  STD_LOGIC;
+          datard_m  				: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+			 Z			  				: IN  STD_LOGIC;
+			 jump_dir  				: IN  STD_LOGIC_VECTOR(15 DOWNTO 0);
+          op        				: OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+          wrd       				: OUT STD_LOGIC;
+          addr_a    				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_b    				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          addr_d    				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+          immed     				: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          pc        				: OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+          ins_dad   				: OUT STD_LOGIC;
+          in_d      				: OUT STD_LOGIC_VECTOR(2 downto 0);
+          immed_x2  				: OUT STD_LOGIC;
+          wr_m      				: OUT STD_LOGIC;
+          word_byte 				: OUT STD_LOGIC;
+			 Rb_N		  				: OUT STD_LOGIC;
+			 addr_io	  				: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+			 rd_in	  				: OUT STD_LOGIC;
+			 wr_out	  				: OUT STD_LOGIC;
+			 sys_a	  				: OUT STD_LOGIC;
+			 wr_sys	  				: OUT STD_LOGIC;
+			 reg_op	  				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+			 to_system				: IN STD_LOGIC;
+			 inta		  				: OUT STD_LOGIC;
+			 fetch					: OUT	STD_LOGIC;
+			 illegal_inst			: OUT STD_LOGIC;
+			 stop_execution		: IN	STD_LOGIC;
+			 system_ins				: OUT	STD_LOGIC;
+			 sys_call				: OUT	STD_LOGIC;
+			 excep_UP_F				: IN	STD_LOGIC;
+			 data_memory_acces	: OUT STD_LOGIC
 			 
 			 );
 	 END COMPONENT;
@@ -112,7 +113,8 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 			 system_mode			: IN	STD_LOGIC; -- señal para saber si estamos en modo sistema a modo usuario 
 			 system_ins				: IN	STD_LOGIC; -- señal que indica si se esta ejecutando alguna instruccion que requiera de modo de sistema
 			 sys_call				: IN	STD_LOGIC; --señal que indica si se esta ejecutando una instruccion de tipo calls
-			 excep_UP_F				: OUT	STD_LOGIC -- señal para pasar al cilco de sistem des de FETCH
+			 excep_UP_F				: OUT	STD_LOGIC; -- señal para pasar al cilco de sistem des de FETCH
+			 data_memory_acces	: OUT STD_LOGIC  -- señal que indica si se esta ejecutando algun ld/ldb o st/stb
 			 );
 	END COMPONENT;
 	 
@@ -129,7 +131,7 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 	 SIGNAL Rb_NTORb_N : STD_LOGIC;
 	 SIGNAL zTOz : STD_LOGIC;
 	 SIGNAL jumpTOjump: STD_LOGIC_VECTOR(15 DOWNTO 0);
-	 SIGNAL sys_aTOsys_a, wr_sysTOwr_sys : STD_LOGIC;
+	 SIGNAL sys_aTOsys_a, wr_sysTOwr_sys, data_memory_accesTOdata_memory_acces : STD_LOGIC;
 	 SIGNAL reg_opTOreg_op : STD_LOGIC_VECTOR(2 DOWNTO 0);
 	 SIGNAL int_enabledTOint_enabled, system_modeTOsystem_mode : STD_LOGIC;
 	 SIGNAL exception_idTOexception_id : STD_LOGIC_VECTOR(3 DOWNTO 0);
@@ -170,6 +172,7 @@ BEGIN
 		fetch => fetchTOfetch,
 		illegal_inst => il_instTOil_inst,
 		stop_execution => stop_executionTOstop_execution,
+		data_memory_acces => data_memory_accesTOdata_memory_acces,
 		system_ins => system_insTOsystem_ins,
 		sys_call => sys_callTOsys_call,
 		excep_UP_F => excep_UP_FTOexcep_UP_F);
@@ -219,6 +222,7 @@ BEGIN
 		system_mode => system_modeTOsystem_mode,
 		system_ins => system_insTOsystem_ins,
 		sys_call => sys_callTOsys_call,
-		excep_UP_F => excep_UP_FTOexcep_UP_F);
+		excep_UP_F => excep_UP_FTOexcep_UP_F,
+		data_memory_acces => data_memory_accesTOdata_memory_acces);
 		
 END Structure;
