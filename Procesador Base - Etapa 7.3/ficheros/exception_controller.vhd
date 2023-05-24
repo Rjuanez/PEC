@@ -55,6 +55,7 @@ BEGIN
 	--esto tiene que serguir un determinado orden, NO REORDENAR sin pensar
 	exception_idS <= 	"1011" when system_address = '1' and system_mode = '0' and excep_enabled = '1' else
 							"1101" when system_ins = '1' and system_mode = '0' and excep_enabled = '1' else
+							"0000" when sys_call = '1' and system_mode = '1' and excep_enabled = '1' else --intento de instruccion call dentro de modo sistema
 							"1110" when sys_call = '1' and excep_enabled = '1' else
 							"0100" when div_zero = '1' and excep_enabled = '1' else
 							"0000" when illegal_inst = '1' and excep_enabled = '1' else
