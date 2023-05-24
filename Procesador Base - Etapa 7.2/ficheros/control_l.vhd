@@ -84,7 +84,9 @@ BEGIN
 		--Se comprueban todos los caso inexistentes o que no han llegado a ser implementados
 		illegal_inst <= '1' when ir(15 DOWNTO 12) = "0001" and (ir(5 DOWNTO 3) = "010" or ir(5 DOWNTO 3) = "110" or ir(5 DOWNTO 3) = "111") else 			-- Comparaciones
 							 '1' when ir(15 DOWNTO 12) = "1000" and (ir(5 DOWNTO 3) = "011" or ir(5 DOWNTO 3) = "110" or ir(5 DOWNTO 3) = "111") else 			-- Extension aritmetica
-							 '1' when ir(15 DOWNTO 12) = "1001" and ir(5 DOWNTO 3) = "110" else																		  			-- Op/Cmp Float
+							 '1' when ir(15 DOWNTO 12) = "1001" else																		  												-- Op/Cmp Float
+							 '1' when ir(15 DOWNTO 12) = "1011" else																		  												-- Load Float
+							 '1' when ir(15 DOWNTO 12) = "1100" else																		  												-- Store Float
 							 '1' when ir(15 DOWNTO 12) = "1010" and (ir(2 DOWNTO 0) = "010" or ir(2 DOWNTO 0) = "101" or ir(2 DOWNTO 0) = "110") else 			-- Ruptura de secuencia (no implementadas)
 							 '1' when ir(15 DOWNTO 12) = "1010" and ir(2 DOWNTO 0) = "011" and ir(11 DOWNTO 9) /= "000" else 								  			-- Ruptura de secuencia (JMP incorrecto)
 							 '1' when ir(15 DOWNTO 12) = "1010" and ir(2 DOWNTO 0) = "111" and ir(11 DOWNTO 9) /= "000" else 								  			-- Ruptura de secuencia (CALLS incorrectas)
