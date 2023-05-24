@@ -114,7 +114,7 @@ ARCHITECTURE Structure OF ProcesadorBase IS
 			 system_ins				: IN	STD_LOGIC; -- señal que indica si se esta ejecutando alguna instruccion que requiera de modo de sistema
 			 sys_call				: IN	STD_LOGIC; --señal que indica si se esta ejecutando una instruccion de tipo calls
 			 excep_UP_F				: OUT	STD_LOGIC; -- señal para pasar al cilco de sistem des de FETCH
-			 data_memory_acces	: OUT STD_LOGIC  -- señal que indica si se esta ejecutando algun ld/ldb o st/stb
+			 data_memory_acces	: IN STD_LOGIC  -- señal que indica si se esta ejecutando algun ld/ldb o st/stb
 			 );
 	END COMPONENT;
 	 

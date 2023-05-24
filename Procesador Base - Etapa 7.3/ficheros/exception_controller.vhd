@@ -49,6 +49,7 @@ BEGIN
 						'1' when exception_idS = "00100" else
 						'1' when exception_idS = "01110" else
 						'1' when exception_idS = "01101" else
+						'1' when exception_idS = "01111" else
 						'0';
 	-- esto puede dar problemas, dado que permite pasar directamente al ciclo de sistem des de fetch
 	stop_execution <= '1' when exception_idS = "00100"  else
@@ -60,15 +61,15 @@ BEGIN
 							'0';
 						
 	--esto tiene que serguir un determinado orden, NO REORDENAR sin pensar
-	exception_idS <= 	"11011" when system_address = '1' and system_mode = '0' and data_memory_acces = '1' and excep_enabled = '1' else
-							"01011" when system_address = '1' and system_mode = '0' and excep_enabled = '1' else
-							"01101" when system_ins = '1' and system_mode = '0' and excep_enabled = '1' else
-							"00000" when sys_call = '1' and system_mode = '1' and excep_enabled = '1' else --intento de instruccion call dentro de modo sistema
-							"01110" when sys_call = '1' and excep_enabled = '1' else
-							"00100" when div_zero = '1' and excep_enabled = '1' else
-							"00000" when illegal_inst = '1' and excep_enabled = '1' else
+	exception_idS <= 	"11011" when system_address = '1' and system_mode = '0' and data_memory_acces = '1' and excep_enabled = '1' and fetch = '0' else
+							"01011" when system_address = '1' and system_mode = '0' and excep_enabled = '1' and fetch = '1' else
+							"01101" when system_ins = '1' and system_mode = '0' and excep_enabled = '1' and fetch = '0' else
+							"00000" when sys_call = '1' and system_mode = '1' and excep_enabled = '1' and fetch = '0'  else --intento de instruccion call dentro de modo sistema
+							"01110" when sys_call = '1' and excep_enabled = '1'  and fetch = '0' else
+							"00100" when div_zero = '1' and excep_enabled = '1' and fetch = '0' else
+							"00000" when illegal_inst = '1' and excep_enabled = '1' and fetch = '0' else
 							"00001" when invalid_address = '1' and fetch = '1' and excep_enabled = '1' else
-							"00001" when invalid_address = '1' and isLDorST = '1' and excep_enabled = '1' else
+							"00001" when invalid_address = '1' and isLDorST = '1' and excep_enabled = '1' and fetch = '0' else
 							"01111" when intr = '1' and excep_enabled = '1' else --interrupciones
 							"10000"; -- valor arbitrario
 		

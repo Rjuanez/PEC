@@ -150,7 +150,8 @@ BEGIN
 		inta => inta,
 		illegal_inst => illegal_inst,
 		system_ins => system_ins,
-		sys_call => sys_call);
+		sys_call => sys_call,
+		data_memory_acces => data_memory_acces);
 	
 	ge: multi port map (
 		clk => clk,
