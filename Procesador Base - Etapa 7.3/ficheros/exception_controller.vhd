@@ -38,13 +38,13 @@ ARCHITECTURE Structure OF exception_controller IS
 BEGIN
 	
 	-- señal que levanta las excepciones par pasar a system des del ciclo de FETCH
-	excep_UP_F <=	'1' when exception_idS = "01011" else
+	excep_UP_F <=	'1' when exception_idS = "01010" else
 						'1' when exception_idS = "10001" else
 						'0';
 	
 
 	excep_UP <=		'1' when exception_idS = "00001" else
-						'1' when exception_idS = "01010" else
+						'1' when exception_idS = "01011" else
 						'1' when exception_idS = "00000" else
 						'1' when exception_idS = "00100" else
 						'1' when exception_idS = "01110" else
@@ -62,8 +62,8 @@ BEGIN
 							'0';
 						
 	--esto tiene que serguir un determinado orden, NO REORDENAR sin pensar
-	exception_idS <= 	"01010" when system_address = '1' and system_mode = '0' and data_memory_acces = '1' and excep_enabled = '1' and fetch = '0' else
-							"01011" when system_address = '1' and system_mode = '0' and excep_enabled = '1' and fetch = '1' else
+	exception_idS <= 	"01011" when system_address = '1' and system_mode = '0' and data_memory_acces = '1' and excep_enabled = '1' and fetch = '0' else
+							"01010" when system_address = '1' and system_mode = '0' and excep_enabled = '1' and fetch = '1' else
 							"01101" when system_ins = '1' and system_mode = '0' and excep_enabled = '1' and fetch = '0' else
 							"00000" when sys_call = '1' and system_mode = '1' and excep_enabled = '1' and fetch = '0'  else --intento de instruccion call dentro de modo sistema
 							"01110" when sys_call = '1' and excep_enabled = '1'  and fetch = '0' else
