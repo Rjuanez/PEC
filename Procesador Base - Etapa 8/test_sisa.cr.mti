@@ -40,6 +40,17 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling entity multi
 -- Compiling architecture Structure of multi
 
+} {} {}} {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 8/ficheros/control_l.vhd} {1 {vcom -work work -2002 -explicit {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 8/ficheros/control_l.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package const_alu
+-- Loading package func_ayuda_control_pkg
+-- Compiling entity control_l
+-- Compiling architecture Structure of control_l
+
 } {} {}} {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 8/ficheros/unidad_control.vhd} {1 {vcom -work work -2002 -explicit {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 8/ficheros/unidad_control.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Loading package STANDARD
@@ -138,6 +149,15 @@ Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling package func_ayuda_control_pkg
 -- Compiling package body func_ayuda_control_pkg
 -- Loading package func_ayuda_control_pkg
+
+} {} {}} {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 8/ficheros/exception_controller.vhd} {1 {vcom -work work -2002 -explicit {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 8/ficheros/exception_controller.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity exception_controller
+-- Compiling architecture Structure of exception_controller
 
 } {} {}} {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 8/ps2_keyboard.vhd} {1 {vcom -work work -2002 -explicit {//Mac/Home/Documents/UNIVERSIDAD/PEC/PEC-FIB/Procesador Base - Etapa 8/ps2_keyboard.vhd}
 Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
